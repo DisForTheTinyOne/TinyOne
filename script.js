@@ -1,5 +1,12 @@
 onload = () => {
     document.body.classList.remove("container");
+    
+    // Automatically open the letter after 10 seconds
+    setTimeout(() => {
+        if (openBtn.style.display !== "none") {
+            openBtn.click();
+        }
+    }, 10000);
 };
 
 const wrapper = document.querySelector(".wrapper");
