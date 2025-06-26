@@ -18,12 +18,13 @@ body {
   background-color: var(--dark-color);
   overflow: hidden;
   perspective: 1000px;
+  padding-bottom: 10vh;
 }
 .text {
     z-index: 999;
     position: absolute;
     color: white;
-    top: 40%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -1716,4 +1717,19 @@ button:hover {
   position: relative;
 }
 
-/* Add your custom styles for the blank page here */ 
+/* Add your custom styles for the blank page here */
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 15vh;
+  }
+  
+  .text {
+    top: 30%;
+  }
+  
+  .flowers {
+    transform: scale(0.8);
+  }
+} 
