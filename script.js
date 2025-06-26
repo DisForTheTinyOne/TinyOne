@@ -13,15 +13,29 @@ const wrapper = document.querySelector(".wrapper");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
 
+// Performance-optimized event listeners
 openBtn.addEventListener("click", () => {
+    // Add animating class and optimize will-change
+    const lids = document.querySelectorAll('.lid');
+    const letter = document.querySelector('.letter');
+    
+    lids.forEach(lid => lid.classList.add('animating'));
+    letter.classList.add('animating');
+    
     wrapper.classList.add("open");
     openBtn.style.display = "none";
     closeBtn.style.display = "inline-block";
     
+    // Clean up will-change after animations complete
+    setTimeout(() => {
+        lids.forEach(lid => lid.classList.remove('animating'));
+        letter.classList.remove('animating');
+    }, 1000);
+    
     // After the letter opens, expand it to full screen
     setTimeout(() => {
         expandToFullScreen();
-    }, 2000 ); // Slightly faster timing for smoother experience
+    }, 2000 );
 });
 
 // Add event listener for continue button (to go to second page)
@@ -39,6 +53,8 @@ function expandToFullScreen() {
     // Create full-screen overlay with background words
     const fullScreenOverlay = document.createElement('div');
     fullScreenOverlay.id = 'fullScreenOverlay';
+    fullScreenOverlay.classList.add('animating');
+    
     fullScreenOverlay.innerHTML = `
         <div class="background-words">
             <span class="word word-1">Love</span>
@@ -66,7 +82,7 @@ function expandToFullScreen() {
             <span class="heart heart-11">♥</span>
             <span class="heart heart-12">♥</span>
         </div>
-        <div class="full-screen-content">
+        <div class="full-screen-content animating">
             <div class="letter-page">
                 <h1>...Because You Are My Everything</h1>
                 
@@ -92,10 +108,17 @@ function expandToFullScreen() {
     
     document.body.appendChild(fullScreenOverlay);
     
-    // Trigger smoother fade-in animation
+    // Trigger smoother fade-in animation with RAF for 60fps
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
             fullScreenOverlay.classList.add('show');
+            
+            // Clean up will-change after animation
+            setTimeout(() => {
+                fullScreenOverlay.classList.remove('animating');
+                const content = fullScreenOverlay.querySelector('.full-screen-content');
+                if (content) content.classList.remove('animating');
+            }, 800);
         });
     });
 }
@@ -103,8 +126,8 @@ function expandToFullScreen() {
 function showSecondPage() {
     const fullScreenContent = document.querySelector('.full-screen-content');
     if (fullScreenContent) {
-        // Add fade-out class
-        fullScreenContent.classList.add('fade-out');
+        // Add animating class for will-change optimization
+        fullScreenContent.classList.add('animating', 'fade-out');
         
         setTimeout(() => {
             const fullScreenOverlay = document.getElementById('fullScreenOverlay');
@@ -136,18 +159,23 @@ function showSecondPage() {
                         <span class="heart heart-11">♥</span>
                         <span class="heart heart-12">♥</span>
                     </div>
-                    <div class="full-screen-content fade-in">
+                    <div class="full-screen-content fade-in animating">
                         <div class="blank-page">
                             <!-- Blank page for your content -->
                         </div>
                     </div>
                 `;
                 
-                // Trigger fade-in animation
+                // Trigger fade-in animation with proper cleanup
                 requestAnimationFrame(() => {
                     const newContent = document.querySelector('.full-screen-content');
                     if (newContent) {
                         newContent.classList.remove('fade-in');
+                        
+                        // Clean up will-change
+                        setTimeout(() => {
+                            newContent.classList.remove('animating');
+                        }, 500);
                     }
                 });
             }
@@ -158,10 +186,12 @@ function showSecondPage() {
 function collapseFromFullScreen() {
     const fullScreenOverlay = document.getElementById('fullScreenOverlay');
     if (fullScreenOverlay) {
+        fullScreenOverlay.classList.add('animating');
         fullScreenOverlay.classList.remove('show');
+        
         setTimeout(() => {
             fullScreenOverlay.remove();
-        }, 600); // Longer timeout for smoother exit
+        }, 600);
     }
     
     // Reset the original letter state
