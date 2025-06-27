@@ -2264,3 +2264,598 @@ button:active {
     }
 }
 
+/* Super cute baby blue open button styling */
+#openBtn {
+    background: linear-gradient(135deg, #87CEEB 0%, #87CEFA 25%, #ADD8E6 50%, #B0E0E6 75%, #AFEEEE 100%);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 45px 15px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin: 8px;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 8px 25px rgba(135, 206, 235, 0.4),
+        0 4px 15px rgba(135, 206, 250, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+    animation: cuteButtonPulse 2s ease-in-out infinite;
+}
+
+#openBtn::before {
+    content: '🩵';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    opacity: 0.9;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+#openBtn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 100%);
+    transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#openBtn:hover::after {
+    left: 100%;
+}
+
+#openBtn:hover {
+    transform: translate3d(0, -3px, 0) scale3d(1.05, 1.05, 1);
+    box-shadow: 
+        0 12px 35px rgba(135, 206, 235, 0.6),
+        0 8px 25px rgba(135, 206, 250, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    animation: cuteButtonHover 0.6s ease-out forwards;
+}
+
+#openBtn:active {
+    transform: translate3d(0, -1px, 0) scale3d(1.02, 1.02, 1);
+    transition-duration: 0.1s;
+    box-shadow: 
+        0 6px 20px rgba(135, 206, 235, 0.5),
+        0 3px 10px rgba(135, 206, 250, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Cute baby blue button animations */
+@keyframes cuteButtonPulse {
+    0%, 100% {
+        box-shadow: 
+            0 8px 25px rgba(135, 206, 235, 0.4),
+            0 4px 15px rgba(135, 206, 250, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 12px 35px rgba(135, 206, 235, 0.5),
+            0 6px 20px rgba(135, 206, 250, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes cuteButtonHover {
+    0% {
+        filter: hue-rotate(0deg) brightness(1);
+    }
+    50% {
+        filter: hue-rotate(5deg) brightness(1.1);
+    }
+    100% {
+        filter: hue-rotate(0deg) brightness(1.05);
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-50%) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Cute baby blue disabled state */
+#openBtn:disabled,
+#openBtn.disabled {
+    background: linear-gradient(135deg, #E0F6FF 0%, #F0F8FF 25%, #F5F5F5 50%, #F8F9FA 75%, #E0E0E0 100%);
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: translate3d(0, 0, 0) scale3d(0.95, 0.95, 1);
+    box-shadow: 
+        0 4px 15px rgba(135, 206, 235, 0.2),
+        0 2px 8px rgba(135, 206, 250, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    animation: none;
+    pointer-events: none;
+}
+
+#openBtn:disabled::before,
+#openBtn.disabled::before {
+    content: '💤';
+    opacity: 0.6;
+    animation: none;
+}
+
+#openBtn:disabled::after,
+#openBtn.disabled::after {
+    display: none;
+}
+
+/* Heart burst animation */
+.burst-heart {
+    position: fixed;
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 9999;
+    transform-origin: center;
+    animation: heartBurstFly 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: var(--delay);
+    opacity: 0;
+}
+
+@keyframes heartBurstFly {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+        opacity: 1;
+    }
+    15% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(90deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(var(--end-x) - 50%), calc(var(--end-y) - 50%)) 
+                   scale(0.3) rotate(var(--rotation));
+        opacity: 0;
+    }
+}
+
+/* Add a little sparkle effect to the button when clicked */
+#openBtn.bursting {
+    animation: buttonSparkle 0.6s ease-out;
+}
+
+@keyframes buttonSparkle {
+    0% {
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        box-shadow: 
+            0 8px 25px rgba(66, 165, 245, 0.4),
+            0 4px 15px rgba(33, 150, 243, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        transform: translate3d(0, -2px, 0) scale3d(1.1, 1.1, 1);
+        box-shadow: 
+            0 15px 40px rgba(66, 165, 245, 0.8),
+            0 8px 30px rgba(33, 150, 243, 0.6),
+            inset 0 2px 0 rgba(255, 255, 255, 0.6),
+            0 0 0 10px rgba(66, 165, 245, 0.2),
+            0 0 0 20px rgba(66, 165, 245, 0.1);
+        filter: brightness(1.3) saturate(1.5);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) scale3d(0.95, 0.95, 1);
+        box-shadow: 
+            0 4px 15px rgba(66, 165, 245, 0.2),
+            0 2px 8px rgba(33, 150, 243, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        opacity: 0.6;
+    }
+}
+
+/* Video page styling */
+.video-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 10px 20px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(135, 206, 235, 0.1) 0%, 
+        rgba(173, 216, 230, 0.1) 25%, 
+        rgba(176, 224, 230, 0.1) 50%, 
+        rgba(175, 238, 238, 0.1) 100%);
+    border-radius: 20px;
+    z-index: 1;
+}
+
+#youtubeVideo {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    position: relative;
+    z-index: 2;
+    background: #f8f9fa;
+    border: 2px dashed #87CEEB;
+}
+
+.spend-time-section {
+    text-align: center;
+}
+
+/* Beautiful "Let's spend time" button */
+.spend-time-btn {
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 25%, #DC143C 50%, #B22222 75%, #8B0000 100%);
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        0 10px 30px rgba(255, 105, 180, 0.4),
+        0 5px 15px rgba(255, 20, 147, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
+    animation: romanticPulse 3s ease-in-out infinite;
+}
+
+.spend-time-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 100%);
+    transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.spend-time-btn:hover::before {
+    left: 100%;
+}
+
+.spend-time-btn:hover {
+    transform: translate3d(0, -4px, 0) scale3d(1.05, 1.05, 1);
+    box-shadow: 
+        0 15px 40px rgba(255, 105, 180, 0.6),
+        0 8px 25px rgba(255, 20, 147, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    animation: romanticHover 0.6s ease-out forwards;
+}
+
+.spend-time-btn:active {
+    transform: translate3d(0, -2px, 0) scale3d(1.02, 1.02, 1);
+    transition-duration: 0.1s;
+}
+
+/* Disabled state for spend time button */
+.spend-time-btn:disabled,
+.spend-time-btn.disabled {
+    background: linear-gradient(135deg, #E0F6FF 0%, #F0F8FF 25%, #F5F5F5 50%, #F8F9FA 75%, #E0E0E0 100%);
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: translate3d(0, 0, 0) scale3d(0.95, 0.95, 1);
+    box-shadow: 
+        0 4px 15px rgba(135, 206, 235, 0.2),
+        0 2px 8px rgba(135, 206, 250, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    animation: none;
+    pointer-events: none;
+}
+
+@keyframes romanticPulse {
+    0%, 100% {
+        box-shadow: 
+            0 10px 30px rgba(255, 105, 180, 0.4),
+            0 5px 15px rgba(255, 20, 147, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 15px 40px rgba(255, 105, 180, 0.5),
+            0 8px 25px rgba(255, 20, 147, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes romanticHover {
+    0% {
+        filter: hue-rotate(0deg) brightness(1);
+    }
+    50% {
+        filter: hue-rotate(10deg) brightness(1.1);
+    }
+    100% {
+        filter: hue-rotate(0deg) brightness(1.05);
+    }
+}
+
+/* Modal styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal-overlay.show {
+    opacity: 1;
+}
+
+.modal-overlay.animating {
+    will-change: opacity;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 25px;
+    padding: 40px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.2),
+        0 15px 30px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid rgba(135, 206, 235, 0.3);
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.modal-header h3 {
+    margin: 0 0 20px 0;
+    font-size: 26px;
+    color: #333;
+    font-family: 'Georgia', serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.modal-body {
+    margin-bottom: 30px;
+}
+
+.modal-body p {
+    margin: 12px 0;
+    color: #555;
+    font-size: 17px;
+    line-height: 1.6;
+    font-family: 'Georgia', serif;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.confirm-btn, .cancel-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+.confirm-btn {
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 50%, #DC143C 100%);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 8px 25px rgba(255, 105, 180, 0.4),
+        0 4px 15px rgba(255, 20, 147, 0.3);
+}
+
+.confirm-btn:hover {
+    transform: translate3d(0, -2px, 0) scale3d(1.05, 1.05, 1);
+    box-shadow: 
+        0 12px 35px rgba(255, 105, 180, 0.5),
+        0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+.cancel-btn {
+    background: linear-gradient(135deg, #87CEEB 0%, #87CEFA 50%, #ADD8E6 100%);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 8px 25px rgba(135, 206, 235, 0.4),
+        0 4px 15px rgba(135, 206, 250, 0.3);
+}
+
+.cancel-btn:hover {
+    transform: translate3d(0, -2px, 0) scale3d(1.05, 1.05, 1);
+    box-shadow: 
+        0 12px 35px rgba(135, 206, 235, 0.5),
+        0 6px 20px rgba(135, 206, 250, 0.4);
+}
+
+/* Confirmation message styling */
+.confirm-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+    animation: confirmMessageShow 12s ease-in-out forwards;
+}
+
+.message-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    padding: 30px 40px;
+    text-align: center;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 10px 20px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(255, 105, 180, 0.3);
+}
+
+.message-content h3 {
+    margin: 0 0 20px 0;
+    font-size: 28px;
+    color: #333;
+    font-family: 'Georgia', serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.message-content p {
+    margin: 0 0 20px 0;
+    color: #555;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+}
+
+.email-status {
+    color: #28a745 !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+}
+
+.hearts-animation {
+    font-size: 20px;
+    animation: heartsFloat 2s ease-in-out infinite;
+}
+
+@keyframes confirmMessageShow {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    8%, 92% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+@keyframes heartsFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Desktop flower scaling */
+@media (min-width: 769px) {
+    .flowers {
+        transform: scale(0.7);
+        transform-origin: bottom center;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .video-container {
+        height: 300px;
+        margin-bottom: 30px;
+    }
+    
+    .spend-time-btn {
+        font-size: 18px;
+        padding: 15px 40px;
+    }
+    
+    .modal-content {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .confirm-btn, .cancel-btn {
+        width: 200px;
+    }
+}
+
+
+

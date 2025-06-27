@@ -6,15 +6,27 @@ onload = () => {
         if (openBtn.style.display !== "none") {
             openBtn.click();
         }
-    }, 9000);
+    }, 12000);
 };
 
 const wrapper = document.querySelector(".wrapper");
 const openBtn = document.getElementById("openBtn");
-const closeBtn = document.getElementById("closeBtn");
 
 // Performance-optimized event listeners
 openBtn.addEventListener("click", () => {
+    // Add sparkle effect to button
+    openBtn.classList.add('bursting');
+    
+    // Create heart burst effect first
+    createHeartBurst();
+    
+    // Disable button to prevent multiple clicks and layout shifts
+    setTimeout(() => {
+        openBtn.disabled = true;
+        openBtn.classList.add('disabled');
+        openBtn.classList.remove('bursting');
+    }, 600);
+    
     // Add animating class and optimize will-change
     const lids = document.querySelectorAll('.lid');
     const letter = document.querySelector('.letter');
@@ -23,30 +35,70 @@ openBtn.addEventListener("click", () => {
     letter.classList.add('animating');
     
     wrapper.classList.add("open");
-    openBtn.style.display = "none";
-    closeBtn.style.display = "inline-block";
     
     // Clean up will-change after animations complete
     setTimeout(() => {
         lids.forEach(lid => lid.classList.remove('animating'));
         letter.classList.remove('animating');
-    }, 1000);
+    }, 1500);
     
     // After the letter opens, expand it to full screen
     setTimeout(() => {
         expandToFullScreen();
-    }, 2000 );
+    }, 3500 );
 });
+
+function createHeartBurst() {
+    const button = document.getElementById('openBtn');
+    const buttonRect = button.getBoundingClientRect();
+    const buttonX = buttonRect.left + buttonRect.width / 2;
+    const buttonY = buttonRect.top + buttonRect.height / 2;
+    
+    // Create 15 hearts for a nice burst effect
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'burst-heart';
+        heart.innerHTML = ['💕', '💖', '💗', '💘', '💝', '❤️', '🧡', '💛', '💚', '💙', '💜'][Math.floor(Math.random() * 11)];
+        
+        // Position heart at button center
+        heart.style.left = buttonX + 'px';
+        heart.style.top = buttonY + 'px';
+        
+        // More random directions and distances
+        const angle = Math.random() * Math.PI * 2; // Completely random angle
+        const distance = 80 + Math.random() * 1000; // More varied distances
+        const endX = buttonX + Math.cos(angle) * distance;
+        const endY = buttonY + Math.sin(angle) * distance;
+        
+        heart.style.setProperty('--end-x', endX + 'px');
+        heart.style.setProperty('--end-y', endY + 'px');
+        heart.style.setProperty('--rotation', (Math.random() - 0.5) * 720 + 'deg');
+        heart.style.setProperty('--delay', (i * 0.05) + 's');
+        
+        document.body.appendChild(heart);
+        
+        // Remove heart after animation
+        setTimeout(() => {
+            if (heart.parentNode) {
+                heart.parentNode.removeChild(heart);
+            }
+        }, 2000);
+    }
+}
 
 // Add event listener for continue button (to go to second page)
 document.addEventListener("click", (e) => {
     if (e.target.id === "continueBtn") {
         showSecondPage();
+    } else if (e.target.id === "spendTimeBtn") {
+        showSpendTimeModal();
+    } else if (e.target.id === "confirmSpendTime") {
+        handleSpendTimeConfirm();
+    } else if (e.target.id === "cancelSpendTime") {
+        hideSpendTimeModal();
+    } else if (e.target.classList.contains("modal-overlay")) {
+        hideSpendTimeModal();
     }
-});
-
-closeBtn.addEventListener("click", () => {
-    collapseFromFullScreen();
 });
 
 function expandToFullScreen() {
@@ -160,8 +212,19 @@ function showSecondPage() {
                         <span class="heart heart-12">♥</span>
                     </div>
                     <div class="full-screen-content fade-in animating">
-                        <div class="blank-page">
-                            <!-- Blank page for your content -->
+                        <div class="video-page">
+                            <div class="video-container">
+                                <iframe id="youtubeVideo" 
+                                        src="https://www.youtube.com/embed/ftGPty-dQR8" 
+                                        title="YouTube video player" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="spend-time-section">
+                                <button id="spendTimeBtn" class="spend-time-btn">Let's spend time 💕</button>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -196,7 +259,104 @@ function collapseFromFullScreen() {
     
     // Reset the original letter state
     wrapper.classList.remove("open");
-    closeBtn.style.display = "none";
-    openBtn.style.display = "inline-block";
+    openBtn.disabled = false;
+    openBtn.classList.remove('disabled');
+}
+
+function showSpendTimeModal() {
+    const modal = document.createElement('div');
+    modal.id = 'spendTimeModal';
+    modal.className = 'modal-overlay animating';
+    
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>💕 Spend Time Together</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you ready to spend some quality time together?</p>
+                <p>This moment is just for us!</p>
+            </div>
+            <div class="modal-actions">
+                <button id="confirmSpendTime" class="confirm-btn">Yes, let's do it! 💕</button>
+                <button id="cancelSpendTime" class="cancel-btn">Maybe later</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Trigger fade-in animation
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            modal.classList.add('show');
+            
+            // Clean up will-change after animation
+            setTimeout(() => {
+                modal.classList.remove('animating');
+            }, 300);
+        });
+    });
+}
+
+function hideSpendTimeModal() {
+    const modal = document.getElementById('spendTimeModal');
+    if (modal) {
+        modal.classList.add('animating');
+        modal.classList.remove('show');
+        
+        setTimeout(() => {
+            modal.remove();
+        }, 300);
+    }
+}
+
+async function handleSpendTimeConfirm() {
+    hideSpendTimeModal();
+    
+    // Disable the spend time button
+    const spendTimeBtn = document.getElementById('spendTimeBtn');
+    if (spendTimeBtn) {
+        spendTimeBtn.disabled = true;
+        spendTimeBtn.classList.add('disabled');
+        spendTimeBtn.textContent = 'Notification sent 💕';
+    }
+    
+    // Send email notification using EmailJS
+    try {
+        const templateParams = {
+            to_email: 'ilan.mamontov@gmail.com', // Replace with your actual email
+            subject: '💕 Valentine Confirmation!',
+            message: '💕 AMAZING NEWS! She wants to spend time with you! Your Valentine just confirmed! Time to get ready! 💕',
+            from_name: 'Your Valentine Website',
+            timestamp: new Date().toLocaleString()
+        };
+        
+        // Send email using EmailJS
+        const result = await emailjs.send('service_4lo9jqr', 'template_qe1ks7t', templateParams);
+        
+        console.log('Email sent successfully!', result.status, result.text);
+        
+    } catch (error) {
+        console.error('Error sending email:', error);
+    }
+    
+    // Show a sweet confirmation message
+    const confirmMessage = document.createElement('div');
+    confirmMessage.className = 'confirm-message';
+    confirmMessage.innerHTML = `
+        <div class="message-content">
+            <h3>Perfect! 💕</h3>
+            <p class="email-status">I have been notified little one, I'm on my way!</p>
+            <div class="hearts-animation">💕</div>
+        </div>
+    `;
+    
+    document.body.appendChild(confirmMessage);
+    
+    // Remove message after 12 seconds (even longer to enjoy the sweet message)
+    setTimeout(() => {
+        confirmMessage.remove();
+    }, 12000);
 }
   
