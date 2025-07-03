@@ -178,6 +178,42 @@ function expandToFullScreen() {
                 
                 <p>I made this site to share what I am feeling. It lets me open up in a way a card never could and gives me the space to say everything on my mind. Maybe this is a little cheesy, but I hope you like it.</p>
                 
+                <div class="missing-you-section">
+                    <h3>Here's a few things I miss about the little one</h3>
+                    
+                    <div class="missing-item">
+                        <p>Our late night facetime calls that can last hours, and how you get eepy eepy and fall asleep on me</p>
+                    </div>
+                    
+                    <div class="missing-item">
+                        <p>Feeding the tiny one first thing in the morning in bed while you have the eepy eyes</p>
+                    </div>
+                    
+                    <div class="missing-item">
+                        <p>Yapping with you for hours about nothing at all, and not remembering what we yapped about the next day</p>
+                    </div>
+                    
+                    <div class="missing-item">
+                        <p>The comfort of your presence just being near you made everything feel okay</p>
+                    </div>
+                    
+                    <div class="missing-item">
+                        <p>How we could spend all day together and still not get tired of each other, running errands, working side by side, growing my potato</p>
+                    </div>
+                    
+                    <div class="missing-item">
+                        <p>Falling into easy routines together, like binge-watching shows, and feeling completely myself the whole time</p>
+                    </div>
+                    
+                    <div class="missing-item">
+                        <p>Obviously texting you every day and not being able to wait to see you, our good morning and goodnight texts</p>
+                    </div>
+                    
+                    <div class="missing-item">
+                        <p>Waking up next to you and feeling like we've been together forever cuddling up and falling back asleep</p>
+                    </div>
+                </div>
+                
                 <div class="highlight-section">
                     <p>It has been really hard without you. I took a few days off this week just to sit with my emotions and build this site, complete with a flower animation I coded for hours. It will probably look nicer on your MacBook than on a phone but I hope it still brings a smile.</p>
                 </div>
