@@ -3415,6 +3415,14 @@ button:active {
     font-style: italic;
 }
 
+.tab-instruction {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0 0 8px 0;
+    opacity: 0.7;
+    font-style: italic;
+}
+
 .tabs-container {
     flex: 1;
     display: flex;
@@ -3534,8 +3542,14 @@ button:active {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
+    padding-top: 30px;
     height: calc(100% - 80px);
     align-items: start;
+}
+
+.entry-layout.no-photo {
+    grid-template-columns: 1fr;
+    gap: 0;
 }
 
 .entry-text {
@@ -3695,6 +3709,12 @@ button:active {
         text-align: center;
     }
     
+    .tab-instruction {
+        font-size: 0.8rem;
+        text-align: center;
+        margin: 0 0 6px 0;
+    }
+    
     .tab-buttons {
         gap: 8px;
         margin-bottom: 15px;
@@ -3842,6 +3862,7 @@ button:active {
     
     .daily-thoughts-page {
         padding: 10px;
+        padding-bottom: 40px;
         align-items: center;
         width: 100%;
         box-sizing: border-box;
@@ -3862,6 +3883,12 @@ button:active {
     .header-subtitle {
         font-size: 0.8rem;
         text-align: center;
+    }
+    
+    .tab-instruction {
+        font-size: 0.75rem;
+        text-align: center;
+        margin: 0 0 5px 0;
     }
     
     .tab-contents {
@@ -3962,6 +3989,7 @@ button:active {
 }
 
 .image-modal-content {
+    height: 100%;
     max-width: 90%;
     max-height: 90%;
     position: relative;

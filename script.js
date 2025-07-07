@@ -160,8 +160,16 @@ document.addEventListener("click", async (e) => {
     }
 });
 
-// Daily thoughts data - easy to add new days
+// Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
+    {
+        date: "7/07",
+        title: "July 7th",
+        text: `Day is in progress!
+
+Still figuring out what today will bring...`,
+        photo: null // No photo for today yet
+    },
     {
         date: "7/06",
         title: "July 6th",
@@ -218,14 +226,15 @@ function showDailyThoughtsPage() {
         `<div class="tab-content ${index === 0 ? 'active' : ''}" data-day="${index}">
             <div class="daily-entry">
                 <h3>${day.title}</h3>
-                <div class="entry-layout">
+                <div class="entry-layout ${day.photo ? '' : 'no-photo'}">
                     <div class="entry-text">
                         <div class="text-content">${day.text.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '<br>').join('')}</div>
                     </div>
+                    ${day.photo ? `
                     <div class="entry-photo">
                         <img src="${day.photo}" />
                         <p class="photo-caption">A moment from ${day.date} • Click to enlarge</p>
-                    </div>
+                    </div>` : ''}
                 </div>
             </div>
         </div>`
@@ -266,6 +275,7 @@ function showDailyThoughtsPage() {
                 </div>
                 
                 <div class="tabs-container">
+                    <p class="tab-instruction">Click on any date tab to read that day's thoughts</p>
                     <div class="tab-buttons">
                         ${tabsHTML}
                     </div>
