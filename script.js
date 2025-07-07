@@ -9,6 +9,32 @@ onload = () => {
     // }, 12000);
 };
 
+// Helper function to check if we're running locally (disable emails during testing)
+function isLocalEnvironment() {
+    return window.location.hostname === 'localhost' || 
+           window.location.hostname === '127.0.0.1' || 
+           window.location.protocol === 'file:' ||
+           window.location.hostname === '';
+}
+
+// Helper function to send email only in production
+async function sendEmailIfProduction(templateParams) {
+    if (isLocalEnvironment()) {
+        console.log('🚫 Email sending disabled in local environment');
+        console.log('📧 Would have sent email with params:', templateParams);
+        return { status: 'skipped', text: 'Local environment' };
+    }
+    
+    try {
+        const result = await emailjs.send('service_4lo9jqr', 'template_qe1ks7t', templateParams);
+        console.log('✅ Email sent successfully!', result.status, result.text);
+        return result;
+    } catch (error) {
+        console.error('❌ Error sending email:', error);
+        throw error;
+    }
+}
+
 const wrapper = document.querySelector(".wrapper");
 const openBtn = document.getElementById("openBtn");
 
@@ -24,8 +50,7 @@ openBtn.addEventListener("click", async () => {
             timestamp: new Date().toLocaleString()
         };
         
-        await emailjs.send('service_4lo9jqr', 'template_qe1ks7t', templateParams);
-        console.log('Open letter email sent successfully!');
+        await sendEmailIfProduction(templateParams);
     } catch (error) {
         console.error('Error sending open letter email:', error);
     }
@@ -58,9 +83,9 @@ openBtn.addEventListener("click", async () => {
         letter.classList.remove('animating');
     }, 1500);
     
-    // After the letter opens, expand it to full screen
+    // After the letter opens, show daily thoughts page
     setTimeout(() => {
-        expandToFullScreen();
+        showDailyThoughtsPage();
     }, 3500 );
 });
 
@@ -115,13 +140,15 @@ document.addEventListener("click", async (e) => {
                 timestamp: new Date().toLocaleString()
             };
             
-            await emailjs.send('service_4lo9jqr', 'template_qe1ks7t', templateParams);
-            console.log('Continue button email sent successfully!');
+            await sendEmailIfProduction(templateParams);
         } catch (error) {
             console.error('Error sending continue button email:', error);
         }
         
         showSecondPage();
+    } else if (e.target.id === "continueToLetter") {
+        // Navigate from daily thoughts to main letter
+        expandToFullScreen();
     } else if (e.target.id === "spendTimeBtn") {
         showSpendTimeModal();
     } else if (e.target.id === "confirmSpendTime") {
@@ -133,7 +160,142 @@ document.addEventListener("click", async (e) => {
     }
 });
 
+// Daily thoughts data - easy to add new days
+const dailyThoughts = [
+    {
+        date: "7/06",
+        title: "July 6th",
+        text: `Work in Progress`,
+        photo: "https://via.placeholder.com/400x300/FFB6C1/FFFFFF?text=WIP+-+July+6th"
+    }
+    // Add more days here as needed
+];
+
+function showDailyThoughtsPage() {
+    // Create full-screen overlay for daily thoughts
+    const dailyThoughtsOverlay = document.createElement('div');
+    dailyThoughtsOverlay.id = 'dailyThoughtsOverlay';
+    dailyThoughtsOverlay.classList.add('animating');
+    
+    // Generate tabs HTML
+    const tabsHTML = dailyThoughts.map((day, index) => 
+        `<div class="tab-button ${index === 0 ? 'active' : ''}" data-day="${index}">
+            (${day.date})
+        </div>`
+    ).join('');
+    
+    // Generate tab content HTML
+    const tabContentHTML = dailyThoughts.map((day, index) => 
+        `<div class="tab-content ${index === 0 ? 'active' : ''}" data-day="${index}">
+            <div class="daily-entry">
+                <h3>${day.title}</h3>
+                <div class="entry-layout">
+                    <div class="entry-text">
+                        <div class="text-content">${day.text.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '<br>').join('')}</div>
+                    </div>
+                    <div class="entry-photo">
+                        <img src="${day.photo}" />
+                        <p class="photo-caption">A moment from ${day.date}</p>
+                    </div>
+                </div>
+            </div>
+        </div>`
+    ).join('');
+    
+    dailyThoughtsOverlay.innerHTML = `
+        <div class="background-words">
+            <span class="word word-1">Love</span>
+            <span class="word word-2">Forever</span>
+            <span class="word word-3">Always</span>
+            <span class="word word-4">Together</span>
+            <span class="word word-5">Heart</span>
+            <span class="word word-6">Kitten</span>
+            <span class="word word-7">Hennus</span>
+            <span class="word word-8">Kiss</span>
+            <span class="word word-9">Tiny one</span>
+            <span class="word word-10">Little one</span>
+        </div>
+        <div class="background-hearts">
+            <span class="heart heart-1">♥</span>
+            <span class="heart heart-2">♥</span>
+            <span class="heart heart-3">♥</span>
+            <span class="heart heart-4">♥</span>
+            <span class="heart heart-5">♥</span>
+            <span class="heart heart-6">♥</span>
+            <span class="heart heart-7">♥</span>
+            <span class="heart heart-8">♥</span>
+            <span class="heart heart-9">♥</span>
+            <span class="heart heart-10">♥</span>
+            <span class="heart heart-11">♥</span>
+            <span class="heart heart-12">♥</span>
+        </div>
+        <div class="full-screen-content animating daily-thoughts-content">
+            <div class="daily-thoughts-page">
+                <div class="page-header">
+                    <h1>Daily Thoughts for My Tiny One</h1>
+                    <p class="header-subtitle">Every day I think of you 💕</p>
+                </div>
+                
+                <div class="tabs-container">
+                    <div class="tab-buttons">
+                        ${tabsHTML}
+                    </div>
+                    
+                    <div class="tab-contents">
+                        ${tabContentHTML}
+                    </div>
+                </div>
+                
+                <button id="continueToLetter" class="continue-to-letter-btn">Continue to Letter →</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(dailyThoughtsOverlay);
+    
+    // Add event listeners for tabs
+    const tabButtons = dailyThoughtsOverlay.querySelectorAll('.tab-button');
+    const tabContents = dailyThoughtsOverlay.querySelectorAll('.tab-content');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const dayIndex = button.dataset.day;
+            
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            const activeContent = dailyThoughtsOverlay.querySelector(`.tab-content[data-day="${dayIndex}"]`);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
+        });
+    });
+    
+    // Trigger smoother fade-in animation
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            dailyThoughtsOverlay.classList.add('show');
+            
+            // Clean up will-change after animation
+            setTimeout(() => {
+                dailyThoughtsOverlay.classList.remove('animating');
+                const content = dailyThoughtsOverlay.querySelector('.full-screen-content');
+                if (content) content.classList.remove('animating');
+            }, 800);
+        });
+    });
+}
+
 function expandToFullScreen() {
+    // Remove daily thoughts overlay first
+    const dailyThoughtsOverlay = document.getElementById('dailyThoughtsOverlay');
+    if (dailyThoughtsOverlay) {
+        dailyThoughtsOverlay.remove();
+    }
+    
     // Create full-screen overlay with background words
     const fullScreenOverlay = document.createElement('div');
     fullScreenOverlay.id = 'fullScreenOverlay';
@@ -282,7 +444,7 @@ function expandToFullScreen() {
                 <div class="button-explanation">
                     <p><strong>There's also a button at the bottom of the next page.</strong> If you ever feel lonely or stressed out, press that button.</p>
                     <p class="promise-text">I am going to drop everything I'm doing and be over to see you within an hour :) I'll take the day off as well.</p>
-                    <p>Don’t worry if you accidentally press it, there’s a confirmation button to make sure your fatass fingers didn’t hit it by mistake (kidding, kidding, you know I love your chunky little kitten paws)</p>
+                    <p>Don't worry if you accidentally press it, there's a confirmation button to make sure your fatass fingers didn't hit it by mistake (kidding, kidding, you know I love your chunky little kitten paws)</p>
                     <p>If you ever feel like you're anxious at night just remember I'm always here for you. Don't be afraid to reach out. or even press that button. I will get Paged (hehe) and be on my way ASAP.</p>
                     <p>I do really hope you'll press that button, I cant wait to see you again</p>
                 </div>
@@ -525,13 +687,13 @@ async function handleSpendTimeConfirm() {
         };
         
         // Send email using EmailJS
-        const result = await emailjs.send('service_4lo9jqr', 'template_qe1ks7t', templateParams);
-        
-        console.log('Email sent successfully!', result.status, result.text);
+        const result = await sendEmailIfProduction(templateParams);
         
     } catch (error) {
         console.error('Error sending email:', error);
-        alert('⚠️ Notification failed to send. Please text me instead');
+        if (!isLocalEnvironment()) {
+            alert('⚠️ Notification failed to send. Please text me instead');
+        }
     }
     
     // Show a sweet confirmation message
@@ -555,8 +717,6 @@ async function handleSpendTimeConfirm() {
         confirmMessage.remove();
     }, 12000);
 }
-
-
 
 function addScrollIndicatorLogic() {
     const letterPage = document.querySelector('.letter-page');
@@ -582,4 +742,67 @@ function addScrollIndicatorLogic() {
     // Initial check
     handleScroll();
 }
+
+// Image Modal Functionality
+function createImageModal() {
+    const modal = document.createElement('div');
+    modal.className = 'image-modal';
+    modal.innerHTML = `
+        <div class="image-modal-content">
+            <img src="" alt="Expanded image">
+            <button class="image-modal-close">&times;</button>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    return modal;
+}
+
+function openImageModal(imageSrc, imageAlt = '') {
+    let modal = document.querySelector('.image-modal');
+    if (!modal) {
+        modal = createImageModal();
+    }
+    
+    const modalImg = modal.querySelector('img');
+    modalImg.src = imageSrc;
+    modalImg.alt = imageAlt;
+    
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeImageModal() {
+    const modal = document.querySelector('.image-modal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+}
+
+// Add click handlers for images
+document.addEventListener('click', (e) => {
+    // Handle image clicks
+    if (e.target.matches('.entry-photo img, .daily-entry img')) {
+        e.preventDefault();
+        openImageModal(e.target.src, e.target.alt);
+    }
+    
+    // Handle modal close
+    if (e.target.matches('.image-modal-close, .image-modal')) {
+        e.preventDefault();
+        closeImageModal();
+    }
+    
+    // Prevent modal close when clicking on image content
+    if (e.target.matches('.image-modal-content, .image-modal img')) {
+        e.stopPropagation();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeImageModal();
+    }
+});
   
