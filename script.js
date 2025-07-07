@@ -165,8 +165,37 @@ const dailyThoughts = [
     {
         date: "7/06",
         title: "July 6th",
-        text: `Work in Progress`,
-        photo: "https://via.placeholder.com/400x300/FFB6C1/FFFFFF?text=WIP+-+July+6th"
+        text: `okiiiiii so this is my first day of writing
+I figured this will be my spot to journal and end my days writing
+
+instead of laying in bed on my phone, instead i'll just write for a bit and just voice my thoughts where i talk to myself in a way
+
+i haven't really decided on how i will design this page but i've spent about 10 minutes on this design so that'll do for day numero uno
+
+where do i start where do i start -- these past couple days i haven't been feeling well
+even tho this is a long holiday aka july 4th where people celebrate together with friends and family i felt pretty alone
+
+I usually celebrated canada day which was on monday, and previously celebrated july 4th with my bro, but i havent seen him or my nephews in over a month. mostly because he was travelling and i kinda closed myself off which is not good
+
+i was also supposed to hang out with a couple who invited me for food, but i never made it. i sent money to them via venmo to help them out with the food and drinks but they refunded me early this morning with a not so happy message which made me wake up in a sad state. not only was i late to theyre last hosting by a couple hours, i fully missed this one -- not sure if they'll invite me again at this point oops
+
+yesterday i also went to a block party, never again am i going to one of those alone. block parties are for sure a thing you go as a group -- lesson learned
+
+anyways today wasnt any better. it is 1am right now and i am dreading this upcoming week. i'm so tired and im on call which makes things even harder
+
+the whole plan for today was to clean my apartment to bring it to a state where i feel a bit happy walking around while im dealing with work but i made no progress today
+
+this is my picture of the day -- i ended up ordering chipotle and watching a movie about tetris while my feetsies are in the pocketsies. movie ended up a lot more dramatic than i expected but i at least i felt a bit happy and made me forget about all the work stuff i gotta do next week.
+
+i was a bit sleepy before i started writing this but i kinda woke myself up. i need to wake up at 630 am for my on call shift so i pretty much have to force myself to sleep
+
+this be day 1 of my thoughts and i'll improve on how i continue with this
+
+oh and also i improved how this looks like on a phone, the copy is not cutoff anymore! and the text takes more space on the page
+but i think i might've broken something on the desktop version :( i'll have to fix it later
+
+peace`,
+        photo: "images/Jul6.jpg"
     }
     // Add more days here as needed
 ];
@@ -195,7 +224,7 @@ function showDailyThoughtsPage() {
                     </div>
                     <div class="entry-photo">
                         <img src="${day.photo}" />
-                        <p class="photo-caption">A moment from ${day.date}</p>
+                        <p class="photo-caption">A moment from ${day.date} • Click to enlarge</p>
                     </div>
                 </div>
             </div>
@@ -232,8 +261,8 @@ function showDailyThoughtsPage() {
         <div class="full-screen-content animating daily-thoughts-content">
             <div class="daily-thoughts-page">
                 <div class="page-header">
-                    <h1>Daily Thoughts for My Tiny One</h1>
-                    <p class="header-subtitle">Every day I think of you 💕</p>
+                    <h1>Daily Thoughts</h1>
+                    <p class="header-subtitle">How am I feeling today?</p>
                 </div>
                 
                 <div class="tabs-container">
