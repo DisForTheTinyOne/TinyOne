@@ -185,7 +185,7 @@ anyways today wasnt any better. it is 1am right now and i am dreading this upcom
 
 the whole plan for today was to clean my apartment to bring it to a state where i feel a bit happy walking around while im dealing with work but i made no progress today
 
-this is my picture of the day -- i ended up ordering chipotle and watching a movie about tetris while my feetsies are in the pocketsies. movie ended up a lot more dramatic than i expected but i at least i felt a bit happy and made me forget about all the work stuff i gotta do next week.
+this is my picture of the day -- i ended up ordering chipotle and watching a movie about tetris while my feetsies are in the pocketsies. movie ended up a lot more dramatic than i expected but i at least i felt a bit happy and made me forget about all the work stuff i gotta do next week. Wish i couldve gamed with my friends instead but they were all busy
 
 i was a bit sleepy before i started writing this but i kinda woke myself up. i need to wake up at 630 am for my on call shift so i pretty much have to force myself to sleep
 
