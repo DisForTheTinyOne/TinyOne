@@ -3684,6 +3684,7 @@ button:active {
     
     .daily-thoughts-page {
         padding: 15px;
+        padding-bottom: max(30px, env(safe-area-inset-bottom, 20px));
         justify-content: flex-start;
         align-items: center;
         width: 100%;
@@ -3827,7 +3828,7 @@ button:active {
     .continue-to-letter-btn {
         padding: 12px 24px;
         font-size: 14px;
-        margin: 15px auto 0 auto;
+        margin: 15px auto 30px auto;
         border-radius: 20px;
         display: block;
         width: fit-content;
@@ -3862,7 +3863,7 @@ button:active {
     
     .daily-thoughts-page {
         padding: 10px;
-        padding-bottom: 40px;
+        padding-bottom: max(40px, env(safe-area-inset-bottom, 20px));
         align-items: center;
         width: 100%;
         box-sizing: border-box;
@@ -3959,7 +3960,7 @@ button:active {
     .continue-to-letter-btn {
         padding: 10px 20px;
         font-size: 13px;
-        margin: 15px auto 0 auto;
+        margin: 15px auto 40px auto;
         display: block;
         width: fit-content;
     }
