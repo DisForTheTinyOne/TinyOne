@@ -165,10 +165,40 @@ const dailyThoughts = [
     {
         date: "7/07",
         title: "July 7th",
-        text: `Day is in progress!
+        text: `hello hello this is day number #2
 
-Still figuring out what today will bring...`,
-        photo: null // No photo for today yet
+i am all cozied up in bed now after a rough work day. windows open and it be reallyyyyy cold but im under my blankies butt ass naked so im in a happy state. just ate some mcdonalds which is not good not good, but also kind of soul-healing
+
+i think i am addicted to mcdonalds burgers i switched it up from eating subways. i really got to start getting my steps in tommorrow so tmrw my goal is 30k steps no jokes
+
+anyways i think today im doing better mentally... definitely not better physically. I had to poop 4 times today and the pooping seshs were not looking good - i think it is the mcdonalds diet. im kinda getting hungry now so i might get a burrito from the food truck but im also butt ass naked and putting clothes on might be a bit too much effort. internal conflict is very real
+
+work day kinda sucked today tho, i was paged 11 times throughout the day which isnt unheard of but not a fun experience. also the guy who was on call last week did not wrap up all the on work tasks so when i woke up i already had a bunch on my plate
+
+for lunch i had greek food aka nick the greek wraps they had a 2 for 1 deal. they are really fire i had to ask for no fries in the wraps cause i feel they ruin the wrap. for dinner i had 2 double cheese burgers from mcdonalds. starting tomorrow im going back on the health grind... maybe
+
+i've also redesigned this page a bit during a 30 mins call. im actually proud on how this page turned out to look like feels like im a professional UI designer. i'll prob clean it up a bit more after i have my 5th poop of the day tonight
+
+other than working for 14 hours today, i also did alllll my laundry took 4 whole loads. i also cleaned up a lafufu by hand using a gentle soap. i think the lafufu turned out pretty well, smells good too. fresh laundry and clean lafufu equals peak serotonin
+
+also while browsing tik tok during my 4th poop of the day i got a lot of clips of saturdays block party. apparently audien was such a vibe which makes me sad i missed it. alan walker was also vibe at the end where i missed it as well. fomo is not good
+
+side thought => while working on this lil daily thoughts page i had a few fun ideas i'll prob add in in a few days when my on call days isnt too loaded - it'll be fun i think. my one brain cell having a mini creative spark
+
+so yaaaa today was kinda uneventful the picture of the day is just my love sac filled with clean laundry and a clean lafufu. just wholesome
+
+i really want to watch how to train your dragon so if tomorrow im not overwhelmed with on call, im thinking of going and grabbing chipotle, sneaking in a couple drinks and watching the movie alone. im thinking of doing more solo dates to get out of my house more often. sounds kinda healing tbh
+
+at the same time my friends asked if i was free to game for a few hours tomorrow. i really wanna but same time i dont want to stare at my computer any longer, todays work sesh killed me
+
+okiiiii i think thats it for tonight! im ready to pass out
+
+also the last page is a little messed up on both mobile and desktop imma clean that up at some points
+
+i think i need to automate how this picture upload works. rn i download a picture from my photos album, then i need to manually convert to .jpg and downsize for a smaller size - imma fix this at some point
+
+goodnight everybody`,
+        photo: "images/Jul7.jpg" // No photo yet - mentioned love sac with laundry and lafufu
     },
     {
         date: "7/06",
@@ -309,6 +339,14 @@ function showDailyThoughtsPage() {
             const activeContent = dailyThoughtsOverlay.querySelector(`.tab-content[data-day="${dayIndex}"]`);
             if (activeContent) {
                 activeContent.classList.add('active');
+                
+                // Force refresh of scroll containers after tab switch
+                setTimeout(() => {
+                    const textContent = activeContent.querySelector('.text-content');
+                    if (textContent) {
+                        textContent.scrollTop = textContent.scrollTop; // Force reflow
+                    }
+                }, 50);
             }
         });
     });
@@ -323,6 +361,15 @@ function showDailyThoughtsPage() {
                 dailyThoughtsOverlay.classList.remove('animating');
                 const content = dailyThoughtsOverlay.querySelector('.full-screen-content');
                 if (content) content.classList.remove('animating');
+                
+                // Force refresh of the initial active tab's scroll container
+                const initialActiveTab = dailyThoughtsOverlay.querySelector('.tab-content.active');
+                if (initialActiveTab) {
+                    const textContent = initialActiveTab.querySelector('.text-content');
+                    if (textContent) {
+                        textContent.scrollTop = textContent.scrollTop; // Force reflow
+                    }
+                }
             }, 800);
         });
     });
