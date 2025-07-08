@@ -167,7 +167,7 @@ const dailyThoughts = [
         title: "July 8th",
         text: `day in progress...
 
-        currently pooping.`,
+        most likely pooping`,
         photo: null // Day still in progress
     },
     {
