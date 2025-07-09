@@ -163,6 +163,14 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/09",
+        title: "July 9th",
+        text: `Day is in progres...
+
+...probably eating subway`,
+        photos: [] // No image yet
+    },
+    {
         date: "7/08",
         title: "July 8th",
         text: `another day another minor cleanup of this site. this time i did a minor changes visually, nothing too flashy, but improved the performance on mobile which felt kinda nice, actually. i kinda enjoy cleaning up a website, it's weirdly satisfying in a way that's hard to explain. haven't done that since year 1 of learning how to code, back when i'd obsess over every tiny pixel shift like it actually mattered, little by little it feels more like a real space
