@@ -3578,6 +3578,7 @@ button:active {
     margin-bottom: 24px;
     font-weight: 400;
     opacity: 0.7;
+    text-align: center;
 }
 
 .entry-layout {

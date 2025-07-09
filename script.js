@@ -277,8 +277,8 @@ function showDailyThoughtsPage() {
         </div>`
     ).join('');
     
-    // Generate tab content HTML
-    const tabContentHTML = dailyThoughts.map((day, index) => {
+    // Helper function to generate individual tab content
+    const generateTabContent = (day, dayIndex) => {
         // Handle both single photo and multiple photos
         let photoSection = '';
         
@@ -306,18 +306,20 @@ function showDailyThoughtsPage() {
         
         const hasImages = day.photos && day.photos.length > 0;
         
-        return `<div class="tab-content ${index === 0 ? 'active' : ''}" data-day="${index}">
-            <div class="daily-entry">
-                <h3>${day.title}</h3>
-                <div class="entry-layout ${hasImages ? '' : 'no-photo'}">
-                    <div class="entry-text">
-                        <div class="text-content">${day.text.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '<br>').join('')}</div>
-                    </div>
-                    ${photoSection}
+        return `<div class="daily-entry">
+            <h3>${day.title}</h3>
+
+            <div class="entry-layout ${hasImages ? '' : 'no-photo'}">
+                <div class="entry-text">
+                    <div class="text-content">${day.text.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '<br>').join('')}</div>
                 </div>
+                ${photoSection}
             </div>
         </div>`;
-    }).join('');
+    };
+    
+    // Generate only the initial (first) tab content
+    const initialTabContent = generateTabContent(dailyThoughts[0], 0);
     
     // Reduce background elements on mobile for better performance
     const isMobile = window.innerWidth <= 768;
@@ -365,7 +367,9 @@ function showDailyThoughtsPage() {
                     </div>
                     
                     <div class="tab-contents">
-                        ${tabContentHTML}
+                        <div class="tab-content active" id="activeTabContent">
+                            ${initialTabContent}
+                        </div>
                     </div>
                 </div>
                 
@@ -376,28 +380,35 @@ function showDailyThoughtsPage() {
     
     document.body.appendChild(dailyThoughtsOverlay);
     
-    // Add event listeners for tabs
+    // Add event listeners for tabs with dynamic content generation
     const tabButtons = dailyThoughtsOverlay.querySelectorAll('.tab-button');
-    const tabContents = dailyThoughtsOverlay.querySelectorAll('.tab-content');
+    const activeTabContainer = dailyThoughtsOverlay.querySelector('#activeTabContent');
     
     tabButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const dayIndex = button.dataset.day;
+            const dayIndex = parseInt(button.dataset.day);
             
-            // Remove active class from all buttons and contents
+            // Skip if clicking the already active tab
+            if (button.classList.contains('active')) {
+                return;
+            }
+            
+            // Remove active class from all buttons
             tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
             
-            // Add active class to clicked button and corresponding content
+            // Add active class to clicked button
             button.classList.add('active');
-            const activeContent = dailyThoughtsOverlay.querySelector(`.tab-content[data-day="${dayIndex}"]`);
-            if (activeContent) {
-                activeContent.classList.add('active');
+            
+            // Generate and replace content for the selected day
+            if (dailyThoughts[dayIndex]) {
+                const newContent = generateTabContent(dailyThoughts[dayIndex], dayIndex);
+                activeTabContainer.innerHTML = newContent;
                 
                 // Force refresh of scroll containers after tab switch
                 setTimeout(() => {
-                    const textContent = activeContent.querySelector('.text-content');
+                    const textContent = activeTabContainer.querySelector('.text-content');
                     if (textContent) {
+                        textContent.scrollTop = 0; // Reset scroll to top
                         textContent.scrollTop = textContent.scrollTop; // Force reflow
                     }
                 }, 50);
@@ -417,7 +428,7 @@ function showDailyThoughtsPage() {
                 if (content) content.classList.remove('animating');
                 
                 // Force refresh of the initial active tab's scroll container
-                const initialActiveTab = dailyThoughtsOverlay.querySelector('.tab-content.active');
+                const initialActiveTab = dailyThoughtsOverlay.querySelector('#activeTabContent');
                 if (initialActiveTab) {
                     const textContent = initialActiveTab.querySelector('.text-content');
                     if (textContent) {
