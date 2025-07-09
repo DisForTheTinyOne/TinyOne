@@ -81,12 +81,12 @@ openBtn.addEventListener("click", async () => {
     setTimeout(() => {
         lids.forEach(lid => lid.classList.remove('animating'));
         letter.classList.remove('animating');
-    }, 1500);
+    }, 2500);
     
     // After the letter opens, show daily thoughts page
     setTimeout(() => {
         showDailyThoughtsPage();
-    }, 3500 );
+    }, 4500 );
 });
 
 function createHeartBurst() {
@@ -278,7 +278,9 @@ function showDailyThoughtsPage() {
         </div>`
     ).join('');
     
-    dailyThoughtsOverlay.innerHTML = `
+    // Reduce background elements on mobile for better performance
+    const isMobile = window.innerWidth <= 768;
+    const backgroundElements = isMobile ? '' : `
         <div class="background-words">
             <span class="word word-1">Love</span>
             <span class="word word-2">Forever</span>
@@ -304,7 +306,10 @@ function showDailyThoughtsPage() {
             <span class="heart heart-10">♥</span>
             <span class="heart heart-11">♥</span>
             <span class="heart heart-12">♥</span>
-        </div>
+        </div>`;
+    
+    dailyThoughtsOverlay.innerHTML = `
+        ${backgroundElements}
         <div class="full-screen-content animating daily-thoughts-content">
             <div class="daily-thoughts-page">
                 <div class="page-header">
@@ -395,7 +400,9 @@ function expandToFullScreen() {
     fullScreenOverlay.id = 'fullScreenOverlay';
     fullScreenOverlay.classList.add('animating');
     
-    fullScreenOverlay.innerHTML = `
+    // Reduce background elements on mobile for better performance
+    const isMobile = window.innerWidth <= 768;
+    const backgroundElements = isMobile ? '' : `
         <div class="background-words">
             <span class="word word-1">Love</span>
             <span class="word word-2">Forever</span>
@@ -421,7 +428,10 @@ function expandToFullScreen() {
             <span class="heart heart-10">♥</span>
             <span class="heart heart-11">♥</span>
             <span class="heart heart-12">♥</span>
-        </div>
+        </div>`;
+    
+    fullScreenOverlay.innerHTML = `
+        ${backgroundElements}
         <div class="full-screen-content animating">
             <div class="letter-page">
                 <h1>...Because You Are My Everything</h1>
@@ -620,7 +630,9 @@ function showSecondPage() {
         setTimeout(() => {
             const fullScreenOverlay = document.getElementById('fullScreenOverlay');
             if (fullScreenOverlay) {
-                fullScreenOverlay.innerHTML = `
+                // Reduce background elements on mobile for better performance
+                const isMobile = window.innerWidth <= 768;
+                const backgroundElements = isMobile ? '' : `
                     <div class="background-words">
                         <span class="word word-1">Love</span>
                         <span class="word word-2">Forever</span>
@@ -646,7 +658,10 @@ function showSecondPage() {
                         <span class="heart heart-10">♥</span>
                         <span class="heart heart-11">♥</span>
                         <span class="heart heart-12">♥</span>
-                    </div>
+                    </div>`;
+                
+                fullScreenOverlay.innerHTML = `
+                    ${backgroundElements}
                     <div class="full-screen-content fade-in animating">
                         <div class="video-page">
                             <div class="personal-message">

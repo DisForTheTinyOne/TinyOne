@@ -29,7 +29,7 @@ body {
     transform: translate3d(-50%, -50%, 0);
     text-align: center;
     font-weight: bold;
-    animation: pulseText 1.5s infinite alternate cubic-bezier(0.25, 0.46, 0.45, 0.94) 3s;
+    animation: pulseText 3s infinite alternate cubic-bezier(0.25, 0.46, 0.45, 0.94) 3s;
     will-change: transform, text-shadow;
     backface-visibility: hidden;
   }
@@ -67,7 +67,7 @@ body {
     border-bottom: 100px solid transparent;
     border-left: 150px solid transparent;
     transform-origin: top;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
     backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
@@ -106,7 +106,7 @@ body {
     background-color: #FFF5F7;
     border-radius: 15px;
     z-index: 2;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transform: translate3d(0, 0, 0);
     will-change: transform;
     backface-visibility: hidden;
@@ -297,17 +297,17 @@ button:active {
 
 .open .lid.one {
     transform: rotateX(90deg) translate3d(0, 0, 0);
-    transition-delay: 0s;
+    transition-delay: 0.2s;
 }
 
 .open .lid.two {
     transform: rotateX(180deg) translate3d(0, 0, 0);
-    transition-delay: 0.25s;
+    transition-delay: 0.6s;
 }
 
 .open .letter {
     transform: translate3d(0, -50px, 0);
-    transition-delay: 0.5s;
+    transition-delay: 1.0s;
 }
 
   
@@ -2295,7 +2295,7 @@ button:active {
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
-    * {
+    *:not(.wrapper):not(.wrapper *):not(.letter):not(.letter *):not(.lid):not(.lid *):not(.text):not(.text *):not(#openBtn):not(#openBtn *) {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -3461,70 +3461,70 @@ button:active {
     overflow: hidden;
 }
 
-.tab-buttons {
-    display: flex;
-    gap: 12px;
-    padding: 8px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-    justify-content: center;
-    background: rgba(255, 245, 248, 0.6);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(252, 231, 243, 0.8);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.tab-button {
-    background: transparent;
-    border: none;
-    border-radius: 12px;
-    padding: 12px 24px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: #64748b;
-    position: relative;
-    overflow: hidden;
-    outline: none;
-}
-
-.tab-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.1), transparent);
-    transition: left 0.6s ease;
-}
-
-.tab-button:hover::before {
-    left: 100%;
-}
-
-.tab-button:hover {
-    color: #475569;
-    background: rgba(255, 255, 255, 0.5);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.tab-button.active {
-    background: linear-gradient(135deg, #ec4899, #d946ef);
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
-}
-
-.tab-button.active:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(236, 72, 153, 0.4);
-}
+    .tab-buttons {
+        display: flex;
+        gap: 12px;
+        padding: 8px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+        justify-content: center;
+        background: rgba(255, 245, 248, 0.6);
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(252, 231, 243, 0.8);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    .tab-button {
+        background: transparent;
+        border: none;
+        border-radius: 12px;
+        padding: 12px 24px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        color: #64748b;
+        position: relative;
+        overflow: hidden;
+        outline: none;
+    }
+    
+    .tab-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.1), transparent);
+        transition: left 0.6s ease;
+    }
+    
+    .tab-button:hover::before {
+        left: 100%;
+    }
+    
+    .tab-button:hover {
+        color: #475569;
+        background: rgba(255, 255, 255, 0.5);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tab-button.active {
+        background: linear-gradient(135deg, #ec4899, #d946ef);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
+    }
+    
+    .tab-button.active:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(236, 72, 153, 0.4);
+    }
 
 .tab-contents {
     flex: 1;
@@ -3773,21 +3773,39 @@ button:active {
     }
     
     .tab-buttons {
+        display: flex;
         gap: 8px;
+        padding: 8px;
         margin-bottom: 24px;
+        flex-wrap: wrap;
+        flex-shrink: 0;
         justify-content: center;
         width: 100%;
         overflow-x: auto;
         overflow-y: hidden;
         max-width: 100%;
         -webkit-overflow-scrolling: touch;
-        padding: 6px;
+        background: rgba(255, 245, 248, 0.6);
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(252, 231, 243, 0.8);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
     
     .tab-button {
-        padding: 10px 16px;
-        font-size: 13px;
+        background: transparent;
+        border: none;
         border-radius: 10px;
+        padding: 10px 16px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: #64748b;
+        position: relative;
+        overflow: hidden;
+        outline: none;
         min-width: 70px;
         flex-shrink: 0;
         white-space: nowrap;
@@ -3971,6 +3989,7 @@ button:active {
         padding: 8px 14px;
         font-size: 12px;
         min-width: 60px;
+        border-radius: 8px;
     }
     
     .daily-entry {
@@ -4126,6 +4145,198 @@ button:active {
         width: 30px;
         height: 30px;
         font-size: 16px;
+    }
+}
+
+/* Mobile Performance Optimizations - Disable expensive animations */
+@media (max-width: 768px) {
+    /* Disable backdrop-filter on mobile for performance with subtle pink tinting */
+    .full-screen-content {
+        backdrop-filter: none !important;
+        background: linear-gradient(135deg, rgba(255, 252, 253, 0.98) 0%, rgba(254, 248, 249, 0.98) 50%, rgba(255, 245, 247, 0.98) 100%) !important;
+    }
+    
+    .daily-thoughts-content {
+        backdrop-filter: none !important;
+        background: linear-gradient(135deg, rgba(255, 252, 253, 0.95) 0%, rgba(254, 248, 249, 0.95) 50%, rgba(255, 245, 247, 0.95) 100%) !important;
+    }
+    
+    .daily-entry {
+        backdrop-filter: none !important;
+        background: linear-gradient(135deg, rgba(255, 252, 253, 0.92) 0%, rgba(254, 248, 249, 0.92) 50%, rgba(255, 245, 247, 0.92) 100%) !important;
+    }
+    
+    /* Optimize flower animations for mobile performance */
+    .flowers * {
+        /* Reduce animation complexity and frequency */
+        animation-duration: 5s !important; /* Faster but still optimized */
+        animation-timing-function: ease-in-out !important; /* Smoother */
+        will-change: auto !important; /* Let browser optimize */
+    }
+    
+    /* Reduce the number of animated elements on mobile */
+    .flowers .flower__g--1:nth-child(n+4),
+    .flowers .flower__g--2:nth-child(n+4),
+    .flowers .flower__g--3:nth-child(n+4),
+    .flowers .leaf:nth-child(n+6) {
+        display: none !important;
+    }
+    
+    /* Use more efficient transforms */
+    .flowers .flower__g--1,
+    .flowers .flower__g--2,
+    .flowers .flower__g--3 {
+        transform: translate3d(0, 0, 0) !important; /* Force GPU acceleration */
+        contain: layout style paint !important; /* Optimize repaints */
+    }
+    
+    /* Reduce animation complexity - gentler movements */
+    .flowers .flower__g--1 {
+        animation-name: moving-flower-1-mobile !important;
+    }
+    
+    .flowers .flower__g--2 {
+        animation-name: moving-flower-2-mobile !important;
+    }
+    
+    .flowers .flower__g--3 {
+        animation-name: moving-flower-3-mobile !important;
+    }
+    
+    /* Optimized mobile flower animations - much simpler */
+    @keyframes moving-flower-1-mobile {
+        0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+        50% { transform: translate3d(0, -3px, 0) rotate(1deg); }
+    }
+    
+    @keyframes moving-flower-2-mobile {
+        0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+        50% { transform: translate3d(0, -2px, 0) rotate(-1deg); }
+    }
+    
+    @keyframes moving-flower-3-mobile {
+        0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+        50% { transform: translate3d(0, -4px, 0) rotate(0.5deg); }
+    }
+    
+    /* Optimize grass and leaf animations for mobile */
+    .flowers .grass,
+    .flowers .leaf {
+        animation-duration: 6s !important; /* Faster but still smooth */
+        animation-timing-function: ease-in-out !important;
+    }
+    
+    /* Disable complex light effects on mobile */
+    .flowers .light {
+        animation: none !important;
+        opacity: 0.3 !important;
+    }
+    
+    /* Reduce background animation complexity */
+    .background-words .word {
+        animation: none !important;
+        opacity: 0.1 !important;
+    }
+    
+    .background-hearts .heart {
+        animation: none !important;
+        opacity: 0.1 !important;
+    }
+    
+    /* Simplify button animations */
+    .spend-time-btn {
+        animation: none !important;
+    }
+    
+    .spend-time-btn:hover {
+        animation: none !important;
+    }
+    
+    /* Simplify shadows on mobile */
+    .full-screen-content {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .continue-btn-fullscreen {
+        box-shadow: 0 2px 8px rgba(212, 63, 94, 0.3) !important;
+    }
+    
+    .continue-btn-fullscreen:hover {
+        box-shadow: 0 4px 12px rgba(212, 63, 94, 0.4) !important;
+    }
+    
+    /* Keep beautiful gradients on headings */
+    .page-header h1 {
+        background: linear-gradient(135deg, #d946ef 0%, #ec4899 50%, #f97316 100%) !important;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+    
+    .daily-entry h3 {
+        background: linear-gradient(135deg, #ec4899, #d946ef) !important;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+}
+
+/* Ultra-low power mode for very low-end devices */
+@media (max-width: 480px) {
+    /* Disable most animations on small mobile devices except letter opening */
+    *:not(.flowers *):not(.wrapper):not(.wrapper *):not(.letter):not(.letter *):not(.lid):not(.lid *):not(.text):not(.text *):not(#openBtn):not(#openBtn *) {
+        animation-duration: 0.1s !important;
+        animation-delay: 0s !important;
+        transition-duration: 0.1s !important;
+    }
+    
+    /* Keep minimal flower animation but make it ultra-simple */
+    .flowers * {
+        animation-duration: 8s !important; /* Reasonably paced */
+        animation-timing-function: linear !important;
+    }
+    
+    /* Hide even more flower elements on small screens */
+    .flowers .flower__g--1:nth-child(n+3),
+    .flowers .flower__g--2:nth-child(n+3),
+    .flowers .flower__g--3:nth-child(n+3),
+    .flowers .leaf:nth-child(n+4) {
+        display: none !important;
+    }
+    
+    /* Disable transforms for better performance */
+    .background-words,
+    .background-hearts {
+        display: none !important;
+    }
+    
+    /* Simplify all backgrounds with subtle pink tinting */
+    .daily-thoughts-content,
+    .daily-entry {
+        background: linear-gradient(135deg, rgba(255, 252, 253, 0.95) 0%, rgba(254, 248, 249, 0.95) 50%, rgba(255, 245, 247, 0.95) 100%) !important;
+        box-shadow: 0 2px 8px rgba(236, 72, 153, 0.1) !important;
+    }
+}
+
+/* Performance optimization for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    /* Disable all animations for accessibility and performance except letter opening */
+    *:not(.flowers *):not(.wrapper):not(.wrapper *):not(.letter):not(.letter *):not(.lid):not(.lid *):not(.text):not(.text *):not(#openBtn):not(#openBtn *) {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    /* Keep flowers but make them static */
+    .flowers * {
+        animation: none !important;
+        -webkit-animation: none !important;
+    }
+    
+    /* Hide animated background elements */
+    .background-words,
+    .background-hearts {
+        display: none !important;
     }
 }
 
