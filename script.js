@@ -165,10 +165,28 @@ const dailyThoughts = [
     {
         date: "7/08",
         title: "July 8th",
-        text: `day in progress...
+        text: `another day another minor cleanup of this site. this time i did a minor changes visually, nothing too flashy, but improved the performance on mobile which felt kinda nice, actually. i kinda enjoy cleaning up a website, it's weirdly satisfying in a way that's hard to explain. haven't done that since year 1 of learning how to code, back when i'd obsess over every tiny pixel shift like it actually mattered, little by little it feels more like a real space
 
-        most likely pooping`,
-        photo: null // Day still in progress
+i think today i'll keep it a bit short, i just wrapped up work, it's 930pm, and honestly my brain and eyes are completely fried. im about to take a shower, then watch tv for an hour before crashing. i have an important customer meeting tmrw and im not prepared at all, haven't even looked at the deck, haven't even thought about it really, so im prob gonna wake up at 6ish am and scramble to prep for it.
+
+today, as usual, work sucked. this time i got paged 18 times starting at 6am. as soon as banks opened on the east coast, everything just instantly went to shiet, so i had to jump on a few calls, and patch stuff together on the fly.
+
+i really wanted to watch how to train your dragon today, kinda had my heart set on it all day, but unfortunately got wrapped up with work. and i also totally forgot today is tuesday aka the day i have to release a bunch of things to production and keep a close eye on everything in case it all goes sideways, which it usually does, because of course it does
+
+i did actually end up walking 10k steps tho, which was better than nothing. not the 30k steps i wanted, not even close, but i'll take any progress at this point. i'm trying not to be too hard on myself. maybe i'll try again tomorrow if things are chill… or at least less chaotic than today.
+
+my pooping was actually worse today i don't know whats going on. i straight up went to the bathroom 6 or 7 times today, i honestly lost count at some point. its really not good
+
+otherwise not much else happened. i ended up grabbing dinner, aka subway 2 for 1 deal, so i got another sammich for tomorrow :) a small win
+
+ohhhh and also i found a new food truck a block away! haven't tried it yet but it looked kinda promising. so down to check it out sometime soon.
+
+i also need to figure out plans for this weekend. i saw wobbleland was this weekend and apparently it's like hard style edm, which im not a huge fan of to be honest, but im still down to try it out. it's at cow palace so i can maybe go on side quests and then chill on the top floor, similar to dreamstates. i'll figure it out later cause i also think i'm gonna be really tired by friday and might just want to rot instead
+
+anyways today i have 2 pictures!
+
+buh bye`,
+        photos: ["images/Jul8_1.jpg", "images/Jul8_2.jpg"] // Multiple photos for this day
     },
     {
         date: "7/07",
@@ -206,7 +224,7 @@ also the last page is a little messed up on both mobile and desktop imma clean t
 i think i need to automate how this picture upload works. rn i download a picture from my photos album, then i need to manually convert to .jpg and downsize for a smaller size - imma fix this at some point
 
 goodnight everybody`,
-        photo: "images/Jul7.jpg" // No photo yet - mentioned love sac with laundry and lafufu
+        photos: ["images/Jul7.jpg"] // love sac with laundry and lafufu
     },
     {
         date: "7/06",
@@ -241,7 +259,7 @@ oh and also i improved how this looks like on a phone, the copy is not cutoff an
 but i think i might've broken something on the desktop version :( i'll have to fix it later
 
 peace`,
-        photo: "images/Jul6.jpg"
+        photos: ["images/Jul6.jpg"]
     }
     // Add more days here as needed
 ];
@@ -260,23 +278,46 @@ function showDailyThoughtsPage() {
     ).join('');
     
     // Generate tab content HTML
-    const tabContentHTML = dailyThoughts.map((day, index) => 
-        `<div class="tab-content ${index === 0 ? 'active' : ''}" data-day="${index}">
+    const tabContentHTML = dailyThoughts.map((day, index) => {
+        // Handle both single photo and multiple photos
+        let photoSection = '';
+        
+        if (day.photos && Array.isArray(day.photos) && day.photos.length > 0) {
+            if (day.photos.length === 1) {
+                // Single photo
+                photoSection = `
+                    <div class="entry-photo">
+                        <img src="${day.photos[0]}" />
+                        <p class="photo-caption">A moment from ${day.date} • Click to enlarge</p>
+                    </div>`;
+            } else {
+                // Multiple photos
+                photoSection = `
+                    <div class="entry-photos">
+                        ${day.photos.map(photo => `
+                            <div class="entry-photo">
+                                <img src="${photo}" />
+                            </div>
+                        `).join('')}
+                        <p class="photo-caption">Moments from ${day.date} • Click any image to enlarge</p>
+                    </div>`;
+            }
+        }
+        
+        const hasImages = day.photos && day.photos.length > 0;
+        
+        return `<div class="tab-content ${index === 0 ? 'active' : ''}" data-day="${index}">
             <div class="daily-entry">
                 <h3>${day.title}</h3>
-                <div class="entry-layout ${day.photo ? '' : 'no-photo'}">
+                <div class="entry-layout ${hasImages ? '' : 'no-photo'}">
                     <div class="entry-text">
                         <div class="text-content">${day.text.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '<br>').join('')}</div>
                     </div>
-                    ${day.photo ? `
-                    <div class="entry-photo">
-                        <img src="${day.photo}" />
-                        <p class="photo-caption">A moment from ${day.date} • Click to enlarge</p>
-                    </div>` : ''}
+                    ${photoSection}
                 </div>
             </div>
-        </div>`
-    ).join('');
+        </div>`;
+    }).join('');
     
     // Reduce background elements on mobile for better performance
     const isMobile = window.innerWidth <= 768;
@@ -866,7 +907,7 @@ function createImageModal() {
     return modal;
 }
 
-function openImageModal(imageSrc, imageAlt = '') {
+async function openImageModal(imageSrc, imageAlt = '') {
     let modal = document.querySelector('.image-modal');
     if (!modal) {
         modal = createImageModal();
@@ -878,6 +919,33 @@ function openImageModal(imageSrc, imageAlt = '') {
     
     modal.classList.add('show');
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Get the active tab date and send email notification
+    try {
+        const activeTab = document.querySelector('.tab-button.active');
+        let activeDate = 'Unknown';
+        let activeTitle = 'Unknown';
+        
+        if (activeTab) {
+            const dayIndex = activeTab.dataset.day;
+            if (dayIndex !== undefined && dailyThoughts[dayIndex]) {
+                activeDate = dailyThoughts[dayIndex].date;
+                activeTitle = dailyThoughts[dayIndex].title;
+            }
+        }
+        
+        const templateParams = {
+            user_email: 'ilan.mamontov@gmail.com',
+            to_name: 'Alex',
+            from_name: 'Your Tiny One Website',
+            message: `💕 Your tiny one just enlarged a picture! 📸✨\n\nActive tab: ${activeTitle} (${activeDate})\n\nShe's looking at the memories from that day! 💕`,
+            timestamp: new Date().toLocaleString()
+        };
+        
+        await sendEmailIfProduction(templateParams);
+    } catch (error) {
+        console.error('Error sending image enlargement email:', error);
+    }
 }
 
 function closeImageModal() {
@@ -889,11 +957,11 @@ function closeImageModal() {
 }
 
 // Add click handlers for images
-document.addEventListener('click', (e) => {
+document.addEventListener('click', async (e) => {
     // Handle image clicks
     if (e.target.matches('.entry-photo img, .daily-entry img')) {
         e.preventDefault();
-        openImageModal(e.target.src, e.target.alt);
+        await openImageModal(e.target.src, e.target.alt);
     }
     
     // Handle modal close
