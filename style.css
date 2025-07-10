@@ -4265,70 +4265,84 @@ button:active {
         background: linear-gradient(135deg, rgba(255, 252, 253, 0.92) 0%, rgba(254, 248, 249, 0.92) 50%, rgba(255, 245, 247, 0.92) 100%) !important;
     }
     
-    /* Optimize flower animations for mobile performance */
+    /* DISABLE flower animations on mobile for performance but keep structure */
     .flowers * {
-        /* Reduce animation complexity and frequency */
-        animation-duration: 5s !important; /* Faster but still optimized */
-        animation-timing-function: ease-in-out !important; /* Smoother */
-        will-change: auto !important; /* Let browser optimize */
+        animation: none !important;
+        -webkit-animation: none !important;
+        will-change: auto !important;
     }
     
-    /* Reduce the number of animated elements on mobile */
-    .flowers .flower__g--1:nth-child(n+4),
-    .flowers .flower__g--2:nth-child(n+4),
-    .flowers .flower__g--3:nth-child(n+4),
-    .flowers .leaf:nth-child(n+6) {
+    /* More specific selectors to override original animations */
+    .flowers .flower--1,
+    .flowers .flower--2,
+    .flowers .flower--3,
+    .flowers .flower__line,
+    .flowers .flower__line__leaf,
+    .flowers .flower__leafs,
+    .flowers .flower__leafs--1,
+    .flowers .flower__leafs--2,
+    .flowers .flower__leafs--3,
+    .flowers .flower__grass,
+    .flowers .flower__grass--1,
+    .flowers .flower__grass--2,
+    .flowers .flower__g-long,
+    .flowers .flower__g-right,
+    .flowers .flower__g-right--1,
+    .flowers .flower__g-right--2,
+    .flowers .flower__g-front,
+    .flowers .flower__g-fr,
+    .flowers .long-g,
+    .flowers .long-g .leaf {
+        animation: none !important;
+        -webkit-animation: none !important;
+        animation-duration: 0s !important;
+        animation-play-state: paused !important;
+    }
+    
+    /* Hide only the most performance-heavy decorative elements */
+    .flowers .flower__light {
         display: none !important;
     }
     
-    /* Use more efficient transforms */
-    .flowers .flower__g--1,
-    .flowers .flower__g--2,
-    .flowers .flower__g--3 {
-        transform: translate3d(0, 0, 0) !important; /* Force GPU acceleration */
-        contain: layout style paint !important; /* Optimize repaints */
+    /* Override all flower keyframe animations on mobile - COMPLETE DISABLE */
+    .flowers,
+    .flowers *,
+    .flowers .flower--1,
+    .flowers .flower--2,
+    .flowers .flower--3 {
+        animation-name: none !important;
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 0 !important;
+        animation-fill-mode: none !important;
+        animation-play-state: paused !important;
     }
     
-    /* Reduce animation complexity - gentler movements */
-    .flowers .flower__g--1 {
-        animation-name: moving-flower-1-mobile !important;
-    }
-    
-    .flowers .flower__g--2 {
-        animation-name: moving-flower-2-mobile !important;
-    }
-    
-    .flowers .flower__g--3 {
-        animation-name: moving-flower-3-mobile !important;
-    }
-    
-    /* Optimized mobile flower animations - much simpler */
-    @keyframes moving-flower-1-mobile {
-        0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-        50% { transform: translate3d(0, -3px, 0) rotate(1deg); }
-    }
-    
-    @keyframes moving-flower-2-mobile {
-        0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-        50% { transform: translate3d(0, -2px, 0) rotate(-1deg); }
-    }
-    
-    @keyframes moving-flower-3-mobile {
-        0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
-        50% { transform: translate3d(0, -4px, 0) rotate(0.5deg); }
-    }
-    
-    /* Optimize grass and leaf animations for mobile */
-    .flowers .grass,
-    .flowers .leaf {
-        animation-duration: 6s !important; /* Faster but still smooth */
+    /* Mobile-optimized heart animation - simple upward float */
+    .burst-heart {
+        animation-delay: var(--delay) !important;
+        animation-duration: var(--duration) !important;
+        animation-name: heartFloatUp !important;
         animation-timing-function: ease-in-out !important;
+        animation-fill-mode: forwards !important;
     }
     
-    /* Disable complex light effects on mobile */
-    .flowers .light {
-        animation: none !important;
-        opacity: 0.3 !important;
+    @keyframes heartFloatUp {
+        0% {
+            transform: translate(-50%, 10vh) scale(0.8);
+            opacity: 0;
+        }
+        5% {
+            opacity: 1;
+        }
+        90% {
+            transform: translate(calc(-50% + var(--drift-x, 0px)), -80vh) scale(1.1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(calc(-50% + var(--drift-x, 0px)), -100vh) scale(1.2);
+            opacity: 0;
+        }
     }
     
     /* Reduce background animation complexity */
@@ -4382,24 +4396,28 @@ button:active {
 
 /* Ultra-low power mode for very low-end devices */
 @media (max-width: 480px) {
-    /* Disable most animations on small mobile devices except letter opening */
-    *:not(.flowers *):not(.wrapper):not(.wrapper *):not(.letter):not(.letter *):not(.lid):not(.lid *):not(.text):not(.text *):not(#openBtn):not(#openBtn *) {
+    /* Disable most animations on small mobile devices except letter opening, flowers, and hearts */
+    *:not(.flowers):not(.flowers *):not(.burst-heart):not(.wrapper):not(.wrapper *):not(.letter):not(.letter *):not(.lid):not(.lid *):not(.text):not(.text *):not(#openBtn):not(#openBtn *) {
         animation-duration: 0.1s !important;
         animation-delay: 0s !important;
         transition-duration: 0.1s !important;
     }
     
-    /* Keep minimal flower animation but make it ultra-simple */
-    .flowers * {
-        animation-duration: 8s !important; /* Reasonably paced */
-        animation-timing-function: linear !important;
+    /* Flowers are already disabled in the 768px media query, ensure complete override */
+    .flowers,
+    .flowers *,
+    .flowers .flower--1,
+    .flowers .flower--2,
+    .flowers .flower--3 {
+        animation: none !important;
+        -webkit-animation: none !important;
+        animation-duration: 0s !important;
+        animation-name: none !important;
+        animation-play-state: paused !important;
     }
     
-    /* Hide even more flower elements on small screens */
-    .flowers .flower__g--1:nth-child(n+3),
-    .flowers .flower__g--2:nth-child(n+3),
-    .flowers .flower__g--3:nth-child(n+3),
-    .flowers .leaf:nth-child(n+4) {
+    /* Hide only the most performance-heavy decorative elements on small screens */
+    .flowers .flower__light {
         display: none !important;
     }
     

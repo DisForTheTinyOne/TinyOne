@@ -91,40 +91,88 @@ openBtn.addEventListener("click", async () => {
 });
 
 function createHeartBurst() {
-    const button = document.getElementById('openBtn');
-    const buttonRect = button.getBoundingClientRect();
-    const buttonX = buttonRect.left + buttonRect.width / 2;
-    const buttonY = buttonRect.top + buttonRect.height / 2;
+    const isMobile = window.innerWidth <= 768;
     
-    // Create 15 hearts for a nice burst effect
-    for (let i = 0; i < 15; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'burst-heart';
-        heart.innerHTML = ['💕', '💖', '💗', '💘', '💝', '❤️', '🧡', '💛', '💚', '💙', '💜'][Math.floor(Math.random() * 11)];
+    if (isMobile) {
+        // Mobile-optimized: Simple hearts floating up from bottom with left-right drift
+        const heartCount = 8; // Slightly more hearts for better spread
+        const heartEmojis = ['💕', '💖', '💗', '💘', '💝', '❤️', '💜', '💙'];
         
-        // Position heart at button center
-        heart.style.left = buttonX + 'px';
-        heart.style.top = buttonY + 'px';
+        for (let i = 0; i < heartCount; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'burst-heart';
+            heart.innerHTML = heartEmojis[i % heartEmojis.length];
+            
+            // Position hearts across full screen width with more spacing
+            heart.style.left = (Math.random() * 100) + '%'; // Full width spread (0-100%)
+            heart.style.top = '100vh'; // Start from bottom
+            heart.style.fontSize = (18 + Math.random() * 12) + 'px'; // More size variation (18-30px)
+            
+            // First heart appears immediately, others have random timing
+            const randomDelay = i === 0 ? 0 : Math.random() * 3; // First heart: 0s, others: 0-3s random delay
+            
+            // Random speed for each heart - between 3-7 seconds duration
+            const randomDuration = 3 + Math.random() * 4; // 3-7 seconds
+            
+            // Set animation properties directly with important to override any conflicting CSS
+            heart.style.setProperty('animation-delay', randomDelay + 's', 'important');
+            heart.style.setProperty('animation-duration', randomDuration + 's', 'important');
+            heart.style.setProperty('animation-name', 'heartFloatUp', 'important');
+            heart.style.setProperty('animation-timing-function', 'ease-in-out', 'important');
+            heart.style.setProperty('animation-fill-mode', 'forwards', 'important');
+            
+            // Add horizontal drift for left-right floating motion
+            const driftDirection = Math.random() > 0.5 ? 1 : -1; // Random left or right
+            const driftAmount = (30 + Math.random() * 70) * driftDirection; // 30-100px drift
+            heart.style.setProperty('--drift-x', driftAmount + 'px');
+            
+            document.body.appendChild(heart);
+            
+            // Remove heart after animation (max delay + max duration + buffer)
+            const cleanupTime = (randomDelay + randomDuration + 1) * 1000;
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, cleanupTime);
+        }
+    } else {
+        // Desktop: Full burst effect
+        const button = document.getElementById('openBtn');
+        const buttonRect = button.getBoundingClientRect();
+        const buttonX = buttonRect.left + buttonRect.width / 2;
+        const buttonY = buttonRect.top + buttonRect.height / 2;
         
-        // More random directions and distances
-        const angle = Math.random() * Math.PI * 2; // Completely random angle
-        const distance = 80 + Math.random() * 1000; // More varied distances
-        const endX = buttonX + Math.cos(angle) * distance;
-        const endY = buttonY + Math.sin(angle) * distance;
-        
-        heart.style.setProperty('--end-x', endX + 'px');
-        heart.style.setProperty('--end-y', endY + 'px');
-        heart.style.setProperty('--rotation', (Math.random() - 0.5) * 720 + 'deg');
-        heart.style.setProperty('--delay', (i * 0.05) + 's');
-        
-        document.body.appendChild(heart);
-        
-        // Remove heart after animation
-        setTimeout(() => {
-            if (heart.parentNode) {
-                heart.parentNode.removeChild(heart);
-            }
-        }, 2000);
+        // Create 15 hearts for a nice burst effect
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'burst-heart';
+            heart.innerHTML = ['💕', '💖', '💗', '💘', '💝', '❤️', '🧡', '💛', '💚', '💙', '💜'][Math.floor(Math.random() * 11)];
+            
+            // Position heart at button center
+            heart.style.left = buttonX + 'px';
+            heart.style.top = buttonY + 'px';
+            
+            // More random directions and distances
+            const angle = Math.random() * Math.PI * 2; // Completely random angle
+            const distance = 80 + Math.random() * 1000; // More varied distances
+            const endX = buttonX + Math.cos(angle) * distance;
+            const endY = buttonY + Math.sin(angle) * distance;
+            
+            heart.style.setProperty('--end-x', endX + 'px');
+            heart.style.setProperty('--end-y', endY + 'px');
+            heart.style.setProperty('--rotation', (Math.random() - 0.5) * 720 + 'deg');
+            heart.style.setProperty('--delay', (i * 0.05) + 's');
+            
+            document.body.appendChild(heart);
+            
+            // Remove heart after animation
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 2000);
+        }
     }
 }
 
