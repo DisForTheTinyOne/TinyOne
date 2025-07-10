@@ -47,7 +47,8 @@ openBtn.addEventListener("click", async () => {
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
             message: '💕 Your tiny one just opened the letter! The journey begins! 💕',
-            timestamp: new Date().toLocaleString()
+            timestamp: new Date().toLocaleString(),
+            screen_width: window.innerWidth
         };
         
         await sendEmailIfProduction(templateParams);
@@ -137,7 +138,8 @@ document.addEventListener("click", async (e) => {
                 to_name: 'Alex',
                 from_name: 'Your Tiny One Website',
                 message: '💕 Your tiny one clicked Continue and is now reading the second page! 💕',
-                timestamp: new Date().toLocaleString()
+                timestamp: new Date().toLocaleString(),
+                screen_width: window.innerWidth
             };
             
             await sendEmailIfProduction(templateParams);
@@ -882,7 +884,8 @@ async function handleSpendTimeConfirm() {
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
             message: '💕 AMAZING NEWS! She wants to spend time with you! Your tiny one just confirmed! Time to get ready! 💕',
-            timestamp: new Date().toLocaleString()
+            timestamp: new Date().toLocaleString(),
+            screen_width: window.innerWidth
         };
         
         // Send email using EmailJS
@@ -988,7 +991,8 @@ async function openImageModal(imageSrc, imageAlt = '') {
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
             message: `💕 Your tiny one just enlarged a picture! 📸✨\n\nActive tab: ${activeTitle} (${activeDate})\n\nShe's looking at the memories from that day! 💕`,
-            timestamp: new Date().toLocaleString()
+            timestamp: new Date().toLocaleString(),
+            screen_width: window.innerWidth
         };
         
         await sendEmailIfProduction(templateParams);
