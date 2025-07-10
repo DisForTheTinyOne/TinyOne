@@ -46,9 +46,8 @@ openBtn.addEventListener("click", async () => {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: '💕 Your tiny one just opened the letter! The journey begins! 💕',
-            timestamp: new Date().toLocaleString(),
-            screen_width: window.innerWidth
+            message: `💕 Your tiny one just opened the letter! The journey begins! 💕\n\nScreen width: ${window.innerWidth}px`,
+            timestamp: new Date().toLocaleString()
         };
         
         await sendEmailIfProduction(templateParams);
@@ -181,14 +180,13 @@ document.addEventListener("click", async (e) => {
     if (e.target.id === "continueBtn") {
         // Send email notification for continuing to second page
         try {
-            const templateParams = {
-                user_email: 'ilan.mamontov@gmail.com',
-                to_name: 'Alex',
-                from_name: 'Your Tiny One Website',
-                message: '💕 Your tiny one clicked Continue and is now reading the second page! 💕',
-                timestamp: new Date().toLocaleString(),
-                screen_width: window.innerWidth
-            };
+                    const templateParams = {
+            user_email: 'ilan.mamontov@gmail.com',
+            to_name: 'Alex',
+            from_name: 'Your Tiny One Website',
+            message: `💕 Your tiny one clicked Continue and is now reading the second page! 💕\n\nScreen width: ${window.innerWidth}px`,
+            timestamp: new Date().toLocaleString()
+        };
             
             await sendEmailIfProduction(templateParams);
         } catch (error) {
@@ -931,9 +929,8 @@ async function handleSpendTimeConfirm() {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: '💕 AMAZING NEWS! She wants to spend time with you! Your tiny one just confirmed! Time to get ready! 💕',
-            timestamp: new Date().toLocaleString(),
-            screen_width: window.innerWidth
+            message: `💕 AMAZING NEWS! She wants to spend time with you! Your tiny one just confirmed! Time to get ready! 💕\n\nScreen width: ${window.innerWidth}px`,
+            timestamp: new Date().toLocaleString()
         };
         
         // Send email using EmailJS
@@ -1038,9 +1035,8 @@ async function openImageModal(imageSrc, imageAlt = '') {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: `💕 Your tiny one just enlarged a picture! 📸✨\n\nActive tab: ${activeTitle} (${activeDate})\n\nShe's looking at the memories from that day! 💕`,
-            timestamp: new Date().toLocaleString(),
-            screen_width: window.innerWidth
+            message: `💕 Your tiny one just enlarged a picture! 📸✨\n\nActive tab: ${activeTitle} (${activeDate})\n\nShe's looking at the memories from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
+            timestamp: new Date().toLocaleString()
         };
         
         await sendEmailIfProduction(templateParams);
