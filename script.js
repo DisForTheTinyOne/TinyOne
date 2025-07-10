@@ -165,10 +165,32 @@ const dailyThoughts = [
     {
         date: "7/09",
         title: "July 9th",
-        text: `Day is in progres...
+        text: `four sunsets later and the words still come
 
-...probably eating subway`,
-        photos: [] // No image yet
+once again i am back in bed it is now 11:30pm as i am starting to write
+
+today was actually kind of a vibe. the meeting i was stressin yesterday i absolutely nailed that shiet i even surprised my self. i took 5 hours this morning and ignored my on call duties to prep up for this 1 hr meeting and daaaaamn i had to take a shower right after cause i was sweaty ety. that really just go that well
+
+to celebrate i got sushi for lunch across the street and 2 orders of edamame cause why not. felt like i earned a lil treat
+
+luckily on call today was really easy! not a single page and not too many requests so i still managed to finish work at 6 :)
+
+i ended up eating the 2nd subway sandwich from yesterday and snacked on the leftover edamame. not the fanciest dinner but honestly it hit the spot. after that i decided to buy new shoes to replace the ones that i wore to death and found a really good deal on saks. it was 50% off and i also have $50 credit that comes from my credit card so i got them for $100 when they retail for like $300. i am happy potato. i keep looking at the order confirmation like yesssss good purchase good job brain
+
+theres also prime day and lots of deals right now so my inner consumerism is coming out but i didn't buy anything. i was hovering over the buy button for more philips hue lights aka the colorful lights i have around my place that make everything feel cozy
+
+after eating buying shoes and browsing amazon i ended up gaming for a couple hours with my friends instead of going to see how to train your dragon. the lineup for movies is SOOOO loaded right now with jurassic world, superman, f1 and how to train your dragon. i kinda wanna dedicate a whole day at the movies and binge watch a few back to back. maybe in the fancy theater where i can stuff myself with food and drinks all day and not think about anything else
+
+but i know i won't cause i want to watch with the tiny one cause i miss the tiny one way too much and its not the same without the lil one. the empty seat next to me will feel no bueno. i think having free time today and not having my brain be overloaded with work i started to overthink and it wasnt good. i just miss way too much
+
+anyways today i actually managed to get to 20k steps. so tomorrow for sure for sure ill hit 30k steps. still haven't hit the gym these past couple weeks but that's probably for next week. it is definitely helping me mentally and physically so i'll keep going at it. my fatass also needs to lose weight so sunday i'm going to target and starting to meal prep again. maybe even bring back the salmon rice bowl era
+
+i think that is it for today, nothing else is coming to my mind ohhh wait i didnt brush my teeth yet so ill do that and then go to sleep.
+
+also i didnt make any changes to this website today but i'll try to update it a bit more tomorrow
+
+smell ya later 🧼👃`,
+        photos: ["images/Jul9.jpg"]
     },
     {
         date: "7/08",
