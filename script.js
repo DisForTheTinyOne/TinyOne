@@ -214,6 +214,14 @@ const dailyThoughts = [
     {
         date: "7/10",
         title: "July 10th",
+        text: `day is in progress...
+        
+        weeeee the date scroll bar is working`,
+        photos: []
+    },
+    {
+        date: "7/10",
+        title: "July 10th",
         text: `hello every body this is day 5 and im still kickin it
 
 today i optimized the first screen on mobile cause it was absolutely killing my old phone and things were slow so i added an other lil animation that looks better it kinda just feels smoother now. I also removed the flower blooming on mobile but kept it on desktop cause i still like the vibe there. i've also made so the date above can scroll to the right so alllll the dates can fit as the numbers go up up UP
