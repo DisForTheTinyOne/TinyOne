@@ -66,6 +66,7 @@ openBtn.addEventListener("click", async () => {
         openBtn.disabled = true;
         openBtn.classList.add('disabled');
         openBtn.classList.remove('bursting');
+        openBtn.textContent = 'Open';
     }, 600);
     
     // Add animating class and optimize will-change
