@@ -214,10 +214,44 @@ const dailyThoughts = [
     {
         date: "7/10",
         title: "July 10th",
-        text: `day is in progress...
-        
-        currently walking on the treadmill`,
-        photos: []
+        text: `hello every body this is day 5 and im still kickin it
+
+today i optimized the first screen on mobile cause it was absolutely killing my old phone and things were slow so i added an other lil animation that looks better it kinda just feels smoother now. I also removed the flower blooming on mobile but kept it on desktop cause i still like the vibe there. i've also made so the date above can scroll to the right so alllll the dates can fit as the numbers go up up UP
+
+today was kinda uneventful as usual during my on call weeks. I got paged 2 times this morning so thats pretty good not too disruptive and gave me some time to breathe. also got some good progress thru my on call queue and pretty proud of myself
+
+for lunch i ordered chipotle and they had a deal where when you order $25 they give you a free $16 quesediila. so to get to $25 i got 1 bowl and stuffed it with guac the new honey chicken (extra cost) and then did double protein it was basically a protein bomb
+
+my chipotle bowl ended up being $26 which is wild but got a free meal for tomorrow :) so i guess that evens it out. gotta enjoy my last couple days of ordering out before im back to eating homemade food. I really want to make those pizza wraps again but im missing my lil helper to wrap them up so might have to skip that one
+
+it is currently 11:06 and i wrapped up work about an hour ago. I am back on the treadmill as i am typing this out getting my final steps in. it is soooo hot in sf even in south san francisco and im refusing to turn on the AC. so I am currently in my undies and shirtless as im walking and typing not the most glamorous but it works. I also got a tiny white claw as my first drink of the week cause im tired and deserve it like a treat
+
+i did reallyyyy good with my steps today which is why it is my picture of the day gotta flex the numbers. also nothing else happened today so imma take the picture after im done typing this out
+
+even while im in my undies im still so sweaty so i need to take a shower later maybe throw in a cold rinse. pooping has gotten better i pooped only twice and it was solid logs. but my booty crack is sore and it hurts i think from too much wiping and then walking for like 8 hours today which is not good not good
+
+i was looking what to do this weekend and i saw illenium tickets were only $60 because everyone is going to wobbleland.  lucky me i managed to snag today a vip ticket to wobbleland friday for less than retail price of a GA ticket which is wild. im glad i got a vip ticket cause the line was so long for dreamstate and i think if i went by myself and stood in line for like 30 mins alone would make me sad and depressi
+
+so having VIP also allows me to skip that line. I think imma wear the anyma hoodie hehe as usual it's becoming my rave fit. but i'll go to the merch section and get a couple things if there is a merch section. im glad im going out cause i think ive stared at my laptop for around 55 hours these past 4 days so prob gonna be 65 hours by the end of tmrw which is a bit much
+
+i dont think i will enjoy wobbleland too much but anything to get out at this point i think even loud music sounds better than a page. i just hope i dont get paged while im there cause theres no way im answering not even gonna try
+
+i think for tomorrows daily update it'll be a 2 parter. i'll put my thoughts down before i leave and then i'll update with my experience the next morning with some pictures like a before and after
+
+i still feel like i got so many chores to do around my apartment but i thinks thats for sunday hopefully i can push it all to then. so much laundry to fold havent washed my sheets in a couple weeks or maybe even more and my fridge is messy like leftover city
+
+anyways i'm always thinking how the tiny one is doing and if shes having fun i hope she's okay and sleeping well
+
+i dont remember if i mentioned in my previous days but i made a call to a adoption center and asked if they have any kittens to foster. they said they'll call me back monday and ask me to come by maybe i'll get to meet some of the baby ones
+
+they said you gotta foster for around 4 weeks for a kitten but everything is provided so i might do that for lil bit i feel like it'd be good for my heart
+
+i think that is it for today i might spend another 10 mins adding something new to this site probably something small but i need to shower first cause my undies are soaked and i feel nasty . i also only took a couple sips of this whiteclaw so i need to down it brb
+
+ok white is in my belly and my belly is happy
+
+off to chew some bamboo, panda out ✌️`,
+        photos: ["images/Jul10.jpg"]
     },
     {
         date: "7/09",
