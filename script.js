@@ -223,25 +223,25 @@ const dailyThoughts = [
         title: "July 10th",
         text: `chapter 6 in the saga
 
-i've added a word count to each day! damn its really already been 3000ish words of me yappin late night
+i've added a word count to each day! damn it's really already been 3000ish words of me yappin late night
 
-i don't know if the tiny one even reads any of this, but i've also added a 2nd button at the end of the last page :) might be a bit tooooo cheesy but in case the lil one ever needs someone to pick them up from the airport press the button
+i don't know if the tiny one even reads any of this, but i've also added a 2nd button at the end of the last page :) might be a bit tooooo cheesy but in case the lil one ever needs someone to pick them up from the airport press the button. i've added it in case you don't want to text me, but still want someone to pick you up from the airport cause i will gladly do it anytime
 
-dont worry if you accidentally press it! there's gonna be a 2nd lil window that comes up asking for the flight #, optionally of course cause you can always text me later. i deep down hoping you press it when you come back to sf next sunday hehe so the button will always be there in case you ever need someone to pick you up
+don't worry if you accidentally press it! there's gonna be a 2nd lil window that comes up asking for the flight number, optionally of course cause you can always text me later. i’m deep down hoping you press it when you come back to sf next sunday hehe so the button will always be there in case you ever need someone to pick you up
 
 i also slightlyyyy cleaned up the last page, i have a couple things i want to add to the last page aka remove that big block of text and replace with something else
 
-okiiiii thats the daily site update! hehe i love the lil updates
+okiiiii that's the daily site update! hehe i love the lil updates
 
-it is currently 6:26pm and i just wrapped up work. i went to the local convenience store to grab a 12 whiteclaw pack so im going thru my first one. pregaming by myself isn't the funnest experience but im kinda excited to go to wobblelands now
+it is currently 6:26pm and i just wrapped up work. i went to the local convenience store to grab a 12 whiteclaw pack so i'm going thru my first one. pregaming by myself isn't the funnest experience but i'm kinda excited to go to wobblelands now
 
-plan is to get there at 8pm so i got about an hr to leave aka finish this, shower get ready and peace out
+plan is to get there at 8pm so i got about an hour to leave aka finish this, shower, get ready and peace out
 
-unfortunately i got paged today a 5am so i only got a total of 4 hours of sleep... not ideal but at least on call is kinda over
+unfortunately i got paged today at 5am so i only got a total of 4 hours of sleep... not ideal but at least on call is kinda over
 
 only got 15k steps during work but hoping to get another 10k steps while i go on side quests
 
-okiiii thats it for now i need to go shower and then upload a pic in about an hr. i'll update this date tmrw morning to talk about my experience
+okiiii that's it for now i need to go shower and then upload a pic in about an hour. i'll update this date tmrw morning to talk about my experience
 
 ok bye for now`,
         photos: []
