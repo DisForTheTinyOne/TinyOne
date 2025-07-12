@@ -245,9 +245,45 @@ okiiii that's it for now i need to go shower and then upload a pic in about an h
 
 ok bye for now
 
-its 723 and this is my pregame station! 1 more whiteclaw am im out`,
+its 723 and this is my pregame station! 1 more whiteclaw am im out
 
-        photos: ["images/Jul11.jpg"]
+hiiiii this is next day and it is 1030am 
+
+im still in bed soooo eepy so i'll prob nap for a bit more after i type this one
+
+not gonna lie yesterday was suuuch a vibe i think it is cause of the VIP ticket. the line was soooo long i think some people said it took 1-2 hrs to get in
+
+for me it took 1 minute :)
+
+first thing i did when i got in was go straight to the merch store... i was already drunk and the place was PACKED
+
+I ended up getting a couple things, one for the tiny one obviously. it was around 8pm and i think there was 4 more headliners to go thru. i bought a tiny white claw ($14 jesus christ) and did some side questing and walked around
+
+i walked to a VIP area which had a bunch of really cute seating and a bar. there was no line to the bar and the bartenders were SOOO friendly like genuinely it made my night. i was kinda done with my first white claw and i figured i'll try something else
+
+they got me a beat box for a discounted price and they also saw me carrying the merch so they insisted they hold it for me they were so sweet
+
+there is also a private bathroom with no line and it was clean. the lines outside of this area was sooo long especially for girls prob a 30mins wait time
+
+i took a lil selfie of me at the vip section ok but like i was already drunk so pls ignore
+
+i also ended up getting a hotdog to go with my beatbox... i never had a beatbox that shiet is bomb. i think it was selling for $19 and i had no idea it was 12%. that box will fk you up so much harder than a whiteclaw so the value is there
+
+i didnt end up going to the floor even tho vip had a lil section pretty close to the DJ i ended up just hanging up on the 2nd floor similar to dreamstate. by the end of the night the whole 2nd floor was packed not a single seat free around the center
+
+overall i enjoyed the experience not my type of music but the people vibe people were bringing made it up. i was also really drunk by the end of the night and left about 45 mins before the end cause i didnt want to deal with the crowd. the closing headliner aka woolie was such a vibe
+
+people in the stands were really sweet but i heard people on the floor is not a vibe cause of ppl pushing around and stuff for this type of music. ppl up top were just having fun and also lit AF lol
+
+so heres a few pictures from last night. i think the tiny one wouldve enjoyed at least the VIP experience. 
+
+ive ended up buying another VIP ticket right now so going for round 2! aiming for 8pm again but not gonna drink as much
+
+im still so tired so gonna take another nap 
+
+sea ya later alligator`,
+
+        photos: ["images/Jul11.jpg", "images/Jul11_2.jpg", "images/Jul11_3.jpg", "images/Jul11_4.jpg", "images/Jul11_5.jpg"]
     },
     {
         date: "7/10",
