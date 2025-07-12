@@ -243,8 +243,11 @@ only got 15k steps during work but hoping to get another 10k steps while i go on
 
 okiiii that's it for now i need to go shower and then upload a pic in about an hour. i'll update this date tmrw morning to talk about my experience
 
-ok bye for now`,
-        photos: []
+ok bye for now
+
+its 723 and this is my pregame station! 1 more whiteclaw am im out`,
+
+        photos: ["images/Jul11.jpg"]
     },
     {
         date: "7/10",
