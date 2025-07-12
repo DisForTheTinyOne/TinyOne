@@ -200,12 +200,19 @@ document.addEventListener("click", async (e) => {
         expandToFullScreen();
     } else if (e.target.id === "spendTimeBtn") {
         showSpendTimeModal();
+    } else if (e.target.id === "pickMeUpBtn") {
+        showPickMeUpModal();
     } else if (e.target.id === "confirmSpendTime") {
         handleSpendTimeConfirm();
+    } else if (e.target.id === "confirmPickMeUp") {
+        handlePickMeUpConfirm();
     } else if (e.target.id === "cancelSpendTime") {
         hideSpendTimeModal();
+    } else if (e.target.id === "cancelPickMeUp") {
+        hidePickMeUpModal();
     } else if (e.target.classList.contains("modal-overlay")) {
         hideSpendTimeModal();
+        hidePickMeUpModal();
     }
 });
 
@@ -214,9 +221,29 @@ const dailyThoughts = [
     {
         date: "7/10",
         title: "July 10th",
-        text: `day is in progress...
-        
-        weeeee the date scroll bar is working`,
+        text: `chapter 6 in the saga
+
+i've added a word count to each day! damn its really already been 3000ish words of me yappin late night
+
+i don't know if the tiny one even reads any of this, but i've also added a 2nd button at the end of the last page :) might be a bit tooooo cheesy but in case the lil one ever needs someone to pick them up from the airport press the button
+
+dont worry if you accidentally press it! there's gonna be a 2nd lil window that comes up asking for the flight #, optionally of course cause you can always text me later. i deep down hoping you press it when you come back to sf next sunday hehe so the button will always be there in case you ever need someone to pick you up
+
+i also slightlyyyy cleaned up the last page, i have a couple things i want to add to the last page aka remove that big block of text and replace with something else
+
+okiiiii thats the daily site update! hehe i love the lil updates
+
+it is currently 6:26pm and i just wrapped up work. i went to the local convenience store to grab a 12 whiteclaw pack so im going thru my first one. pregaming by myself isn't the funnest experience but im kinda excited to go to wobblelands now
+
+plan is to get there at 8pm so i got about an hr to leave aka finish this, shower get ready and peace out
+
+unfortunately i got paged today a 5am so i only got a total of 4 hours of sleep... not ideal but at least on call is kinda over
+
+only got 15k steps during work but hoping to get another 10k steps while i go on side quests
+
+okiiii thats it for now i need to go shower and then upload a pic in about an hr. i'll update this date tmrw morning to talk about my experience
+
+ok bye for now`,
         photos: []
     },
     {
@@ -406,6 +433,12 @@ function showDailyThoughtsPage() {
         </div>`
     ).join('');
     
+    // Helper function to count words in text
+    const countWords = (text) => {
+        if (!text || typeof text !== 'string') return 0;
+        return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+    };
+
     // Helper function to generate individual tab content
     const generateTabContent = (day, dayIndex) => {
         // Handle both single photo and multiple photos
@@ -434,9 +467,13 @@ function showDailyThoughtsPage() {
         }
         
         const hasImages = day.photos && day.photos.length > 0;
+        const wordCount = countWords(day.text);
         
         return `<div class="daily-entry">
             <h3>${day.title}</h3>
+            <div class="word-count-info">
+                <span class="word-count">📝 ${wordCount} words</span>
+            </div>
 
             <div class="entry-layout ${hasImages ? '' : 'no-photo'}">
                 <div class="entry-text">
@@ -811,40 +848,10 @@ function showSecondPage() {
         setTimeout(() => {
             const fullScreenOverlay = document.getElementById('fullScreenOverlay');
             if (fullScreenOverlay) {
-                // Reduce background elements on mobile for better performance
-                const isMobile = window.innerWidth <= 768;
-                const backgroundElements = isMobile ? '' : `
-                    <div class="background-words">
-                        <span class="word word-1">Love</span>
-                        <span class="word word-2">Forever</span>
-                        <span class="word word-3">Always</span>
-                        <span class="word word-4">Together</span>
-                        <span class="word word-5">Heart</span>
-                        <span class="word word-6">Kitten</span>
-                        <span class="word word-7">Hennus</span>
-                        <span class="word word-8">Kiss</span>
-                        <span class="word word-9">Tiny one</span>
-                        <span class="word word-10">Little one</span>
-                    </div>
-                    <div class="background-hearts">
-                        <span class="heart heart-1">♥</span>
-                        <span class="heart heart-2">♥</span>
-                        <span class="heart heart-3">♥</span>
-                        <span class="heart heart-4">♥</span>
-                        <span class="heart heart-5">♥</span>
-                        <span class="heart heart-6">♥</span>
-                        <span class="heart heart-7">♥</span>
-                        <span class="heart heart-8">♥</span>
-                        <span class="heart heart-9">♥</span>
-                        <span class="heart heart-10">♥</span>
-                        <span class="heart heart-11">♥</span>
-                        <span class="heart heart-12">♥</span>
-                    </div>`;
-                
+                // Clean design without background distractions
                 fullScreenOverlay.innerHTML = `
-                    ${backgroundElements}
                     <div class="full-screen-content fade-in animating">
-                        <div class="video-page">
+                        <div class="video-page clean-design">
                             <div class="personal-message">
                                 <h2>Hi tiny one,</h2>
                                 
@@ -868,6 +875,7 @@ function showSecondPage() {
                             </div>
                             <div class="spend-time-section">
                                 <button id="spendTimeBtn" class="spend-time-btn">Let's spend time 💕</button>
+                                <button id="pickMeUpBtn" class="pick-me-up-btn">Pick me up! ✈️</button>
                             </div>
                         </div>
                     </div>
@@ -1006,6 +1014,121 @@ async function handleSpendTimeConfirm() {
     setTimeout(() => {
         confirmMessage.remove();
     }, 12000);
+}
+
+function showPickMeUpModal() {
+    const modalOverlay = document.createElement('div');
+    modalOverlay.className = 'modal-overlay pick-me-up-modal animating';
+    modalOverlay.id = 'pickMeUpModal';
+    
+    modalOverlay.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Pick me up! ✈️</h3>
+            </div>
+            <div class="modal-body">
+                <p>Please share your flight details so I can pick you up!</p>
+                <div class="flight-input-section">
+                    <label for="flightNumber">Flight Number (optional):</label>
+                    <input type="text" id="flightNumber" placeholder="e.g. AA123, UA456..." />
+                    <small>You can also just text me the details instead 📱</small>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="confirmPickMeUp" class="confirm-btn">Submit</button>
+                <button id="cancelPickMeUp" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modalOverlay);
+    
+    // Trigger animation
+    requestAnimationFrame(() => {
+        modalOverlay.classList.add('show');
+        setTimeout(() => {
+            modalOverlay.classList.remove('animating');
+        }, 300);
+    });
+    
+    // Focus on input
+    setTimeout(() => {
+        const flightInput = document.getElementById('flightNumber');
+        if (flightInput) flightInput.focus();
+    }, 100);
+}
+
+function hidePickMeUpModal() {
+    const modalOverlay = document.querySelector('.pick-me-up-modal');
+    if (modalOverlay) {
+        modalOverlay.classList.add('animating');
+        modalOverlay.classList.remove('show');
+        
+        setTimeout(() => {
+            if (modalOverlay.parentNode) {
+                modalOverlay.parentNode.removeChild(modalOverlay);
+            }
+        }, 300);
+    }
+}
+
+async function handlePickMeUpConfirm() {
+    const flightNumber = document.getElementById('flightNumber').value.trim();
+    
+    hidePickMeUpModal();
+    
+    // Disable the pick me up button
+    const pickMeUpBtn = document.getElementById('pickMeUpBtn');
+    if (pickMeUpBtn) {
+        pickMeUpBtn.disabled = true;
+        pickMeUpBtn.classList.add('disabled');
+        pickMeUpBtn.textContent = 'Pickup request sent ✈️';
+    }
+    
+    // Send email notification
+    try {
+        const templateParams = {
+            user_email: 'ilan.mamontov@gmail.com',
+            to_name: 'Alex',
+            from_name: 'Your Tiny One Website',
+            message: `✈️ PICK UP THE LITTLE ONE! ✈️\n\nYour tiny one needs a pickup! Time to be her airport hero! 💕\n\nFlight Details: ${flightNumber || 'She will text you the details'}\n\nScreen width: ${window.innerWidth}px`,
+            timestamp: new Date().toLocaleString()
+        };
+        
+        await sendEmailIfProduction(templateParams);
+        
+    } catch (error) {
+        console.error('Error sending pickup email:', error);
+        if (!isLocalEnvironment()) {
+            alert('⚠️ Pickup request failed to send. Please text me instead');
+        }
+    }
+    
+    // Show confirmation message
+    const confirmMessage = document.createElement('div');
+    confirmMessage.className = 'confirm-message';
+    confirmMessage.innerHTML = `
+        <div class="message-content">
+            <h3>I will see you Sunday!</h3>
+            <p class="email-status">Alex has been notified and will pick you up!</p>
+        </div>
+    `;
+    
+    document.body.appendChild(confirmMessage);
+    
+    // Trigger show animation
+    requestAnimationFrame(() => {
+        confirmMessage.classList.add('show');
+    });
+    
+    // Remove message after 8 seconds
+    setTimeout(() => {
+        confirmMessage.classList.remove('show');
+        // Remove from DOM after fade out
+        setTimeout(() => {
+            confirmMessage.remove();
+        }, 300);
+    }, 8000);
 }
 
 function addScrollIndicatorLogic() {
