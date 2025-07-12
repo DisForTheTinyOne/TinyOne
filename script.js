@@ -219,8 +219,8 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
-        date: "7/10",
-        title: "July 10th",
+        date: "7/11",
+        title: "July 11th",
         text: `chapter 6 in the saga
 
 i've added a word count to each day! damn it's really already been 3000ish words of me yappin late night
