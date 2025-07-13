@@ -237,9 +237,9 @@ i did manage to come out of the parking lot with a free buzzball so ill take it
 
 today instead of the anyma hoodie i wore a "barely alive" jersey that i got for the tiny one. i got it in large cause i feel jerseys always gotta be big. so now i got the stinkiness on it
 
-it was funny wearing jersey cause while walking around cow palace i prob same 10 other people wearing the jersey and they'd always smile back. unintentionally matching
+it was funny wearing jersey cause while walking around cow palace i probably saw 10 other people wearing the jersey and they'd always smile back. unintentionally matching
 
-i was also going thru my pictures and i saw i took a 3 minutes video of my trying out the merch when i came back home friday night at like 1 am. that footage is never seeing light... maybe
+i was also going thru my pictures and i saw i took a 3 minutes video of me trying out the merch when i came back home friday night at like 1 am. that footage is never seeing light... maybe
 
 i was sooooo drunk and doing my voice as if i was talking to the tiny one
 
