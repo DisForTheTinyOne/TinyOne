@@ -219,6 +219,57 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/12",
+        title: "July 12th",
+        text: `week 1 episode finale
+
+i just woke up it is 10am and i came back home at around 1am
+
+i left 30 mins before the end but i think today i enjoyed the music more
+
+i think today this morning i wont type as much cause i am sooooo tired and eepy so might crash again after typing this one out
+
+yesterday during the day i got out of bed at like 1pm after my nap. i ordered mcdonalds aka 2 double cheese burgers and started cleaning up my place a bit. i also finally changed my sheets so i am not laying on squeaky clean sheets
+
+i went earlier to cow palace yesterday at around 6pm and decided to wander around the parking lot. the pregame culture for cow palace is wild hahah like people come in early park and there were soooo many people in the lot pregaming. while walking few people offered to drink with them but i was in my zone and already kinda drunk so didn't join anyone.
+
+i did manage to come out of the parking lot with a free buzzball so ill take it
+
+today instead of the anyma hoodie i wore a "barely alive" jersey that i got for the tiny one. i got it in large cause i feel jerseys always gotta be big. so now i got the stinkiness on it
+
+it was funny wearing jersey cause while walking around cow palace i prob same 10 other people wearing the jersey and they'd always smile back. unintentionally matching
+
+i was also going thru my pictures and i saw i took a 3 minutes video of my trying out the merch when i came back home friday night at like 1 am. that footage is never seeing light... maybe
+
+i was sooooo drunk and doing my voice as if i was talking to the tiny one
+
+that will not be publicly avaiable
+
+side note i just ordered greek food while im in bed. the place is like 2 blocks away but im getting it delivered cause my fatass is too lazy and im too cozy in my undies in bed. as usual the bedroom is cold, in my fresh sheets under all the blankies im good im not going outside
+
+anywayyys it felt like yesterdays music was much better. i went to the floor when crankdat came up jesus the floor was PACKED. it was sooo hot with no ventilation
+
+people were also rude with no one saying excuse me or anything as they were pushing around. i think the hard base/dubstep crowd is a bit different from what i usually go for
+
+so obviously i ended up going back in the bleachers and vibed there
+
+i only got 1 wine box thingy during the night from my favorite bartender (it was the same people from last night in the vip section) and they recognized me and talked about the jersey i was wearing. it was really cute but i did not get a discount this time rip
+
+i thiiink thats it for yesterdays day. im in bed and food is delivered in the lobby so i gotta put some clothes on. im typing this one with only 1 eye ball open cause im soooo eepy
+
+i got no plans for today so im going to eat and prob nap again. i think for dinner im going to go on a solo date aka pick a random place in my neighborhood and do a sit down
+
+ill do another update on todays day around midnight
+
+i think my friends are free to game tn so thats the plan otherwise i think im just going to rot
+
+also i did a minor update on this page! ive added a little bar underneath the header with the same gradient. also cleaned up some spacing around this page
+
+okiii im hungry bye`,
+
+        photos: ["images/Jul12_1.jpg", "images/Jul12_2.jpg", "images/Jul12_3.jpg"]
+    },
+    {
         date: "7/11",
         title: "July 11th",
         text: `chapter 6 in the saga
@@ -563,6 +614,7 @@ function showDailyThoughtsPage() {
                 <div class="page-header">
                     <h1>Daily Thoughts</h1>
                     <p class="header-subtitle">How am I feeling today?</p>
+                    <div class="header-gradient-bar"></div>
                 </div>
                 
                 <div class="tabs-container">

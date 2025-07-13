@@ -3649,7 +3649,7 @@ button:active {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 12px;
+    margin-bottom: 7px;
     font-weight: 700;
     letter-spacing: -0.025em;
     line-height: 1.1;
@@ -3660,6 +3660,15 @@ button:active {
     font-size: 1.125rem;
     margin: 0;
     font-weight: 400;
+    opacity: 0.8;
+}
+
+.header-gradient-bar {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(135deg, #d946ef 0%, #ec4899 50%, #f97316 100%);
+    margin: 16px auto 0 auto;
+    border-radius: 1px;
     opacity: 0.8;
 }
 
@@ -4051,7 +4060,7 @@ button:active {
     }
     
     .page-header {
-        margin-bottom: 32px;
+        margin-bottom: 2  2px;
         text-align: center;
         width: 100%;
     }
