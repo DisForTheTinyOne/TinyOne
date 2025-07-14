@@ -219,6 +219,15 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/14",
+        title: "July 14th",
+        text: `day is in progress...
+        
+        on-call duties are over and back on the treadmill`,
+
+        photos: []
+    },
+    {
         date: "7/13",
         title: "July 13th",
         text: `eight days of wandering words and sleepy thoughts
