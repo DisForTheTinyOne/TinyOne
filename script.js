@@ -219,6 +219,29 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/13",
+        title: "July 13th",
+        text: `eight days of wandering words and sleepy thoughts
+
+today i think will be the shortest one!
+
+im in bed it is 1130 and im so tired... i think going out these past 2 days messed me up real good. i wanted to meal prep and go out and eat but instead i was just rotting and watching movies
+
+I ended up watching social network and the very first avengers. i also gamed from 9pm to 11pm with my buddies
+
+nothing too productive today but i did get quesadilla from the food truck it was really good
+
+ive actually ended up editing the video i recorded of myself yappin and trying out the merch but i had to remove about 50% of the footage. it was wayyyy too cringy hehe
+
+also one of the picture i finally shaved the little patch i had on my chin so i obivously had to take a pic and upload it to this site
+
+other than that nothing interesting happened today. felt pretty lonaly today tbh but im going into this week pretty refreshed
+
+im just really eepy today so not a lot of typing, but the edited video should make up for it (horribly edited btw) and also very drunk`,
+
+        photos: ["images/Jul13_1.jpg", "images/Jul13_2.jpg", "images/Jul13_vid.mp4"]
+    },
+    {
         date: "7/12",
         title: "July 12th",
         text: `week 1 episode finale
@@ -536,22 +559,32 @@ function showDailyThoughtsPage() {
         
         if (day.photos && Array.isArray(day.photos) && day.photos.length > 0) {
             if (day.photos.length === 1) {
-                // Single photo
+                // Single photo or video
+                const isVideo = day.photos[0].endsWith('.mp4');
                 photoSection = `
                     <div class="entry-photo">
-                        <img src="${day.photos[0]}" />
-                        <p class="photo-caption">A moment from ${day.date} • Click to enlarge</p>
+                        ${isVideo ? 
+                            `<video src="${day.photos[0]}" controls style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);"></video>` :
+                            `<img src="${day.photos[0]}" />`
+                        }
+                        <p class="photo-caption">A moment from ${day.date} • ${isVideo ? 'Click to play' : 'Click to enlarge'}</p>
                     </div>`;
             } else {
-                // Multiple photos
+                // Multiple photos/videos
                 photoSection = `
                     <div class="entry-photos">
-                        ${day.photos.map(photo => `
-                            <div class="entry-photo">
-                                <img src="${photo}" />
-                            </div>
-                        `).join('')}
-                        <p class="photo-caption">Moments from ${day.date} • Click any image to enlarge</p>
+                        ${day.photos.map(photo => {
+                            const isVideo = photo.endsWith('.mp4');
+                            return `
+                                <div class="entry-photo">
+                                    ${isVideo ? 
+                                        `<video src="${photo}" controls style="width: 100%; max-width: 350px; height: auto; border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);"></video>` :
+                                        `<img src="${photo}" />`
+                                    }
+                                </div>
+                            `;
+                        }).join('')}
+                        <p class="photo-caption">Moments from ${day.date} • Click any image to enlarge or video to play</p>
                     </div>`;
             }
         }

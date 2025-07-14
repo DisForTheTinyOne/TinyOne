@@ -3924,6 +3924,21 @@ button:active {
     box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.35);
 }
 
+.entry-photo video {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.entry-photo video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.35);
+}
+
 /* Multiple photos layout */
 .entry-photos {
     display: flex;
@@ -3951,6 +3966,21 @@ button:active {
 
 .entry-photos .entry-photo img:hover {
     transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+}
+
+.entry-photos .entry-photo video {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.entry-photos .entry-photo video:hover {
+    transform: scale(1.02);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
 }
 
@@ -4219,6 +4249,26 @@ button:active {
         margin: 0 auto;
         display: block;
     }
+
+    .entry-photo video {
+        height: auto;
+        width: 100%;
+        max-width: 320px;
+        border-radius: 16px;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .entry-photos .entry-photo video {
+        height: auto;
+        width: 100%;
+        max-width: 300px;
+        border-radius: 14px;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
+    }
     
     .photo-caption {
         font-size: 12px;
@@ -4403,6 +4453,26 @@ button:active {
     }
     
     .entry-photos .entry-photo img {
+        height: auto;
+        width: 100%;
+        max-width: 280px;
+        border-radius: 12px;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .entry-photo video {
+        height: auto;
+        width: 100%;
+        max-width: 300px;
+        border-radius: 14px;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .entry-photos .entry-photo video {
         height: auto;
         width: 100%;
         max-width: 280px;
