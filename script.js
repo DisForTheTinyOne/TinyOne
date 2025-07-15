@@ -219,6 +219,13 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/15",
+        title: "July 15th",
+        text: `day is in progress...`,
+
+        photos: ["images/Jul15.jpg"]
+    },
+    {
         date: "7/14",
         title: "July 14th",
         text: `it’s been nine days, and i keep wondering if imm talking to you or just filling the space you left behind
