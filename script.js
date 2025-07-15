@@ -221,11 +221,31 @@ const dailyThoughts = [
     {
         date: "7/14",
         title: "July 14th",
-        text: `day is in progress...
+        text: `it’s been nine days, and i keep wondering if imm talking to you or just filling the space you left behind
         
-        on-call duties are over and back on the treadmill`,
+        today was a chill day. i woke up in the morning not feeling too great mentally mostly sad for some reason
+        
+        i woke up at around 7 so i decided to hit the gym for the first time in a while, i also did get a few steps in on the treadmill
+        
+        im also stressing a bit about work and this new work project... not to sure where to start with it
+        
+        i think today ill keep it light, ill probably complete this daily update tomorrow morning.
+        
+        it is currently 12:50am and i am so tired and a bit stressi.
+        
+        i did actually meal prep today. i somehow found the will power to go to target and get some cooking done
+        
+        otherwise nothing much happened today. i was just chilling and watching youtube. im considering starting the new season of love island cause i keep seing it on my tiktok feed
+        
+        i just wanna watch something and turn my brain off cause i dont want to think about anything
+        
+        anyways thats it for today i think. tomorrow im getting my new shoes delivered so im pumped.
+        
+        im also getting the extension cord i need to get my sensor + light under the bed workng again. its been like 2 months its been busted so need get productive and fix shiet up
+        
+        im signing off for now, i need to go to sleep. my teeth brushed, background music is on, window is open, and fresh tshirt one. time to eep`,
 
-        photos: []
+        photos: ["images/Jul14.jpg"]
     },
     {
         date: "7/13",
