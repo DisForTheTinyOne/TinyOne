@@ -221,9 +221,41 @@ const dailyThoughts = [
     {
         date: "7/15",
         title: "July 15th",
-        text: `day is in progress...`,
+        text: `writing streak: ten days and counting
 
-        photos: ["images/Jul15.jpg"]
+todays been really busy! been grinding at work on this new project, aka the meeting i was kinda scared off last week. so now i kicked off writing the docs before implementation. feels kinda nice to be ahead of things for once
+
+got a meeting with my manager and the customers tomorrow afternoon to go over it and see if i get approval so been bustin me booty today. will also wake up early ish tomorrow to start working again... and walking on the pad too!
+
+i got a goal of getting 20k steps a day during work days. and i hit it today! so about 3-4 hours of walking a day aka 10 miles. walking also makes me focus more so definitely helping
+
+for food today i ate 2 of my prepped meals oops so i had salmon rice and veggies for both lunch and dinner. i did some calculations and each meal is 398 calories and 49g of protein. which is wild that i only ate about 800 calories... + the last can of pringles which is 100 calories. might reward myself with something fancier this weekend if i keep this up
+
+surviving on 900 rn and kinda starving but all is good
+
+next step is consistently working out but thats prob starting next week, one step at a time to losing this fatass. baby steps
+
+after working till bout 7 ish and then eating. i lost my 2nd and only airpod so now both are lost somewhere around my apartment
+
+ive spent like 10mins looking thru everything and finally gave in and destroyed my couch... still didnt find it rip. couch currently in pieces
+
+the couch is still dissassembled so gotta deal with that tomorrow. maybe it’ll magically appear once i stop caring
+
+i also finally fixed the light under my bed! been like 2-3months thats been busted go happy with that
+
+today was a productive day but still feels like something is missing
+
+didnt do any updates to this website today, but im thinking of cleaning this up after my meeting tomorrow cause i dont think ill be working after that aka 4pm so ill spend a bit maybe redesigning some stuff. creative chill mode sounds kinda perfect after all this hustle
+
+hope the tiny one is enjoying her time! i think this time around little one is in japan with the parents so should definitely be fun. bet she’s eating good
+
+my brother is leaving tomorrow to netherlands to visit his good friends he is also bringing the kiddos for a week so they'll have fun. family adventures everywhere lately
+
+okiiiii i think that is is it for today. sleepy brain slowly taking over
+
+peace out! bed time calls`,
+
+        photos: ["images/Jul15.jpg", "images/Jul15_2.jpg", "images/Jul15_3.jpg"]
     },
     {
         date: "7/14",
