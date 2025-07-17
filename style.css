@@ -221,8 +221,12 @@ body {
 .signature {
     margin-top: 48px;
     text-align: right;
-    padding: 24px 0;
-    border-top: 1px solid rgba(226, 232, 240, 0.6);
+    padding: 32px 24px;
+    border-top: 1px solid rgba(236, 72, 153, 0.2);
+    background: linear-gradient(135deg, rgba(255, 250, 252, 0.6) 0%, rgba(254, 242, 242, 0.6) 100%);
+    border-radius: 16px;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 .signature p {
@@ -478,7 +482,7 @@ button:active {
   transform: translate(-50%, -100%);
   width: 8vmin;
   height: 8vmin;
-  background-color: #e73030;
+  background-color: #ec4899;
   filter: blur(10vmin);
 }
 .flower__leaf {
@@ -488,8 +492,8 @@ button:active {
   width: 8vmin;
   height: 11vmin;
   border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
-  background-color: #e73030;
-  background-image: linear-gradient(to top, #ec1010, #e73030);
+  background-color: #ec4899;
+  background-image: linear-gradient(to top, #db2777, #ec4899);
   transform-origin: bottom center;
   opacity: 0.9;
   box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
@@ -509,7 +513,7 @@ button:active {
   transform-origin: bottom left;
   border-radius: 4vmin 10vmin 4vmin 4vmin;
   transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
-  background-image: linear-gradient(to top, #ec1010, #e73030);
+  background-image: linear-gradient(to top, #db2777, #ec4899);
   z-index: 1;
   opacity: 0.8;
 }
@@ -2633,6 +2637,21 @@ button:active {
     font-weight: 700;
     letter-spacing: -0.025em;
     line-height: 1.1;
+    position: relative;
+}
+
+.personal-message h2::before {
+    content: '🐼';
+    margin-right: 10px;
+    font-size: 1.8rem;
+    vertical-align: middle;
+    animation: waveHello 2s ease-in-out infinite;
+}
+
+@keyframes waveHello {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-10deg); }
 }
 
 .personal-message p {
@@ -2643,15 +2662,44 @@ button:active {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     font-weight: 400;
     letter-spacing: 0.01em;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.personal-message p:hover {
+    color: #0f172a;
+    transform: translateY(-1px);
+}
+
+/* Special styling for key paragraphs */
+.personal-message p:nth-child(4) {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 228, 181, 0.08) 100%);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 3px solid #FFD700;
+    position: relative;
+}
+
+.personal-message p:nth-child(8) {
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.08) 0%, rgba(173, 216, 230, 0.08) 100%);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 3px solid #87CEEB;
+    position: relative;
+}
+
+.personal-message p:nth-child(10) {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.08) 0%, rgba(255, 105, 180, 0.08) 100%);
+    padding: 16px 20px;
+    border-radius: 12px;
+    border-left: 3px solid #FFB6C1;
+    position: relative;
 }
 
 .personal-message .love-signature {
     text-align: center;
     font-size: 1.25rem !important;
-    background: linear-gradient(135deg, #ec4899, #d946ef);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ec4899 !important;
     margin-top: 32px !important;
     font-weight: 600;
     letter-spacing: -0.01em;
@@ -2661,8 +2709,53 @@ button:active {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
     align-items: center;
+    margin-top: 48px;
+    padding: 32px 24px;
+    background: linear-gradient(135deg, rgba(255, 250, 252, 0.6) 0%, rgba(254, 242, 242, 0.6) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(236, 72, 153, 0.1);
+    position: relative;
+}
+
+.spend-time-section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(45deg, rgba(236, 72, 153, 0.1), rgba(217, 70, 239, 0.1), rgba(247, 115, 22, 0.1));
+    border-radius: 21px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.spend-time-section .section-title {
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    letter-spacing: -0.025em;
+    text-align: center;
+    position: relative;
+}
+
+.spend-time-section .section-title::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7);
+    border-radius: 1px;
 }
 
 /* Modern Spend Time Button */
@@ -2770,7 +2863,7 @@ button:active {
     color: white;
     font-size: 1.125rem;
     font-weight: 600;
-    padding: 16px 40px;
+    padding: 16px 48px 16px 40px;
     border: none;
     border-radius: 14px;
     cursor: pointer;
@@ -2779,12 +2872,27 @@ button:active {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     letter-spacing: -0.01em;
     text-transform: none;
-    box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.4), 0 8px 10px -5px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 15px 25px -5px rgba(59, 130, 246, 0.4), 0 8px 10px -5px rgba(59, 130, 246, 0.2), 0 0 30px rgba(59, 130, 246, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     will-change: transform, box-shadow;
     margin-bottom: max(20px, env(safe-area-inset-bottom, 20px));
+}
+
+.pick-me-up-btn::after {
+    content: '✈️';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    animation: flyingPlane 2s ease-in-out infinite;
+}
+
+@keyframes flyingPlane {
+    0%, 100% { transform: translateY(-50%) translateX(0px); }
+    50% { transform: translateY(-50%) translateX(3px); }
 }
 
 .pick-me-up-btn::before {
@@ -3169,12 +3277,24 @@ button:active {
 .scroll-instruction {
     text-align: center;
     font-size: 14px;
-    color: #999;
+    color: #ec4899;
     font-style: italic;
     margin: 10px 0 30px 0;
     font-family: 'Georgia', serif;
     letter-spacing: 0.3px;
-    opacity: 0.7;
+    opacity: 0.8;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(217, 70, 239, 0.08) 100%);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(236, 72, 153, 0.15);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.scroll-instruction:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
 }
 
 /* Missing You section styling */
@@ -3210,6 +3330,21 @@ button:active {
     font-weight: 600;
     font-style: italic;
     font-family: 'Georgia', serif;
+    position: relative;
+}
+
+.missing-you-section h3::before {
+    content: '💕';
+    margin-right: 8px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.missing-you-section h3::after {
+    content: '💕';
+    margin-left: 8px;
+    font-size: 18px;
+    vertical-align: middle;
 }
 
 .missing-item {
@@ -3220,12 +3355,20 @@ button:active {
     border-left: 3px solid #D43F5E;
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
+    position: relative;
+    cursor: default;
 }
 
 .missing-item:hover {
-    background: rgba(255, 255, 255, 0.8);
-    transform: translateX(5px);
-    box-shadow: 0 2px 10px rgba(212, 63, 94, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(8px);
+    box-shadow: 0 4px 20px rgba(212, 63, 94, 0.2);
+    border-left-color: #ec4899;
+}
+
+.missing-item:hover::before {
+    opacity: 1;
+    transform: scale(1.2);
 }
 
 .missing-item p {
@@ -3255,8 +3398,35 @@ button:active {
 }
 
 .tiny-bommie {
-    font-size: 12px !important;
+    font-size: 14px !important;
     vertical-align: middle;
+    background: linear-gradient(135deg, #ec4899, #d946ef);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tiny-bommie::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(217, 70, 239, 0.1) 100%);
+    border-radius: 8px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.tiny-bommie:hover::before {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(217, 70, 239, 0.2) 100%);
+    transform: scale(1.1);
 }
 
 .highlight-section {
@@ -3315,6 +3485,21 @@ button:active {
     margin-bottom: 25px;
     font-family: 'Georgia', serif;
     font-weight: 600;
+    position: relative;
+}
+
+.why-i-love-you > p:first-child::before {
+    content: '💖';
+    margin-right: 8px;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.why-i-love-you > p:first-child::after {
+    content: '💖';
+    margin-left: 8px;
+    font-size: 20px;
+    vertical-align: middle;
 }
 
 .love-reason {
@@ -3325,6 +3510,31 @@ button:active {
     border-left: 3px solid #FF69B4;
     text-align: left;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: default;
+}
+
+.love-reason::before {
+    content: '✨';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 14px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.love-reason:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.95) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.15);
+    border-left-color: #ec4899;
+}
+
+.love-reason:hover::before {
+    opacity: 1;
+    transform: scale(1.2) rotate(15deg);
 }
 
 .love-reason p:first-child {
@@ -3369,11 +3579,33 @@ button:active {
 
 .final-promise {
     background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(147, 112, 219, 0.1) 100%);
-    padding: 25px;
-    margin: 25px 0;
-    border-radius: 15px;
-    border-left: 4px solid #9370DB;
+    padding: 32px;
+    margin: 32px 0;
+    border-radius: 20px;
+    border: 2px solid rgba(147, 112, 219, 0.3);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.final-promise::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #9370DB, #d946ef, #ec4899, #9370DB);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0.2;
+    animation: borderGlow 4s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.4; }
 }
 
 .final-promise p {
@@ -3451,6 +3683,28 @@ button:active {
     text-align: center;
     font-family: 'Georgia', serif;
     font-weight: 600;
+    position: relative;
+}
+
+.core-memories p:first-child::before {
+    content: '🌟';
+    margin-right: 8px;
+    font-size: 16px;
+    vertical-align: middle;
+    animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.core-memories p:first-child::after {
+    content: '🌟';
+    margin-left: 8px;
+    font-size: 16px;
+    vertical-align: middle;
+    animation: starTwinkle 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
 }
 
 .core-memories p:last-child {
@@ -3480,8 +3734,30 @@ button:active {
     }
     
     .letter-page {
-        padding: 20px 10px;
+        padding: 24px 16px;
         padding-bottom: max(60px, env(safe-area-inset-bottom, 40px));
+    }
+    
+    .letter-page h1 {
+        font-size: 2rem;
+        margin-bottom: 24px;
+    }
+    
+    .scroll-instruction {
+        font-size: 13px;
+        padding: 6px 12px;
+        margin: 8px 0 24px 0;
+    }
+    
+    .missing-you-section h3, 
+    .why-i-love-you > p:first-child,
+    .core-memories p:first-child {
+        font-size: 18px !important;
+    }
+    
+    .signature {
+        padding: 24px 16px;
+        margin-top: 40px;
     }
     
     .video-page {
@@ -3531,9 +3807,32 @@ button:active {
         margin-bottom: 15px;
     }
     
+    .personal-message h2::before {
+        font-size: 1.5rem;
+        margin-right: 8px;
+    }
+    
     .personal-message p {
         font-size: 15px;
         margin-bottom: 12px;
+    }
+    
+    .personal-message p:nth-child(4)::before,
+    .personal-message p:nth-child(8)::before,
+    .personal-message p:nth-child(10)::before {
+        font-size: 16px;
+        top: 10px;
+        right: 12px;
+    }
+    
+    .spend-time-section {
+        margin-top: 32px;
+        padding: 24px 20px;
+    }
+    
+    .spend-time-section .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
     }
     
     .video-container {
@@ -3544,7 +3843,6 @@ button:active {
     .spend-time-btn {
         font-size: 18px;
         padding: 15px 40px;
-        margin-bottom: max(60px, env(safe-area-inset-bottom, 40px));
     }
     
     .pick-me-up-btn {
@@ -3601,17 +3899,17 @@ button:active {
     transform: scale(1);
 }
 
-/* Modern Daily Thoughts Content with Pink Tint */
+/* Modern Daily Thoughts Content with Enhanced Pink Tint */
 .daily-thoughts-content {
     width: 90%;
     max-width: 900px;
     height: 85%;
     max-height: 90vh;
-    background: linear-gradient(135deg, rgba(255, 250, 252, 0.95) 0%, rgba(254, 242, 242, 0.95) 50%, rgba(255, 228, 230, 0.95) 100%);
+    background: linear-gradient(135deg, rgba(255, 245, 250, 0.98) 0%, rgba(254, 235, 245, 0.98) 30%, rgba(255, 220, 240, 0.98) 70%, rgba(252, 210, 235, 0.98) 100%);
     border-radius: 24px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.15), 0 10px 10px -5px rgba(236, 72, 153, 0.08), 0 0 60px rgba(236, 72, 153, 0.1);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(252, 231, 243, 0.8);
+    border: 1px solid rgba(236, 72, 153, 0.3);
     padding: 0;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -3621,6 +3919,23 @@ button:active {
     align-items: center;
     justify-content: center;
     margin: auto;
+}
+
+.daily-thoughts-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(255, 182, 193, 0.03) 0%, 
+        transparent 25%, 
+        transparent 75%, 
+        rgba(255, 105, 180, 0.03) 100%);
+    border-radius: 24px;
+    pointer-events: none;
+    z-index: 1;
 }
 
 /* Modern Daily Thoughts Page - Desktop */
@@ -3635,12 +3950,29 @@ button:active {
     overflow-x: hidden;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .page-header {
     text-align: center;
     margin-bottom: 24px;
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 60px;
+    background: radial-gradient(ellipse, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
 }
 
 .page-header h1 {
@@ -3656,11 +3988,35 @@ button:active {
 }
 
 .header-subtitle {
-    color: #64748b;
+    color: #be185d;
     font-size: 1.125rem;
     margin: 0;
     font-weight: 400;
+    opacity: 0.9;
+    text-shadow: 0 1px 3px rgba(236, 72, 153, 0.1);
+}
+
+.total-word-count {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(217, 70, 239, 0.1) 100%);
+    color: #be185d;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin: 8px auto 0 auto;
+    display: inline-block;
+    border: 1px solid rgba(236, 72, 153, 0.2);
+    backdrop-filter: blur(5px);
     opacity: 0.8;
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    letter-spacing: 0.3px;
+}
+
+.total-word-count:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.15);
 }
 
 .header-gradient-bar {
@@ -3673,11 +4029,12 @@ button:active {
 }
 
 .tab-instruction {
-    color: #64748b;
+    color: #be185d;
     font-size: 0.875rem;
     margin: 0 0 24px 0;
     font-weight: 400;
-    opacity: 0.7;
+    opacity: 0.8;
+    text-shadow: 0 1px 2px rgba(236, 72, 153, 0.1);
 }
 
 .tabs-container {
@@ -3698,11 +4055,11 @@ button:active {
         overflow-x: auto;
         overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
-        background: rgba(255, 245, 248, 0.6);
+        background: linear-gradient(135deg, rgba(255, 240, 248, 0.8) 0%, rgba(254, 230, 245, 0.8) 100%);
         border-radius: 16px;
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(252, 231, 243, 0.8);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(236, 72, 153, 0.25);
+        box-shadow: 0 1px 3px rgba(236, 72, 153, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
         /* Custom scrollbar */
         scrollbar-width: thin;
         scrollbar-color: rgba(236, 72, 153, 0.3) transparent;
@@ -3814,6 +4171,19 @@ button:active {
     -webkit-overflow-scrolling: touch;
     backdrop-filter: blur(20px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    position: relative;
+}
+
+.daily-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #ec4899 0%, #d946ef 50%, #f97316 100%);
+    border-radius: 24px 24px 0 0;
+    z-index: 1;
 }
 
 .daily-entry h3 {
@@ -3843,18 +4213,19 @@ button:active {
 }
 
 .word-count {
-    background: rgba(236, 72, 153, 0.1);
-    color: #ec4899;
-    padding: 4px 12px;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(217, 70, 239, 0.15) 100%);
+    color: #be185d;
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.8rem;
-    font-weight: 500;
-    border: 1px solid rgba(236, 72, 153, 0.2);
+    font-weight: 600;
+    border: 1px solid rgba(236, 72, 153, 0.3);
     display: inline-flex;
     align-items: center;
     gap: 4px;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .entry-layout {
@@ -4018,7 +4389,7 @@ button:active {
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     flex-shrink: 0;
-    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4), 0 0 40px rgba(236, 72, 153, 0.15);
     letter-spacing: -0.01em;
 }
 
@@ -4039,7 +4410,7 @@ button:active {
 
 .continue-to-letter-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 20px 40px rgba(236, 72, 153, 0.4);
+    box-shadow: 0 20px 40px rgba(236, 72, 153, 0.5), 0 0 60px rgba(236, 72, 153, 0.25);
 }
 
 .continue-to-letter-btn:active {
@@ -4103,6 +4474,12 @@ button:active {
     .header-subtitle {
         font-size: 1rem;
         text-align: center;
+    }
+    
+    .total-word-count {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+        margin: 6px auto 0 auto;
     }
     
     .tab-instruction {
@@ -4363,6 +4740,12 @@ button:active {
     .header-subtitle {
         font-size: 0.875rem;
         text-align: center;
+    }
+    
+    .total-word-count {
+        font-size: 0.65rem;
+        padding: 2px 8px;
+        margin: 5px auto 0 auto;
     }
     
     .tab-instruction {

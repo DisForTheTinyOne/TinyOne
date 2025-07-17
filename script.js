@@ -221,15 +221,61 @@ const dailyThoughts = [
     {
         date: "7/16",
         title: "July 16th",
-        text: `day is in progress...
-
-woke up at 7am and realized the update to the site failed the night before so first thing i did was to update it
+        text: `woke up at 7am and realized the update to the site failed the night before so first thing i did was to update it
 
 also spent the morning fixing up my couch i was already sweaty at 8am
 
-back to the treadmill i go`,
+back to the treadmill i go...
 
-        photos: ["images/Jul16.jpg", "images/Jul16_2.jpg"]
+day 11 of late night yappin
+
+and i've added a total word count too! 6000 words of yaps goddamn
+
+it is 11:15pm rn and still on my treadmill getting my last few steps in. i've really been living in my living room this week
+
+i did do a bunch of little tweaks here and there on this lil site. stuff like improving spacing, removing "Click on any date tab to read that day's thoughts" to accomodate the xtra space the total word count takes.
+
+pretty much touched every single page in some way. adding extra gradients here and there, adding more character to some section and obviously cant forget the emojis!
+
+also the flower at the start will be a random color everyday. it is biased towards lighter colors tho so no poop color or anything like that at least less likely. but for day 1 i cheated and made them pink!
+
+anyways!! work meeting went really well today im kinda balling. i was stressi but things worked out and had some help from my manager who is also a beast
+
+i did wrap up work a 4pm today and finally had lunch aka first meal of the day aka salmon and rice hehe. side note i do miss the old couch format felt like it was special
+
+it is also funny i havent worked in my office for like the past 5 days ive literally been living in my living room usually on the walk pad
+
+i dont think i mentioned but earlier on monday i had to move the lil christmas star the tiny one gave me from the fake monstera to the fridge. secured with 2 magnets! so for sure it wont fall
+
+cause my pad and mini desk is facing the tree, the lil star was always in my vision and it just wasnt good for my mental health. the day i had 35k steps i kept looking at it and sadness always hit me so not good not good
+
+i think it really looks good on the fridge tho, i kinda look at it more often since it is right there when i go to the fridge. mostly to get my leftover subway sandwich 
+
+speaking of subway i ordered subway today. i didnt want to eat salmon and rice for 4 meals in a row so had to break it up with a lil sammich
+
+im so close to get the "captain" level of subway rewards program which is where you spend $200 in a year. i get free chips every friday with my sandwich so i know what im eating every friday
+
+anyways after i wrapped up work at 4pm, i had lunch and then worked on this site for a bit. I think i'm done with doing minor little design updates (maybe some minor ones here and there). but i have a couple ideas which require more efforts and will take a fews days
+
+i feel like there isn't much else to tweak unless for the sake of change, but im pretty happy how things are looking
+
+i also talked with Yash for a couple hours on facetime for our business. they are like way ahead but i told them ill start working with them in a couple weeks. they have a whole business deck already preppred up to get VC money just need to get a really good prototype working
+
+other than thaaaaat i went on a late night walk... it sucks without airpods aka i havent found any of my airpods and ive looked EVERYWHERE. so i think ill buy a new sets again cause replacement buds at like $80 (which i need 2) and brand new airpods are $160. but alsooooo i feel like in a couple months when apple unveils their new iphone and products, they are due to release airpods pro 3.
+
+im like should i waiiiit but surviving without airpods for a whole 2 months is hard
+
+oh yeah so about that late night walk i found TWO more food trucks! i took pics so now theres a total of 6 food trucks in my neighborhood. so much too try! but i dont want to try alone. is not good without the lil one, just doesnt hit the same
+
+okiiii im up to 25k steps now and it is 11:34pm so 20 mins of writing! im sweaty ety. will take a shower and go to sleep. tomorrow is kinda of a light work day for me so im vibing
+
+goodnight everyone hope everybody is having good sleep
+
+miss the lil one
+
+`,
+
+        photos: ["images/Jul16_3.jpg", "images/Jul16_4.jpg", "images/Jul16.jpg", "images/Jul16_2.jpg"]
     },
     {
         date: "7/15",
@@ -633,6 +679,11 @@ function showDailyThoughtsPage() {
         return text.trim().split(/\s+/).filter(word => word.length > 0).length;
     };
 
+    // Calculate total word count across all days
+    const totalWordCount = dailyThoughts.reduce((total, day) => {
+        return total + countWords(day.text);
+    }, 0);
+
     // Helper function to generate individual tab content
     const generateTabContent = (day, dayIndex) => {
         // Handle both single photo and multiple photos
@@ -728,11 +779,11 @@ function showDailyThoughtsPage() {
                 <div class="page-header">
                     <h1>Daily Thoughts</h1>
                     <p class="header-subtitle">How am I feeling today?</p>
+                    <div class="total-word-count">✨ ${totalWordCount.toLocaleString()} words of yapping ✨</div>
                     <div class="header-gradient-bar"></div>
                 </div>
                 
                 <div class="tabs-container">
-                    <p class="tab-instruction">Click on any date tab to read that day's thoughts</p>
                     <div class="tab-buttons">
                         ${tabsHTML}
                     </div>
@@ -1079,8 +1130,9 @@ function showSecondPage() {
                                 <p class="love-signature">Love and miss you so much, little one.</p>
                             </div>
                             <div class="spend-time-section">
+                                <h3 class="section-title">What would you like to do? ✨</h3>
                                 <button id="spendTimeBtn" class="spend-time-btn">Let's spend time 💕</button>
-                                <button id="pickMeUpBtn" class="pick-me-up-btn">Pick me up! ✈️</button>
+                                <button id="pickMeUpBtn" class="pick-me-up-btn">Pick me up!</button>
                             </div>
                         </div>
                     </div>
