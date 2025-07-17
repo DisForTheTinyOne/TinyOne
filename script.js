@@ -219,6 +219,15 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/17",
+        title: "July 17th",
+        text: `day is in progress...
+        
+        i woke up to blue flowers 🥺`,
+
+        photos: []
+    },
+    {
         date: "7/16",
         title: "July 16th",
         text: `woke up at 7am and realized the update to the site failed the night before so first thing i did was to update it
@@ -271,9 +280,7 @@ okiiii im up to 25k steps now and it is 11:34pm so 20 mins of writing! im sweaty
 
 goodnight everyone hope everybody is having good sleep
 
-miss the lil one
-
-`,
+miss the lil one`,
 
         photos: ["images/Jul16_3.jpg", "images/Jul16_4.jpg", "images/Jul16.jpg", "images/Jul16_2.jpg"]
     },
