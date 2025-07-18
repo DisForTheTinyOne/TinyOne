@@ -221,11 +221,40 @@ const dailyThoughts = [
     {
         date: "7/17",
         title: "July 17th",
-        text: `day is in progress...
-        
-        i woke up to blue flowers 🥺`,
+        text: `i think today’s gonna be a short one. it’s around 12:30 right now and i’m still on the treadmill! somehow i’ve already hit over 30k steps today. daaaaamn. and i’m still planning to go for another hour and a half
 
-        photos: []
+i won’t write too much tonight since i’ve been deep in prototype land for the next little thing i’m uploading here. i’ve spent like 3 or 4 hours this evening just messing around, testing ideas, throwing spaghetti at the wall, and i think i finally landed on something
+
+not sleepy at all and motivation is still high so i’m gonna keep pushing for a bit and get started on the one i picked.
+
+there’s still a bunch of stuff to do so who knows when it’ll be done but i KNOOOOW it’ll be super cheesy and dumb but whatever im having fun working on it
+
+also took pics of all the prototypes and added them to today’s memories. tiny one’s not gonna know which one i picked till she sees it
+
+anyway food update. ate my last meal prepped meal today aka the fifth one of the week. and then i ordered chipotle and saw i had a 40 percent discount and also a free bowl on orders above 20
+
+so i ended up ordering double protein chicken and then got a second free bowl and then got a 40 percent discount on top. so i got 2 meals for like 18 bucks
+
+i’ve kinda just worked all day today from 8am to like 6pm. took a little break, ate food, and then went back on the treadmill and just worked on these ideas till now. taking a little break on the couch because my legs are so tired and now writing this, uploading pics, and all that good stuff
+
+after this imma be back working on them prototypes
+
+i also got a call back earlier today about the fostering cats. apparently they only have a mama cat and a few kittens and i feel like that’ll be way too much work. i’ll probably check out a few more places next week and maybe go in person
+
+also thinking about taking monday off because these past couple weeks at work have been a lot with on call and this project. i haven’t seen anyone since wobbleland last saturday oops
+
+my new shoes are also arriving tomorrow so i’m pumped for that
+
+uhhh what else what else ohhh yeah i found one of my airpods today. i was doing laundry and it ended up being in the pocket of some dirty pants so that saves me a bunch of moni
+
+okiiiii that’s it for the big one for day 12
+hope tiny one is doing good
+
+oops still ended up writing around 500 words, my legs needed a break
+
+✌️`,
+
+        photos: ["images/Jul17_1.jpg", "images/Jul17_2.jpg", "images/Jul17_3.jpg", "images/Jul17_5.jpg"]
     },
     {
         date: "7/16",
@@ -827,6 +856,26 @@ function showDailyThoughtsPage() {
             
             // Add active class to clicked button
             button.classList.add('active');
+            
+            // Send email notification for tab change
+            if (dailyThoughts[dayIndex]) {
+                try {
+                    const selectedDay = dailyThoughts[dayIndex];
+                    const templateParams = {
+                        user_email: 'ilan.mamontov@gmail.com',
+                        to_name: 'Alex',
+                        from_name: 'Your Tiny One Website',
+                        message: `💕 Your tiny one just switched to a different day! 📅✨\n\nNow reading: ${selectedDay.title} (${selectedDay.date})\n\nShe's exploring the daily thoughts from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
+                        timestamp: new Date().toLocaleString()
+                    };
+                    
+                    sendEmailIfProduction(templateParams).catch(error => {
+                        console.error('Error sending tab change email:', error);
+                    });
+                } catch (error) {
+                    console.error('Error preparing tab change email:', error);
+                }
+            }
             
             // Generate and replace content for the selected day
             if (dailyThoughts[dayIndex]) {
