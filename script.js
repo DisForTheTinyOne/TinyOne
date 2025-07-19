@@ -1,6 +1,9 @@
 onload = () => {
     document.body.classList.remove("container");
     
+    // Set random flower colors based on today's date
+    setDailyFlowerColors();
+    
     // // Automatically open the letter after 10 seconds
     // setTimeout(() => {
     //     if (openBtn.style.display !== "none") {
@@ -8,6 +11,70 @@ onload = () => {
     //     }
     // }, 12000);
 };
+
+// Function to generate seeded random numbers (same day = same colors)
+function seededRandom(seed) {
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+}
+
+// Function to set daily flower colors
+function setDailyFlowerColors() {
+    // Create a date seed (same for entire day)
+    const today = new Date();
+    const dateString = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
+    let seed = 0;
+    for (let i = 0; i < dateString.length; i++) {
+        seed += dateString.charCodeAt(i);
+    }
+    
+    // Light, cute color palette
+    const lightColors = [
+        // Light pinks
+        { main: '#f9a8d4', gradient: '#ec4899' }, // soft pink
+        { main: '#fbbf24', gradient: '#f59e0b' }, // light yellow
+        { main: '#fb7185', gradient: '#e11d48' }, // light coral
+        
+        // Light blues
+        { main: '#93c5fd', gradient: '#60a5fa' }, // sky blue
+        { main: '#67e8f9', gradient: '#06b6d4' }, // light cyan
+        { main: '#a7f3d0', gradient: '#10b981' }, // light mint
+        
+        // Light purples
+        { main: '#c4b5fd', gradient: '#a855f7' }, // lavender
+        { main: '#d8b4fe', gradient: '#c084fc' }, // light purple
+        { main: '#fda4af', gradient: '#f43f5e' }, // light rose
+        
+        // Light greens
+        { main: '#bbf7d0', gradient: '#22c55e' }, // light green
+        { main: '#fed7aa', gradient: '#fb923c' }, // light peach
+        { main: '#fef3c7', gradient: '#fbbf24' }, // light cream
+    ];
+    
+    // Select 3 different colors using seeded random
+    const selectedColors = [];
+    const usedIndices = [];
+    
+    for (let i = 0; i < 3; i++) {
+        let colorIndex;
+        do {
+            seed = (seed * 9301 + 49297) % 233280; // Linear congruential generator
+            colorIndex = Math.floor(seededRandom(seed) * lightColors.length);
+        } while (usedIndices.includes(colorIndex));
+        
+        usedIndices.push(colorIndex);
+        selectedColors.push(lightColors[colorIndex]);
+    }
+    
+    // Apply colors to each flower via CSS custom properties
+    const root = document.documentElement;
+    
+    selectedColors.forEach((color, index) => {
+        const flowerNum = index + 1;
+        root.style.setProperty(`--flower-${flowerNum}-main`, color.main);
+        root.style.setProperty(`--flower-${flowerNum}-gradient`, color.gradient);
+    });
+}
 
 // Helper function to check if we're running locally (disable emails during testing)
 function isLocalEnvironment() {
@@ -221,11 +288,38 @@ const dailyThoughts = [
     {
         date: "7/18",
         title: "July 18th",
-        text: `day is in progress...
+        text: `unlucky number? not for yapping... day 13
         
-        it is 10am and im still in bed, sooooo eepy`,
+        okiiii it is currently 5pm as im writing this and doing a mid day update! 
 
-        photos: []
+        i made a couple minor changes! each flower is a different color and randomizes everyday using the date as part of algorithm hehe. also switching date tabs will now scroll to the top of the text. thats it im too focused on the lil thingy
+        
+        im probably going to the illenium show today since i have the ticket but im considering selling it if i manage to sell it last minute
+        
+        the ticket is going for $250 which is over double the price i paid so if i manage to sell it then i gotta find something else to do
+        
+        but i really want to get out of the house lol this is not good. at least i got another 25k steps in and its only 5pm im on pace to beat all my records. it is also kinda cheating cause i walked 2 hours last night past midnight so it got added to today
+        
+        not gonna keep it too long cause i wanna find a way to sell this ticket asap!
+        
+        today i worked only for bout 4 hours, then spent another couple hours on the lil thing im working for this site
+        
+        its turning out even more cheesier than i expected but im loving it. the logic is all pretty much setup, just need to work on the assets and visuals
+        
+        also i got my shoes today! im still kinda keep my old ones have wear them for random walks and festivals and stuff
+        
+        also today i got a new favorite bubly flavor. they kinda copied my strat with combining a bunch of existing bubly flavors into one. it literally tastes what i made a few times
+        
+        other than that not much else happened. grinded last night till 2am, and woke up at 10am for a meeting
+        
+        im drinking my second cup of coffee right now as im typing this and waiting for my subway order to be complete before i pick it up
+        
+        might also have to get some alcohol if imma be pregraming to illenium or something
+        
+        okiii thats it for now, i'll either update later tonight or tmrw morning`,
+
+
+        photos: ["images/Jul18_1.jpg", "images/Jul18_2.jpg"]
     },
     {
         date: "7/17",
@@ -891,14 +985,43 @@ function showDailyThoughtsPage() {
                 const newContent = generateTabContent(dailyThoughts[dayIndex], dayIndex);
                 activeTabContainer.innerHTML = newContent;
                 
-                // Force refresh of scroll containers after tab switch
-                setTimeout(() => {
-                    const textContent = activeTabContainer.querySelector('.text-content');
-                    if (textContent) {
-                        textContent.scrollTop = 0; // Reset scroll to top
-                        textContent.scrollTop = textContent.scrollTop; // Force reflow
+                // Immediate scroll to daily-entry (where ::before gradient bar is)
+                const dailyEntry = activeTabContainer.querySelector('.daily-entry');
+                if (dailyEntry) {
+                    // Scroll the daily entry (and its ::before gradient bar) into view with padding
+                    dailyEntry.scrollIntoView({ behavior: 'instant', block: 'start' });
+                    
+                    // Adjust scroll to show gradient bar with 20px padding above it
+                    const activeTabContent = document.querySelector('.tab-content.active');
+                    if (activeTabContent) {
+                        activeTabContent.scrollTop = Math.max(0, activeTabContent.scrollTop - 20);
                     }
-                }, 50);
+                }
+                
+                // Force refresh and scroll to daily-entry::before after tab switch
+                setTimeout(() => {
+                    const dailyEntry = activeTabContainer.querySelector('.daily-entry');
+                    
+                    if (dailyEntry) {
+                        // Scroll the daily entry (and its ::before gradient bar) into view
+                        dailyEntry.scrollIntoView({ behavior: 'instant', block: 'start' });
+                        
+                        // Adjust scroll to show the gradient bar with 20px padding above it
+                        const activeTabContent = document.querySelector('.tab-content.active');
+                        if (activeTabContent) {
+                            activeTabContent.scrollTop = Math.max(0, activeTabContent.scrollTop - 20);
+                        }
+                        
+                        // Ensure daily entry content starts from top
+                        dailyEntry.scrollTop = 0;
+                        
+                        // Reset text content scroll
+                        const textContent = activeTabContainer.querySelector('.text-content');
+                        if (textContent) {
+                            textContent.scrollTop = 0;
+                        }
+                    }
+                }, 100);
             }
         });
     });
@@ -1250,6 +1373,9 @@ function showSpendTimeModal() {
             <div class="modal-body">
                 <p>Are you ready to spend some quality time together?</p>
                 <p>This moment is just for us!</p>
+                <div class="work-disclaimer">
+                    <p><em>⚠️ Just a heads up: I can't skip work this week, but evenings and weekends are all yours! 💕</em></p>
+                </div>
             </div>
             <div class="modal-actions">
                 <button id="confirmSpendTime" class="confirm-btn">Yes, let's do it! 💕</button>
