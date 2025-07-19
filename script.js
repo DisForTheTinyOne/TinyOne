@@ -316,10 +316,32 @@ const dailyThoughts = [
         
         might also have to get some alcohol if imma be pregraming to illenium or something
         
-        okiii thats it for now, i'll either update later tonight or tmrw morning`,
+        okiii thats it for now, i'll either update later tonight or tmrw morning
+        
+        ... the flowers are cute today :)
+
+        also looks like there is nasty bug on mobile when you switch tabs. i was playing around and noticed that switching tabs kinda fks up the layout of the screen. i think i fixed it but wont know until i update this site
+        
+        its 11am and im still in bed. window open, dark room and mcdonalds. no reason to leave my bed
+        
+        i ended up selling my ticket and going to midway for don diablo. ngl he was not too great. i was pregraming and listening to all his bangers, but he did not play any of them
+        
+        its crazy it felt like the whole city was at illenium, midway was like half empty
+        
+        i dont know if i cant type for too long, im so tired and just wanna crash and nap some more.
+        
+        i did end up setting up a few bots to snag an illenium ticket for cheap today. they pretty much just refresh each re-seller website every 30 seconds until it finds a price below $150 and then itll ping me
+        
+        im typing this out with half an eye ball open. im soo eepy eepy.
+        
+        also today is the last day the tiny one is not in the bay unless plans changed
+        
+        i woke up feeling really sad today likely cause i miss her so much. i dont think ill be on my screen today. i just wanna rest for a bit
+        
+        buh bye everybody`,
 
 
-        photos: ["images/Jul18_1.jpg", "images/Jul18_2.jpg"]
+        photos: ["images/Jul18_1.jpg", "images/Jul18_2.jpg", "images/Jul18_3.jpg"]
     },
     {
         date: "7/17",
@@ -985,43 +1007,28 @@ function showDailyThoughtsPage() {
                 const newContent = generateTabContent(dailyThoughts[dayIndex], dayIndex);
                 activeTabContainer.innerHTML = newContent;
                 
-                // Immediate scroll to daily-entry (where ::before gradient bar is)
-                const dailyEntry = activeTabContainer.querySelector('.daily-entry');
-                if (dailyEntry) {
-                    // Scroll the daily entry (and its ::before gradient bar) into view with padding
-                    dailyEntry.scrollIntoView({ behavior: 'instant', block: 'start' });
-                    
-                    // Adjust scroll to show gradient bar with 20px padding above it
-                    const activeTabContent = document.querySelector('.tab-content.active');
-                    if (activeTabContent) {
-                        activeTabContent.scrollTop = Math.max(0, activeTabContent.scrollTop - 20);
-                    }
+                // Immediate scroll to top with offset for daily-entry gradient bar
+                const activeTabContent = document.querySelector('.tab-content.active');
+                if (activeTabContent) {
+                    // Simple scroll to top with small offset for the gradient bar
+                    activeTabContent.scrollTop = 0;
                 }
                 
-                // Force refresh and scroll to daily-entry::before after tab switch
+                // Force refresh and ensure clean scroll position after tab switch
                 setTimeout(() => {
-                    const dailyEntry = activeTabContainer.querySelector('.daily-entry');
+                    // Reset all scroll containers to top
+                    const containers = [
+                        document.querySelector('.tab-content.active'),
+                        activeTabContainer.querySelector('.daily-entry'),
+                        activeTabContainer.querySelector('.text-content')
+                    ];
                     
-                    if (dailyEntry) {
-                        // Scroll the daily entry (and its ::before gradient bar) into view
-                        dailyEntry.scrollIntoView({ behavior: 'instant', block: 'start' });
-                        
-                        // Adjust scroll to show the gradient bar with 20px padding above it
-                        const activeTabContent = document.querySelector('.tab-content.active');
-                        if (activeTabContent) {
-                            activeTabContent.scrollTop = Math.max(0, activeTabContent.scrollTop - 20);
+                    containers.forEach(container => {
+                        if (container) {
+                            container.scrollTop = 0;
                         }
-                        
-                        // Ensure daily entry content starts from top
-                        dailyEntry.scrollTop = 0;
-                        
-                        // Reset text content scroll
-                        const textContent = activeTabContainer.querySelector('.text-content');
-                        if (textContent) {
-                            textContent.scrollTop = 0;
-                        }
-                    }
-                }, 100);
+                    });
+                }, 50);
             }
         });
     });
