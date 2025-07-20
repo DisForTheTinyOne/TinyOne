@@ -286,6 +286,36 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/19",
+        title: "July 19th",
+        text: `two weeks in damn time flies
+        
+        helloooooo everybody im back and still in bed
+        
+        it is 6:30pm ish and i did manage to get an illenium ticket for for cheap so im mentally preparing to go
+        
+        i think i drank too much yesterday so im just being a potato today. i feel like my tolerance went way down i get fkd up way faster now
+        
+        i genuinely dont feel like going today but i think it is too late to sell the ticket
+        
+        anyways i was working on the lil thingy today while i was in bed and then i passed out and just recently woke up
+        
+        im going to pay some people to get me some assets for the thing im working so will have to figure that out tomorrow
+        
+        i also dont really have any pictures to upload today cause i havent left my place yet so ill just put up a random picture
+        
+        i think tiny one is coming back tomorrow but she hasnt pressed the pick me up bottom. i dont think the little one knows it even exists
+        
+        okiiii it is 6:45 now im slow at writing today but i need to start preppin up aka i need to shower and stuff
+        
+        ill update later aka tomorrow morning
+        
+        good bye everybody have a safe flight`,
+
+
+        photos: ["images/Jul19_1.jpg"]
+    },
+    {
         date: "7/18",
         title: "July 18th",
         text: `unlucky number? not for yapping... day 13
