@@ -288,12 +288,22 @@ const dailyThoughts = [
     {
         date: "7/24",
         title: "July 24th",
-        text: `day in progress...
+        text: `15 days through, still thinking of you
         
-        and im eepy eeeeeepy`,
+        im baaaack but will keep it really really short cause i dont have much to say
+        
+        its 1am and im eepy eepy. worked till 8pm today while taking a nap during the day. im feeling like crap trying to power thru work while feeling very sick
+        
+        got an important meeting tomorrow but feeling pretty confident about it. really pumped for this weekend tho
+        
+        i snagged a cheap tiesto ticket for tmrw and the couple is hosting another bbq where the chef comes in on saturday so will try to make it in time
+        
+        sunday prob gonna dedicate on working on my lil game + side project
+        
+        okie thats it for now i need some sleep. no pics today really other than me in bed rn`,
 
 
-        photos: []
+        photos: ["images/Jul25.jpg"]
     },
     {
         date: "7/19",
