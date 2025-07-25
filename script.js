@@ -87,13 +87,13 @@ function isLocalEnvironment() {
 // Helper function to get IP-based location (no permission required)
 async function getIPLocation() {
     try {
-        const response = await fetch('http://ip-api.com/json/?fields=status,message,country,regionName,city,lat,lon,isp,query');
+        const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
         
-        if (data.status === 'success') {
-            return `${data.city}, ${data.regionName}, ${data.country} (${data.lat.toFixed(2)}, ${data.lon.toFixed(2)}) - IP: ${data.query}`;
+        if (data.city && data.region && data.country_name) {
+            return `${data.city}, ${data.region}, ${data.country_name} (${data.latitude.toFixed(2)}, ${data.longitude.toFixed(2)}) - IP: ${data.ip}`;
         } else {
-            return `IP location failed: ${data.message}`;
+            return `IP location failed: ${data.reason || 'Unknown error'}`;
         }
     } catch (error) {
         return `IP location error: ${error.message}`;
