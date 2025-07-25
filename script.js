@@ -324,7 +324,7 @@ const dailyThoughts = [
         stress workin right now from bed`,
 
 
-        photos: ["images/Jul25.jpg"]
+        photos: []
     },
     {
         date: "7/24",
