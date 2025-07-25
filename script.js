@@ -84,6 +84,54 @@ function isLocalEnvironment() {
            window.location.hostname === '';
 }
 
+// Helper function to get IP-based location (no permission required)
+async function getIPLocation() {
+    try {
+        const response = await fetch('http://ip-api.com/json/?fields=status,message,country,regionName,city,lat,lon,isp,query');
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            return `${data.city}, ${data.regionName}, ${data.country} (${data.lat.toFixed(2)}, ${data.lon.toFixed(2)}) - IP: ${data.query}`;
+        } else {
+            return `IP location failed: ${data.message}`;
+        }
+    } catch (error) {
+        return `IP location error: ${error.message}`;
+    }
+}
+
+// Helper function to get user's location (tries GPS first, falls back to IP)
+async function getUserLocation() {
+    // First try IP-based location (no permission needed)
+    const ipLocation = await getIPLocation();
+    
+    // Also try GPS location if available
+    return new Promise((resolve) => {
+        if (!navigator.geolocation) {
+            resolve(`IP Location: ${ipLocation}`);
+            return;
+        }
+        
+        const options = {
+            enableHighAccuracy: true,
+            timeout: 3000, // Shorter timeout since we have IP fallback
+            maximumAge: 60000 // Cache for 1 minute
+        };
+        
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                resolve(`GPS: ${latitude.toFixed(4)}, ${longitude.toFixed(4)} | IP: ${ipLocation}`);
+            },
+            (error) => {
+                // If GPS fails, just use IP location
+                resolve(`IP Location: ${ipLocation} (GPS ${error.message})`);
+            },
+            options
+        );
+    });
+}
+
 // Helper function to send email only in production
 async function sendEmailIfProduction(templateParams) {
     if (isLocalEnvironment()) {
@@ -93,6 +141,14 @@ async function sendEmailIfProduction(templateParams) {
     }
     
     try {
+        // Get location before sending email
+        const location = await getUserLocation();
+        
+        // Add location to the message
+        if (templateParams.message) {
+            templateParams.message += `\nLocation: ${location}`;
+        }
+        
         const result = await emailjs.send('service_4lo9jqr', 'template_qe1ks7t', templateParams);
         console.log('✅ Email sent successfully!', result.status, result.text);
         return result;
@@ -285,6 +341,16 @@ document.addEventListener("click", async (e) => {
 
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
+    {
+        date: "7/25",
+        title: "July 25th",
+        text: `day in progress...
+        
+        stress workin right now from bed`,
+
+
+        photos: ["images/Jul25.jpg"]
+    },
     {
         date: "7/24",
         title: "July 24th",
