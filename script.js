@@ -100,36 +100,11 @@ async function getIPLocation() {
     }
 }
 
-// Helper function to get user's location (tries GPS first, falls back to IP)
+// Helper function to get user's location (IP-based only, no permission required)
 async function getUserLocation() {
-    // First try IP-based location (no permission needed)
+    // Only use IP-based location to avoid permission prompts
     const ipLocation = await getIPLocation();
-    
-    // Also try GPS location if available
-    return new Promise((resolve) => {
-        if (!navigator.geolocation) {
-            resolve(`IP Location: ${ipLocation}`);
-            return;
-        }
-        
-        const options = {
-            enableHighAccuracy: true,
-            timeout: 3000, // Shorter timeout since we have IP fallback
-            maximumAge: 60000 // Cache for 1 minute
-        };
-        
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const { latitude, longitude } = position.coords;
-                resolve(`GPS: ${latitude.toFixed(4)}, ${longitude.toFixed(4)} | IP: ${ipLocation}`);
-            },
-            (error) => {
-                // If GPS fails, just use IP location
-                resolve(`IP Location: ${ipLocation} (GPS ${error.message})`);
-            },
-            options
-        );
-    });
+    return ipLocation;
 }
 
 // Helper function to send email only in production
