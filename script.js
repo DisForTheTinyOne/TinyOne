@@ -297,7 +297,8 @@ document.addEventListener("click", async (e) => {
         // Navigate from daily thoughts to main letter
         expandToFullScreen();
     } else if (e.target.id === "spendTimeBtn") {
-        showSpendTimeModal();
+        // Button is currently disabled
+        return;
     } else if (e.target.id === "pickMeUpBtn") {
         showPickMeUpModal();
     } else if (e.target.id === "confirmSpendTime") {
@@ -319,12 +320,25 @@ const dailyThoughts = [
     {
         date: "7/25",
         title: "July 25th",
-        text: `day in progress...
+        text: `on the 16th day, i finally exhaled
         
-        stress workin right now from bed`,
+        my brain is fried and im sooooo tired but the week is finally over!!
+        
+        i just had my final work presentation and things went really good so i can finally breath and not stress
+        
+        definitely still feeling tired cause i didnt sleep much today stressin a bit and also still feeling a bit sick and overheating
+        
+        but starting next week im gonna be able to focus on my lil side project and also get some sleep and take work slowly
+        
+        i'm currently on the couch drinking my whiteclaw and just had my first meal of the day aka subway :) the properly made one!
+        
+        i'm thinking of selling my tiesto ticket for $80 more than i bought it for yesterday. including uber and everything i feel like it'll save me like $150+ not going
+        
+        also going there at 6pm feels to early and i just want to rest up a bit so i'll prob do that for now
+        
+        this is my midday update. i'll update again later`,
 
-
-        photos: []
+        photos: ["images/Jul25_1.jpg"]
     },
     {
         date: "7/24",
@@ -437,33 +451,33 @@ const dailyThoughts = [
     {
         date: "7/17",
         title: "July 17th",
-        text: `i think today’s gonna be a short one. it’s around 12:30 right now and i’m still on the treadmill! somehow i’ve already hit over 30k steps today. daaaaamn. and i’m still planning to go for another hour and a half
+        text: `i think today's gonna be a short one. it's around 12:30 right now and i'm still on the treadmill! somehow i've already hit over 30k steps today. daaaaamn. and i'm still planning to go for another hour and a half
 
-i won’t write too much tonight since i’ve been deep in prototype land for the next little thing i’m uploading here. i’ve spent like 3 or 4 hours this evening just messing around, testing ideas, throwing spaghetti at the wall, and i think i finally landed on something
+i won't write too much tonight since i've been deep in prototype land for the next little thing i'm uploading here. i've spent like 3 or 4 hours this evening just messing around, testing ideas, throwing spaghetti at the wall, and i think i finally landed on something
 
-not sleepy at all and motivation is still high so i’m gonna keep pushing for a bit and get started on the one i picked.
+not sleepy at all and motivation is still high so i'm gonna keep pushing for a bit and get started on the one i picked.
 
-there’s still a bunch of stuff to do so who knows when it’ll be done but i KNOOOOW it’ll be super cheesy and dumb but whatever im having fun working on it
+there's still a bunch of stuff to do so who knows when it'll be done but i KNOOOOW it'll be super cheesy and dumb but whatever im having fun working on it
 
-also took pics of all the prototypes and added them to today’s memories. tiny one’s not gonna know which one i picked till she sees it
+also took pics of all the prototypes and added them to today's memories. tiny one's not gonna know which one i picked till she sees it
 
 anyway food update. ate my last meal prepped meal today aka the fifth one of the week. and then i ordered chipotle and saw i had a 40 percent discount and also a free bowl on orders above 20
 
 so i ended up ordering double protein chicken and then got a second free bowl and then got a 40 percent discount on top. so i got 2 meals for like 18 bucks
 
-i’ve kinda just worked all day today from 8am to like 6pm. took a little break, ate food, and then went back on the treadmill and just worked on these ideas till now. taking a little break on the couch because my legs are so tired and now writing this, uploading pics, and all that good stuff
+i've kinda just worked all day today from 8am to like 6pm. took a little break, ate food, and then went back on the treadmill and just worked on these ideas till now. taking a little break on the couch because my legs are so tired and now writing this, uploading pics, and all that good stuff
 
 after this imma be back working on them prototypes
 
-i also got a call back earlier today about the fostering cats. apparently they only have a mama cat and a few kittens and i feel like that’ll be way too much work. i’ll probably check out a few more places next week and maybe go in person
+i also got a call back earlier today about the fostering cats. apparently they only have a mama cat and a few kittens and i feel like that'll be way too much work. i'll probably check out a few more places next week and maybe go in person
 
-also thinking about taking monday off because these past couple weeks at work have been a lot with on call and this project. i haven’t seen anyone since wobbleland last saturday oops
+also thinking about taking monday off because these past couple weeks at work have been a lot with on call and this project. i haven't seen anyone since wobbleland last saturday oops
 
-my new shoes are also arriving tomorrow so i’m pumped for that
+my new shoes are also arriving tomorrow so i'm pumped for that
 
 uhhh what else what else ohhh yeah i found one of my airpods today. i was doing laundry and it ended up being in the pocket of some dirty pants so that saves me a bunch of moni
 
-okiiiii that’s it for the big one for day 12
+okiiiii that's it for the big one for day 12
 hope tiny one is doing good
 
 oops still ended up writing around 500 words, my legs needed a break
@@ -550,7 +564,7 @@ after working till bout 7 ish and then eating. i lost my 2nd and only airpod so 
 
 ive spent like 10mins looking thru everything and finally gave in and destroyed my couch... still didnt find it rip. couch currently in pieces
 
-the couch is still dissassembled so gotta deal with that tomorrow. maybe it’ll magically appear once i stop caring
+the couch is still dissassembled so gotta deal with that tomorrow. maybe it'll magically appear once i stop caring
 
 i also finally fixed the light under my bed! been like 2-3months thats been busted go happy with that
 
@@ -558,7 +572,7 @@ today was a productive day but still feels like something is missing
 
 didnt do any updates to this website today, but im thinking of cleaning this up after my meeting tomorrow cause i dont think ill be working after that aka 4pm so ill spend a bit maybe redesigning some stuff. creative chill mode sounds kinda perfect after all this hustle
 
-hope the tiny one is enjoying her time! i think this time around little one is in japan with the parents so should definitely be fun. bet she’s eating good
+hope the tiny one is enjoying her time! i think this time around little one is in japan with the parents so should definitely be fun. bet she's eating good
 
 my brother is leaving tomorrow to netherlands to visit his good friends he is also bringing the kiddos for a week so they'll have fun. family adventures everywhere lately
 
@@ -571,7 +585,7 @@ peace out! bed time calls`,
     {
         date: "7/14",
         title: "July 14th",
-        text: `it’s been nine days, and i keep wondering if imm talking to you or just filling the space you left behind
+        text: `it's been nine days, and i keep wondering if imm talking to you or just filling the space you left behind
         
         today was a chill day. i woke up in the morning not feeling too great mentally mostly sad for some reason
         
