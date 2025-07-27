@@ -336,9 +336,25 @@ const dailyThoughts = [
         
         also going there at 6pm feels to early and i just want to rest up a bit so i'll prob do that for now
         
-        this is my midday update. i'll update again later`,
+        this is my midday update. i'll update again later
+        
+        I IS BACK THE NEXT DAYYYY
+        
+        not good little one not good. i ended up going to dreamstate instead and got so fkd up
+        
+        i woke up at like 2pm and just laid in bed till now, finally making coffee
+        
+        i pregamed a bit too hard and ended up also doing tesla later at night so i stay'd up on my couch till like 6am
+        
+        i had no idea dreamstate was going till 3am jesus. also it was SOOO packed when i got there at like 11, but it was pretty empty at 3am
+        
+        i think the older crowd cant handle them hours. just ate some greek food and i think im just gonna game for a bit
+        
+        i want to go out today again so ill see what is happened tonight. not gonna do an update on today until tomorrow cause nothing really happened yet for a mid day update
+        
+        hope the tiny one is doing good and having lots of fun. okie bye`,
 
-        photos: ["images/Jul25_1.jpg"]
+        photos: ["images/Jul25_1.jpg", "images/Jul25_2.jpg"]
     },
     {
         date: "7/24",
