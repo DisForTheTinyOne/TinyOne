@@ -318,6 +318,50 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/26",
+        title: "July 26th",
+        text: `day 17. still vibin’, still typin’
+        
+        hello everybody! i just recently got out of bed! progress
+        
+        just ordered some popeyes and so im typing this out while waiting
+        
+        i ended up going to midway again there was a couple DJs who have old classic bangers
+        
+        but as usual... they don't play any of them and just play some hard style bass which is still a vibe but i was some bangers too
+        
+        ended up going at 11pm and it was kinda packed but not toooo packed. i nearly puked last night cause the bartender pulled so much tequila in my shot
+        
+        like where you cant even take it as a shot and you have to swallow twice thats when it gets to you. it was soooo nasty pretty sure he poored 3 shots equivalent in there
+        
+        for today im planning on just hanging out on my couch and working on a couple things on my laptop
+        
+        not sure if i have the energy to meal prep, but i also wanted to walk to target which takes 40 minutes
+        
+        and potentially also eat chipotle and watch a movie and then walk back again for some air and exercise
+        
+        but my laziness is too much right now
+        
+        i also haven't texted the tiny one and it just feels so wrong. i genuinely miss her so much and don't know what the expectation is in terms of texting
+        
+        probably something i should've mentioned before leaving last time but its like we spend so much time together and i leave on a good note with a kiss while the tiny one is poopin
+        
+        and then boom no texting. is that what the tiny one wants? i dont know but definitely not something i want and it feels wrong
+        
+        like maybe the tiny one reads these and she gets an update of my day but i also want to know what the tiny one is up to and how shes doing
+        
+        i want to send some tiktoks here and there and some funny pics but the tiny one has not replied to my last msg so idk
+        
+        maybe lil one is mad i didnt message her all day on the first day i left but i genuinly had no idea what the expecations are
+        
+        okiii enough yapping food is here. i'll update again tonight on todays unenventful day
+        
+        love you`,
+        
+
+        photos: ["images/Jul26_3.jpg"]
+    },
+    {
         date: "7/25",
         title: "July 25th",
         text: `on the 16th day, i finally exhaled
@@ -350,7 +394,7 @@ const dailyThoughts = [
         
         i think the older crowd cant handle them hours. just ate some greek food and i think im just gonna game for a bit
         
-        i want to go out today again so ill see what is happened tonight. not gonna do an update on today until tomorrow cause nothing really happened yet for a mid day update
+        i want to go out today again so ill see what is happeningx tonight. not gonna do an update on today until tomorrow cause nothing really happened yet for a mid day update
         
         hope the tiny one is doing good and having lots of fun. okie bye`,
 
