@@ -320,10 +320,20 @@ const dailyThoughts = [
     {
         date: "7/27",
         title: "July 27th",
-        text: ``,
+        text: `day 17 showed up uninvited, while i was wearing yesterday’s clothes
+        
+        im gonna keep it really short today, im not feeling to well so dont want to be on my laptop for too long
+        
+        i didnt do much today, ate my leftover popeyes and then just chilled on my couch
+        
+        ive spent the afternoon working on a couple things on my computer but i am genuinely tapped out right now
+        
+        hopefully tomorrow is better
+        
+        i go now`,
         
 
-        photos: []
+        photos: ["images/Jul27.jpg"]
     },
     {
         date: "7/25",
