@@ -320,16 +320,10 @@ const dailyThoughts = [
     {
         date: "7/27",
         title: "July 27th",
-        text: `litte one little one i dont have enough brain cells for an opener
-        
-        i kinda drank a bit too much by my self so im not doing too good little one
-        
-        okiiiie i am ready to pass out now. good night little one
-        
-        love you sooooo much`,
+        text: ``,
         
 
-        photos: ["images/Jul27jpg"]
+        photos: []
     },
     {
         date: "7/25",
