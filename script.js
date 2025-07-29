@@ -318,6 +318,38 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/28",
+        title: "July 28th",
+        text: `day 18 said pick a card,
+               and i did.
+               of course it was yours
+               
+            hello hello im feeling better today! work is going well and is going to be pretty chill from now on since im done with the presentations
+            
+            walked 20k steps today! no meal prep yet but did game with friends today on a brand new game. it was such a vibe
+            
+            ive also reviewed some of the assets them fiverr ppl worked on gave them some feedback so hopefully be wrapped in a couple days
+            
+            im in bed right now it is 12:20pm and just done editing a video
+            
+            ive spend a lil over an hour learning some card tricks cause i was bored and didnt want to watch tv
+            
+            i ordered mcdonalds and did some lil practice hehe
+
+            ohhh and also ive added the song jump as background noise cause it is a banger lol
+            
+            thats it for tonight. miss you tiny one
+            
+            so on day 18 i said pick a card
+            then vanished with it
+            
+            oh damn the video is too large to upload im scrambling now to find a solution
+            
+            oki solution found bye bye`,
+
+        photos: ["images/Jul28.jpg", "images/Jul28_1.mp4"]
+    },
+    {
         date: "7/27",
         title: "July 27th",
         text: `day 17 showed up uninvited, while i was wearing yesterday’s clothes
@@ -1813,12 +1845,42 @@ function closeImageModal() {
     }
 }
 
-// Add click handlers for images
+// Add click handlers for images and videos
 document.addEventListener('click', async (e) => {
     // Handle image clicks
     if (e.target.matches('.entry-photo img, .daily-entry img')) {
         e.preventDefault();
         await openImageModal(e.target.src, e.target.alt);
+    }
+    
+    // Handle video clicks
+    if (e.target.matches('.entry-photo video, .daily-entry video')) {
+        // Send email notification for video play
+        try {
+            const activeTab = document.querySelector('.tab-button.active');
+            let activeDate = 'Unknown';
+            let activeTitle = 'Unknown';
+            
+            if (activeTab) {
+                const dayIndex = activeTab.dataset.day;
+                if (dayIndex !== undefined && dailyThoughts[dayIndex]) {
+                    activeDate = dailyThoughts[dayIndex].date;
+                    activeTitle = dailyThoughts[dayIndex].title;
+                }
+            }
+            
+            const templateParams = {
+                user_email: 'ilan.mamontov@gmail.com',
+                to_name: 'Alex',
+                from_name: 'Your Tiny One Website',
+                message: `💕 Your tiny one just played a video! 🎬✨\n\nActive tab: ${activeTitle} (${activeDate})\n\nShe's watching the memories from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
+                timestamp: new Date().toLocaleString()
+            };
+            
+            await sendEmailIfProduction(templateParams);
+        } catch (error) {
+            console.error('Error sending video play email:', error);
+        }
     }
     
     // Handle modal close
