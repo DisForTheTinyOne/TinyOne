@@ -1829,7 +1829,7 @@ function createImageModal() {
     return modal;
 }
 
-async function openImageModal(imageSrc, imageAlt = '') {
+async function openImageModal(imageSrc, imageAlt = '', clickedElement = null) {
     let modal = document.querySelector('.image-modal');
     if (!modal) {
         modal = createImageModal();
@@ -1847,12 +1847,25 @@ async function openImageModal(imageSrc, imageAlt = '') {
         const activeTab = document.querySelector('.tab-button.active');
         let activeDate = 'Unknown';
         let activeTitle = 'Unknown';
+        let mediaIndex = 'Unknown';
+        let totalMedia = 'Unknown';
         
         if (activeTab) {
             const dayIndex = activeTab.dataset.day;
             if (dayIndex !== undefined && dailyThoughts[dayIndex]) {
                 activeDate = dailyThoughts[dayIndex].date;
                 activeTitle = dailyThoughts[dayIndex].title;
+                totalMedia = dailyThoughts[dayIndex].photos ? dailyThoughts[dayIndex].photos.length : 0;
+            }
+        }
+        
+        // Calculate media index if element is provided
+        if (clickedElement) {
+            const entryContainer = clickedElement.closest('.daily-entry');
+            if (entryContainer) {
+                const allMedia = entryContainer.querySelectorAll('img, video');
+                const clickedIndex = Array.from(allMedia).indexOf(clickedElement);
+                mediaIndex = clickedIndex !== -1 ? (clickedIndex + 1) : 'Unknown';
             }
         }
         
@@ -1860,7 +1873,7 @@ async function openImageModal(imageSrc, imageAlt = '') {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: `💕 Your tiny one just enlarged a picture! 📸✨\n\nActive tab: ${activeTitle} (${activeDate})\n\nShe's looking at the memories from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
+            message: `💕 Your tiny one just enlarged a picture! 📸✨\n\nActive tab: ${activeTitle} (${activeDate})\nMedia: ${mediaIndex} of ${totalMedia}\n\nShe's looking at the memories from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
             timestamp: new Date().toLocaleString()
         };
         
@@ -1883,7 +1896,7 @@ document.addEventListener('click', async (e) => {
     // Handle image clicks
     if (e.target.matches('.entry-photo img, .daily-entry img')) {
         e.preventDefault();
-        await openImageModal(e.target.src, e.target.alt);
+        await openImageModal(e.target.src, e.target.alt, e.target);
     }
     
     // Handle video clicks
@@ -1893,20 +1906,31 @@ document.addEventListener('click', async (e) => {
             const activeTab = document.querySelector('.tab-button.active');
             let activeDate = 'Unknown';
             let activeTitle = 'Unknown';
+            let mediaIndex = 'Unknown';
+            let totalMedia = 'Unknown';
             
             if (activeTab) {
                 const dayIndex = activeTab.dataset.day;
                 if (dayIndex !== undefined && dailyThoughts[dayIndex]) {
                     activeDate = dailyThoughts[dayIndex].date;
                     activeTitle = dailyThoughts[dayIndex].title;
+                    totalMedia = dailyThoughts[dayIndex].photos ? dailyThoughts[dayIndex].photos.length : 0;
                 }
+            }
+            
+            // Calculate media index
+            const entryContainer = e.target.closest('.daily-entry');
+            if (entryContainer) {
+                const allMedia = entryContainer.querySelectorAll('img, video');
+                const clickedIndex = Array.from(allMedia).indexOf(e.target);
+                mediaIndex = clickedIndex !== -1 ? (clickedIndex + 1) : 'Unknown';
             }
             
             const templateParams = {
                 user_email: 'ilan.mamontov@gmail.com',
                 to_name: 'Alex',
                 from_name: 'Your Tiny One Website',
-                message: `💕 Your tiny one just played a video! 🎬✨\n\nActive tab: ${activeTitle} (${activeDate})\n\nShe's watching the memories from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
+                message: `💕 Your tiny one just played a video! 🎬✨\n\nActive tab: ${activeTitle} (${activeDate})\nMedia: ${mediaIndex} of ${totalMedia}\n\nShe's watching the memories from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
                 timestamp: new Date().toLocaleString()
             };
             
