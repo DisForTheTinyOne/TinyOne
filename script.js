@@ -335,10 +335,20 @@ const dailyThoughts = [
         
         then drove my ass back home and now back on the couch typing this out. i also fixed a few issues with this site including some buttons stopped working, and video thumbnails not properly showing
         
-        i'm going to spend some time today to learn something more difficult with cards and probably upload it later tonight`,
+        i'm going to spend some time today to learn something more difficult with cards and probably upload it later tonight
+        
+        okiiii im back for the nightly update! didnt do much since my last update other than learn a new trick, eat subway and then record my new trick :)
+        
+        i'm also grilled rip my face and neck and arms are red even tho i put sunscreen on at home but i guess i shouldve brought it and re-applied
+        
+        it was sooo gloomy today but thats the most dangerous one
+        
+        im in bed already at 935pm and just gotta watch youtube or something for a couple hours
+        
+        goodnighty everybody`,
         
 
-        photos: ["images/Jul29_1.jpg", "images/Jul29_2.jpg", "images/Jul29_3.mp4"]
+        photos: ["images/Jul29_1.jpg", "images/Jul29_2.jpg", "images/Jul29_3.mp4", "images/Jul29_4.mp4"]
     },
     {
         date: "7/28",
@@ -1051,7 +1061,7 @@ function showDailyThoughtsPage() {
                 photoSection = `
                     <div class="entry-photo">
                         ${isVideo ? 
-                            `<video src="${day.photos[0]}" controls preload="metadata" style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);"></video>` :
+                            `<video src="${day.photos[0]}" controls preload="metadata" playsinline webkit-playsinline muted style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);"></video>` :
                             `<img src="${day.photos[0]}" />`
                         }
                         <p class="photo-caption">A moment from ${day.date} • ${isVideo ? 'Click to play' : 'Click to enlarge'}</p>
@@ -1065,7 +1075,7 @@ function showDailyThoughtsPage() {
                             return `
                                 <div class="entry-photo">
                                     ${isVideo ? 
-                                        `<video src="${photo}" controls preload="metadata" style="width: 100%; max-width: 350px; height: auto; border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);"></video>` :
+                                        `<video src="${photo}" controls preload="metadata" playsinline webkit-playsinline muted style="width: 100%; max-width: 350px; height: auto; border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);"></video>` :
                                         `<img src="${photo}" />`
                                     }
                                 </div>
