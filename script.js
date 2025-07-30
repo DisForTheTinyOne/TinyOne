@@ -348,7 +348,7 @@ const dailyThoughts = [
         goodnighty everybody`,
         
 
-        photos: ["images/Jul29_1.jpg", "images/Jul29_2.jpg", "images/Jul29_3.mp4", "images/Jul29_4.mp4"]
+        photos: ["images/Jul29_4.mp4", "images/Jul29_1.jpg", "images/Jul29_2.jpg", "images/Jul29_3.mp4"]
     },
     {
         date: "7/28",
