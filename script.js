@@ -297,8 +297,7 @@ document.addEventListener("click", async (e) => {
         // Navigate from daily thoughts to main letter
         expandToFullScreen();
     } else if (e.target.id === "spendTimeBtn") {
-        // Button is currently disabled
-        return;
+        showSpendTimeModal();
     } else if (e.target.id === "pickMeUpBtn") {
         showPickMeUpModal();
     } else if (e.target.id === "confirmSpendTime") {
