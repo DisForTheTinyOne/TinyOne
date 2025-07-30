@@ -317,6 +317,30 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/29",
+        title: "July 29th",
+        text: `day 19, overcast skies... memory weather
+               
+        today i decided to take half day off past noon. i had my morning meetings and kinda tapped out at lunch.
+        
+        i skipped lunch and decided to go out and drove all the way to half moon bay. i really wanted some air and just walk by the coast thinking about things so it felt nice
+        
+        went to a beach and walked around a bunch saw so many animals. so many bunnies, chickies, big chickies, hungry chickies, and goffers i think
+        
+        i caught video of a goffer who was hungie hungie and wasn't really afraid of me he a cutie lil guy
+        
+        i got 25k ish steps in, got the worse rash ever on my thigh from my undies scrubbin my leg so finally sat down and ate my first meal
+        
+        its this lil famous sam's clam chowder spot. got meself an afternoon beer :) clam chowder and lobster roll
+        
+        then drove my ass back home and now back on the couch typing this out. i also fixed a few issues with this site including some buttons stopped working, and video thumbnails not properly showing
+        
+        i'm going to spend some time today to learn something more difficult with cards and probably upload it later tonight`,
+        
+
+        photos: ["images/Jul29_1.jpg", "images/Jul29_2.jpg", "images/Jul29_3.mp4"]
+    },
+    {
         date: "7/28",
         title: "July 28th",
         text: `day 18 said pick a card,
@@ -1027,7 +1051,7 @@ function showDailyThoughtsPage() {
                 photoSection = `
                     <div class="entry-photo">
                         ${isVideo ? 
-                            `<video src="${day.photos[0]}" controls style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);"></video>` :
+                            `<video src="${day.photos[0]}" controls preload="metadata" style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);"></video>` :
                             `<img src="${day.photos[0]}" />`
                         }
                         <p class="photo-caption">A moment from ${day.date} • ${isVideo ? 'Click to play' : 'Click to enlarge'}</p>
@@ -1041,7 +1065,7 @@ function showDailyThoughtsPage() {
                             return `
                                 <div class="entry-photo">
                                     ${isVideo ? 
-                                        `<video src="${photo}" controls style="width: 100%; max-width: 350px; height: auto; border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);"></video>` :
+                                        `<video src="${photo}" controls preload="metadata" style="width: 100%; max-width: 350px; height: auto; border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);"></video>` :
                                         `<img src="${photo}" />`
                                     }
                                 </div>
