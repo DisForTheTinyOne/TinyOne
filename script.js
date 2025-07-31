@@ -317,6 +317,46 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "7/30",
+        title: "July 30th",
+        text: `day 20... didn’t expect to still have things to say, but apparently my heart didn’t get the memo
+               
+        it is 11:56pm right now and i just moved from the treadmill to the couch to write this out before showering and sleeping
+        
+        don't have much to say today. worked till 5pm and then walked to the greek place to grab a chicken gyro wrap
+        
+        SOOO good
+        
+        i then walked by that shuryuken place we went once for all you can eat. they closed down for a couple months a couple months ago
+        
+        looks like they finally opened up and the place is PACKED. there a bigass line out the door im not sure i want to wait but wonder what they changed
+        
+        came back home ate food watched tiktoks and then back on the treadmill working on the lil thingy. not sure when i'll share it
+        
+        maybe when i reach 10,000 words of yappin? possibly
+        
+        i gave a couple more applications to different places for cat fostering, kinda cant wait cause i spent most of my week home just vibin
+        
+        i retired by card tricks cause im already a pro and got a cool trick under my sleeve
+        
+        i think my next little hobby for a few days is music producing. gonna produce one banger and retire as well
+        
+        still debating which software to use.
+        
+        i went on a late 10pm walk to grab a whiteclaw just to go thru my thoughts and was tired at home. SOOO many food trucks everywhere it is wild
+        
+        came back home and opened a bubly. new bubly flavor unlocked aka coconut pineapple. its ight
+        
+        that was my day! tomorrow i got no plans so same old same old, prob gonna start the music thingy.
+        
+        that enough for today, I’ll meet myself again tomorrow
+        
+        goodnighty`,
+        
+
+        photos: ["images/Jul30_1.jpg", "images/Jul30_2.jpg", "images/Jul30_3.jpg"]
+    },
+    {
         date: "7/29",
         title: "July 29th",
         text: `day 19, overcast skies... memory weather
