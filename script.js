@@ -319,9 +319,32 @@ const dailyThoughts = [
     {
         date: "7/31",
         title: "July 31st",
-        text: `day is in progress...`,
+        text: `day 21, this is what three weeks of persistence looks like
 
-        photos: ["images/dog.png"]
+        i'm goona keep it really really short today cause i need to wake up early tomorrow to start work really early
+
+        today i wrapped up work around 6pm cause i went on a 45 minutes walk. i kinda liked the tan i got at half moon bay
+
+        so i went to target during lunch for chipotle and grabbed a few things including tanning oil hehe
+
+        it was REALLY sunny today so i went on a 45 minutes walk today shirtless and oiled up in very non crowded street
+
+        im rdy to look tan! also reason im waking up early tmrw is i wanna get a workout in before work.
+
+        i couldn't really figure out whati wanted to do this weekend so couple hours ago i bought a single hard summer ticket on huge discount
+
+        i'll stay maybe 2 days if im feeling it but i think one day is enough cause outside lands is next weekend
+
+        gotta get my haircut tmrw at 4:30pm, grab dinner with my bro and peace out straight to LA driving
+
+        prob gonna do a midday update tmrw, but won't bring my laptop to LA so prob no updates for a day or 2 after that.
+
+        okiii bye bye buttherfly
+
+        oh yeah the dog is hennus but i have him animated for the lil project 
+
+        `,
+        photos: ["images/Jul31.jpg", "images/dog.png"]
     },
     {
         date: "7/30",
