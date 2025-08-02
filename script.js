@@ -317,11 +317,36 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "8/01",
+        title: "August 1st",
+        text: `new month, new vibe steppin’ in like the rent just got paid
+
+        today is national girlfriend day! i was still planning on dropping flowers at the door but not sure if youre home
+
+        you did say you might be at lollapalooza this weekend so im not gonna risk it. i'll drop them when youre home at some point cause tiny one must always have flowers
+
+        anyways i didn't get the chance to get a haircut today cause work has been busy and we're launching something i've been working on next monday so i've been prepping for it
+
+        also only gonna go to hard summer for a single day and be back sunday cause i need to grind out work and make sure we are good to go
+
+        otherwise not much else today. I just got home, didn't have plans to go home but my car had only a few miles left
+
+        so i put my car on charge near my apartment and took the caltrain to my bros, it was only a 25mins commute which was a vibe.
+
+        i ate steak and then i pooped so im good to go for a long car ride. i'm packed and everything and i wanna get there by 1am so im outie
+
+        i'll be back sunday so no updates tmrw. also walking to caltrain reminded me of that one time where i got all wet near the sprinklers
+
+        oki bye love you
+        `,
+        photos: ["images/Aug1.jpg"]
+    },
+    {
         date: "7/31",
         title: "July 31st",
         text: `day 21, this is what three weeks of persistence looks like
 
-        i'm goona keep it really really short today cause i need to wake up early tomorrow to start work really early
+        i'm gonna keep it really really short today cause i need to wake up early tomorrow to start work really early
 
         today i wrapped up work around 6pm cause i went on a 45 minutes walk. i kinda liked the tan i got at half moon bay
 
