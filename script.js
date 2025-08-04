@@ -317,6 +317,25 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "8/03",
+        title: "August 3rd",
+        text: `made it to day 22... barely
+
+        i am fried not good not good. hard summer was not really a vibe im glad i only went for a single day
+
+        it was soooo packed and ppl were soooo rude not good. anyways i got back home at like 4pm and worked since then
+
+        i am so tired... 11 hours of driving these past couple days and im just so drained.
+
+        anways i want to crash now. i'm typing this out with one eye closed and tomorrow we're releasing my new product
+
+        gonna wake up really early tmrw to prep up for it some im out for now
+
+        hope the tiny one had a fantastic weekend
+        `,
+        photos: ["images/Aug3.gif"]
+    },
+    {
         date: "8/01",
         title: "August 1st",
         text: `new month, new vibe steppin’ in like the rent just got paid
