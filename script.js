@@ -317,6 +317,29 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "8/04",
+        title: "August 4th",
+        text: `i didn't think id make it this far but here we are day 23
+
+        im writing this out while im working out for the first time in a while. feels nice using this big ass machine again
+
+        i launched my new product today and it went well! went live at 6pm and was on a call with customers till bout 9pm
+
+        obviously had to have a whiteclaw while being on the call dealing with all them peeps. tomorrow im heading to the office for lunch and to meet some new coworkers
+
+        currently 12:05am and im eepy eepy EEPY. got all my windows open cause ive been sweaty so it is nice and chilly
+
+        will take a shower and crash hard. also just down a melatonin cause i want to pass out quick and wake up early
+
+        nothing else really exciting happened today so i'm gonna call it here. another short writing day! been on my laptop for too long
+
+        approaching 10k words of yappin! maybe this will reach 10k dunno i dont see live word count
+
+        okiii bye i go now get my last couple sets in
+        `,
+        photos: ["images/Aug4.jpg"]
+    },
+    {
         date: "8/03",
         title: "August 3rd",
         text: `made it to day 22... barely
