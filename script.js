@@ -319,11 +319,45 @@ const dailyThoughts = [
     {
         date: "8/05",
         title: "August 5th",
-        text: `day is in progres...
+        text: `step by step mile by mile day 24 arrives on sore feet and a full heart
 
-        just got home from the office! saw a funny poster
+        today was kinda of a packed day. it is 11:40pm and i think i got 45k steps and walked more than a marathon or something which is WILD
+
+        went to the office this morning to grab lunch with some higher ups to celebrate my release.
+
+        i then walked in the city towards my house and saw this funny poster about alex hehe. got about 15k steps at lunch
+
+        got home and worked some more while obviously still walking. i then decided to walk to target and back
+
+        i got GRILLED. i forgot sunscreen again and i am soooo red now not good not good
+
+        ate some panda express healthy option aka green lettuce and chicken thats it lol
+
+        i got a ollipop new flavor which was good and then got a funny lil fortune cookie msg :)
+
+        target also revamped slightly and things are in STOCK. sooo many thingies for the movies we used to bring
+
+        all types of lil snackies for the tiny one was kinda tempted to get some
+
+        walked on my way home too and saw my building from alll the way from target 
+
+        also new flavor unlocked with lacroix aka mojito its alright
+
+        so now im back on the treadmill grinding my steps and grinding my work
+
+        bout to hop off and go workout for bout 30 mins before showering and crashing hopefully by 1am
+
+        i also think today reach 10k words!! wew
+
+        walked so much make me overthink way too much as well and made me miss the tiny one a lot. probably gonna drop off some flowers thursday or friday. pretty much when it'll mark 2 weeks since last time i kissed the tiny one goodbye while she was on the pooper
+
+        really want to go the outside lands with her cause i feel like last time we didnt get the full experience of side quests so was hoping this year we'd make up for it
+
+        anyways today felt pretty sad so i'm gonna go pump some iron before i overthink again
+
+        cya
         `,
-        photos: ["images/Aug5_1.jpg"]
+        photos: ["images/Aug5_1.jpg", "images/Aug5_2.jpg", "images/Aug5_3.jpg", "images/Aug5_4.jpg", "images/Aug5_5.jpg", "images/Aug5_6.jpg",]
     },
     {
         date: "8/04",
