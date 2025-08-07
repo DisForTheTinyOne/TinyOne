@@ -287,6 +287,7 @@ document.addEventListener("click", async (e) => {
             timestamp: new Date().toLocaleString()
         };
             
+        ///
             await sendEmailIfProduction(templateParams);
         } catch (error) {
             console.error('Error sending continue button email:', error);
@@ -319,10 +320,33 @@ const dailyThoughts = [
     {
         date: "8/06",
         title: "August 6th",
-        text: `day is in progress...
-        
-        my body is burnt and my legs are sore`,
-        photos: []
+        text: `25 days still writing still thinking still feeling and today... it’s no different
+
+        edit: this is the next day looks like the update to the site failed cause of the size of all the pictures combined was tooooo much. i fixed this be compressing every single image by 50% so i got space for another 20 ish days :)
+
+        hihi little one little one. today is gonna be a short update i think. still dunno if this one is still reading all of this
+
+        today was just a regular day where i work, workout eat and was some cat videos. tomorrow is my last work day of the week cause im off friday!
+
+        i got myself vip ticket for outside lands for the weekend so im gonna vibe out and just try to have fun
+
+        wish the tiny one was with me but it is what it is. cant wait for daddy john summit friday
+
+        i also went to a local flower shop today its such a cutie spot. they dont speak english at all and they be strictly spanish
+
+        so i had to flex my spanish skills and got some flowers. they're just chillin on my counter for a couple days until i deliver them to the tiny one friday morning ish
+
+        i forgot how nice it feels to have flowers around feels like its been forever since i had some on my counter
+
+        im sitting on the couch right now cause my legs are tapped out. im wearing my favorite white shirt and didnt realize how many holes i have
+
+        perfect location of holes for the arm pit stinkiness ventilation. so i took a picture
+
+        the lil project is done and its way too cheesy oops. i'll probably add it to this site sunday or monday after outside lands we'll see
+
+        okiiii hope you are doing well
+        `,
+        photos: ["images/Aug7_1.jpg", "images/Aug7_2.jpg", "images/Aug7_3.jpg"]
     },
     {
         date: "8/05",
