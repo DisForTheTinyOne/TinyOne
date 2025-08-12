@@ -318,25 +318,13 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
-        date: "8/08",
-        title: "August 8th",
-        text: `and just like that… day 26
+        date: "8/12",
+        title: "August 12th",
+        text: `day is in progress...
 
-        this update was supposed to be last night but i passed out on the couch at 10pm and woke up at 4am oops
-
-        it is 11am right now and getting ready to get out. i'm ubering to tiny's one to drop off flowers and then im going to walk all the way to outside lands
-
-        its gonna take me 2ish hours to get there but i'll stop by somewhere to grab coffee and food. also stop by a store to get some buzzballs to pregame :)
-
-        looks nice and sunny rn so i might end up sweaty hard but is all good
-
-        not sure when my next update will be. probably tomorrow morning maybe not we'll see how it goes
-
-        really wish the lil one would join me. feels like i can find a cheap VIP ticket for her sunday cause ppl usually tap out after a couple days
-
-        i'm gonna go now. i'll talk to you tomorrow...  maybe
+        eepy brain, warm heart
         `,
-        photos: ["images/Aug8_1.jpg", "images/Aug8_2.jpg"]
+        photos: []
     },
     {
         date: "8/06",
