@@ -320,11 +320,26 @@ const dailyThoughts = [
     {
         date: "8/12",
         title: "August 12th",
-        text: `day is in progress...
+        text: `there's something about today that feels different… maybe it’s just day 26 magic, maybe is waking up with cuddles in the morning
 
-        eepy brain, warm heart
+        this will be a short one today. im surving off like 3 hours of sleep and worked for like 16 hours today. on-call was not a vibe today, but someone gotta make the monie
+
+        i wish i had more time for cuddles cause it was so nice, and i really needed it. just something really special about cuddling the tiny one
+
+        other than that i just grinded out work, had morning breakfast with some higher ups which is why i had to peace out early
+
+        i went on an afternoon run and got grilled again. back to being red for a couple days
+
+        for breakfast i only had coffee and a tiny lox bagel with the peeps, and for the rest of the day i'm suriving off a subway sandwich
+
+        i didn't check what my rewards status was but i'm on the grind to a subway all star
+
+        tomorrow i'm just gonna have a regular day of work and eating food so nothing special
+
+        today’s little piece of me, see you in the next one. i go sleep cause im eep
+
         `,
-        photos: []
+        photos: ["images/Aug12.jpg"]
     },
     {
         date: "8/06",
