@@ -320,12 +320,27 @@ const dailyThoughts = [
     {
         date: "8/13",
         title: "August 13th",
-        text: `day is in progress...
+        text: `day 27, and i’ve learned even small check-ins matter
+        
+        today was one of those days where work just wore me out completely
+        
+        brain feels like it’s been in a foggy thoughts. nothing bad happened exactly, just that slow mental drain from on call eats you alive 
+        
+        i didn’t really have the energy to do much after clocking out which is 10pm
+        
+        no big adventures, no funny stories or any fun pictures i usually post
+        
+        just me, and my treadmill with my stinky shirt i forgot to change today oops
+        
+        i still wanted to post today, so I’m still putting something here. no new pictures from today, but ill throw in a couple of my favorite old ones i had from the first few months i met you 
+        
+        because looking at them makes me feel a little better 
+        
+        tomorrow’s another shot at a better day. going to rufus so i'm pumped for that. prob wont have an update later that day
 
-        unlucky number 13! also my dads birthday :)
-
+        that’s all! nighty night little one
         `,
-        photos: []
+        photos: ["images/Aug13_1.jpg", "images/Aug13_2.jpg", "images/Aug13_3.jpg"]
     },
     {
         date: "8/12",
