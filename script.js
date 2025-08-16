@@ -331,15 +331,59 @@ const dailyThoughts = [
     {
         date: "8/14",
         title: "August 14th",
-        text: `day is in progress...
+        text: `day 28… caught the beat life feels sweet
         
-        been up since 5:30am due to a page so just been on a grind slightly eepy
+        updating this one the 16th cause rufus took my whole 14th night and on call destroyed my sleep friday and i got lazy
 
-        went on a morning run felt pretty nice. 
-        
-        i do miss cuddling bommie tho so would've prefered that
+        rufus was suuuuch a vibe. i decided to head out there at like 7pm since he shows up at 830pm
+
+        he has someone open for them but i couldnt care less. i decided to take public transit which took a whole 1hr 30mins to get there but it was best decision ever
+
+        i wore my anyma hoodie, bought a couple buzz balls and took the caltrain to mountain view.
+
+        caltrain was hilarious cause half the ppl in it were coming from work and dressed up while the other half were going to rufus pregraming
+
+        there was this table with 3 people sitting while i was walking by to find a seat and they asked me like ohhh damn you went to anyma
+
+        first time i said the truth and it was gifted hahah. they said they wished they could've seen him but took a shot of tequila w them so all is good
+
+        got to mountain view and then bunch of peeps took a bus, some biked. i took a bus again packed w peeps going to rufus
+
+        after that it was another like 15mins walk to the venue with a ~5mins wait for the line
+
+        by this time i downed both buzzballs and the couple infront of them had an extra budlight and they couldn't bring it in so i also downed that in like 5 seconds
+
+        never been to shoreline but kinda out of the way and painful to get but sooo pretty. they have this HUGE area prob 2x size of the food trucks place next to you
+
+        soooo many options for food and drinks. ended up downing 2 hotdogs and got myself a twisted tea and then found my seat
+
+        my seat was amazing. dead in the middle maybe 12 rows back. the venus is huged i think about 22k
+
+        most of them were in the lawn area or ga where you can't really see shiet. but i had my assigned seat. got the ticket really cheap
+
+        he played till like 10:30 and then did an encore with 3 more songs. so much confetti blasted in my face.
+
+        dude rufus is sooo fking amazing absolute vibe so glad i saw him.
+
+        people next to me were amazing too, they were 2 dudes who are djs (not the famous one but they were good)
+
+        i talked to them for a bit and got influnced to start producing music this weekend. something i've been wanting to do for a while but now im motivated
+
+        going back home was also hard, had to walk about 40 mins to get to a spot where i could get a lyft
+
+        got home at like 12:30am and crashed hard since i woke up at 5:30am earlier that day for on call
+
+        and ofcourse i get paged at 6:30am the next day and grinded work till about 8pm. 
+
+        made some salmon, worked out and then crashed hard again at 10pm.
+
+        3 days outsidelands into oncall with minimal sleep is not good. so this weekend i'm just working on my self and on my music
+
+        gonna spend about 10 hours each on saturday and sunday to learn how to produce house music so it'll be a vibe
+
+        thats it for this day, let the music carry me into day 29
         `,
-        photos: []
+        photos: ["images/Aug14_1.jpg", "images/Aug14_2.mp4"]
     },
     {
         date: "8/13",
