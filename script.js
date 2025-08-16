@@ -322,9 +322,7 @@ const dailyThoughts = [
         title: "August 16th",
         text: `day is in progress...
         
-        its 10am and just came back from a 1hr 30mins walk :)
-
-        i'll update the day before after i eat foooood
+        weather in sf is how hot, my beats are even hotter
         `,
         photos: []
     },
