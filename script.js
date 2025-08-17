@@ -320,11 +320,27 @@ const dailyThoughts = [
     {
         date: "8/16",
         title: "August 16th",
-        text: `day is in progress...
+        text: `day 29 cooking heat one beat at a time,
         
-        weather in sf is how hot, my beats are even hotter
+        this be the next morning and just drinking my coffee sitting on my couch getting rdy for another day of grinding
+
+        stay up last night till about 2am ish learning how to produce house music. i think ive spent about 10 hours yesterday
+
+        made a bunch of chords and melodies and getting the hang of it. the software is complicated lol
+
+        other than that workout a bunch and meal prepped 5lb of chicken titties
+
+        i'm on a really aggressive cut right now so trying to stay consistent when i got no plans and just hang at home
+
+        today is gonna be same thing. eat workout and make more music
+
+        now that i have the hang of it i think i can make something decent by the end of the day
+
+        if i get something alright i'll share it hehe
+
+        that's a wrap for today, tomorrow we go harder
         `,
-        photos: []
+        photos: ["images/Aug16_1.jpg", "images/Aug16_2.jpg"]
     },
     {
         date: "8/14",
