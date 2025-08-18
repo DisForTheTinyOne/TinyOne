@@ -318,6 +318,43 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "8/17",
+        title: "August 17th",
+        text: `30 days a full circle of sun and moon!
+        
+        a late post! aka the next day aka the 18th
+
+        got pretty distracted last night working on producing music. im like way to invested in this
+
+        i think i got like 20 hours in already just this weekend and i think im a pro at this now
+
+        i think i made like 15 little 30 sec songs trying new features and learning new things
+
+        i've uploaded my last one from last midnight where i trying learning how to use the mixer. this shiet is compliiiicated
+
+        ignore the song it is ass i made it in like 30 mins lol but spent most of the time mixing
+
+        i think im ready to produce my ~2mins song which will prod take a few days
+
+        i dont think it'll be an original but instead ill start with a remix of an existing song cause it is much easier
+
+        i already have an idea on the song + genre so it'll be a vibe
+
+        ngl the reason why im hardcore spending time on this is cause i wanna produce a music for the lil project im working on
+
+        other than not much else yesterday. just chicken and working out
+
+        today aka the 18th is my oldest nephews birthday!!! they're at great america right now but i cant make it
+
+        i'll come to their place after work for the cake and gift opening. i think he gonna like my gift hehe
+
+        i'll try to post another update today end of day cause im not drinking at my bros today for the first time ever
+
+        and so the first month ends! not with a period but a comma
+        `,
+        photos: ["images/Aug17.mp4"]
+    },
+    {
         date: "8/16",
         title: "August 16th",
         text: `day 29 cooking heat one beat at a time,
