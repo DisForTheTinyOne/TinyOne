@@ -320,7 +320,7 @@ const dailyThoughts = [
     {
         date: "8/18",
         title: "August 18th",
-        text: `day is in progres...
+        text: `day is in progress...
 
         probably eating cake at my nephews birthday rn
         `,
