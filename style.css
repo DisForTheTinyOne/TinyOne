@@ -4367,6 +4367,25 @@ button:active {
     box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.35);
 }
 
+/* iOS-specific video styling for thumbnail display */
+.entry-photo video,
+.entry-photos .entry-photo video {
+    -webkit-playsinline: true;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #000;
+    min-height: 200px; /* Ensures video container has height for thumbnail */
+}
+
+/* Force video poster to display on iOS */
+video::-webkit-media-controls-start-playback-button {
+    opacity: 0.8;
+}
+
+video::-webkit-media-controls-panel {
+    opacity: 0.9;
+}
+
 /* Multiple photos layout */
 .entry-photos {
     display: flex;
@@ -4919,6 +4938,18 @@ button:active {
         object-fit: contain;
         margin: 0 auto;
         display: block;
+        min-height: 150px; /* iOS mobile thumbnail display */
+        background-color: #000;
+    }
+    
+    /* Additional iOS mobile video support */
+    @media screen and (max-width: 480px) {
+        .entry-photo video,
+        .entry-photos .entry-photo video {
+            min-height: 120px;
+            -webkit-playsinline: true;
+            background-color: #000;
+        }
     }
     
     .text-content {

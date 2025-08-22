@@ -318,13 +318,52 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
-        date: "8/18",
-        title: "August 18th",
-        text: `day is in progress...
+        date: "8/21",
+        title: "August 21th",
+        text: `31 days in and what i miss most tonight are the cuddles that words cant replace
 
-        probably eating cake at my nephews birthday rn
+        i'm really tired i think this 1200 calories diet and hardcore physical activity finally caught up to me
+
+        im crashing hard and feeling very foggy so im gonna keep this short
+
+        this weekend im gonna eat so much food i cant wait im tired of eating chicken tuna and veggies
+
+        im not doing anything but imma be ordering all the tacos and burritos and burgers and everything and just hang by myself and chill
+
+        anyways just letting you know i didnt forget this about this. just too much grind this week
+
+        heres a puppy my brother had during my nephews birthday. it was sweet cause her name quinn
+
+        i was like come come quinn come come and it felt i was calling you to follow me it was cute (i know its not spelled the same but stiiiiill)
+
+        i got the kiddo a whole new mac mini for his coding era. he loved it
+
+        my brother is now asking for his birthday for the same thing but the latest generation and top specs
+
+        that shiet is $2000 lol
+
+        another picture of my microwave being busted and my 2 besties visiting me fixing it up
+
+        also i've uploaded the song i made i shared with you. i recorded it pretty much an hour after i came back from yours
+
+        i started working on the melodic song aka similar to john summits feat Hayla so expect some lyrics sent to you
+
+        hope you doing good little one. i genuinely miss you and i felt really bad leaving your place in that state
+
+        i'm picking up flowers tomorrow morning from the same place i got you the last ones you loved
+
+        i'll drop off the flowers in the morning/afternoon to replace the dead ones cause this one must always have flowers
+
+        okiiii its only 730pm and waiting for my salmon to finish cooking in the airfryer
+
+        im hungie so i'll talk to you soon
+
+        one more thing! i forgot it was funny i was riding back in the uber from yours and my uber driver was playing Jump by blackpink and then a bunch of huntr songs. okii thats it
+
+        t'ill tomorrow
+
         `,
-        photos: []
+        photos: ["images/Aug20_1.jpg", "images/Aug20_2.jpg",  "images/Aug20_4.jpg","images/Aug20_5.mp4"]
     },
     {
         date: "8/17",
@@ -1450,7 +1489,7 @@ function showDailyThoughtsPage() {
                 photoSection = `
                     <div class="entry-photo">
                         ${isVideo ? 
-                            `<video src="${day.photos[0]}" controls preload="metadata" playsinline webkit-playsinline muted style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);"></video>` :
+                            `<video src="${day.photos[0]}" controls preload="metadata" playsinline webkit-playsinline muted poster="${day.photos[0]}#t=0.5" style="width: 100%; max-width: 400px; height: auto; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);"></video>` :
                             `<img src="${day.photos[0]}" />`
                         }
                         <p class="photo-caption">A moment from ${day.date} • ${isVideo ? 'Click to play' : 'Click to enlarge'}</p>
@@ -1464,7 +1503,7 @@ function showDailyThoughtsPage() {
                             return `
                                 <div class="entry-photo">
                                     ${isVideo ? 
-                                        `<video src="${photo}" controls preload="metadata" playsinline webkit-playsinline muted style="width: 100%; max-width: 350px; height: auto; border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);"></video>` :
+                                        `<video src="${photo}" controls preload="metadata" playsinline webkit-playsinline muted poster="${photo}#t=0.5" style="width: 100%; max-width: 350px; height: auto; border-radius: 16px; box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);"></video>` :
                                         `<img src="${photo}" />`
                                     }
                                 </div>
