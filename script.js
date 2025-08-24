@@ -325,6 +325,18 @@ const dailyThoughts = [
         if SAD is stealing the sunshine, im sending in backup
 
         there's flowers outside your door
+
+        ----------------------------
+
+        i dont think i got a clever opener today lil one
+
+        it be 11:30pm 23rd and im in bed just vibing
+
+        just stuffed myself with mcdonalds and tacos so now im just laying in bed eepy eepy
+
+        okie im going to bed now 
+
+        hope your weekend is fantastic lil one
         `,
         photos: ["images/Aug22_1.jpg"]
     },
