@@ -320,13 +320,29 @@ const dailyThoughts = [
     {
         date: "8/24",
         title: "August 24th",
-        text: `day is in progress...
+        text: `the ink dried on 32, but we back for day 33
 
-        its noon and just got out of bed
+        today was not too eventful. went to target loaded up on beef chicken salmon and steak aka my diet for this upcoming week
 
-        no plans for today just gonna chill eat food and work on my stuff
+        im going to take a few days off this week just for a breather cause i've been spending too much time on the computer 
+
+        not too sure what imma do yet tbh. maybe day trips maybe just wander around the city with no plans but def wanna get out of my house
+
+        this weekend ive just been working on my self and also making music
+
+        im almost wrapped up with the melodic song ive been working on, just need the lyrics and the vocals
+
+        other than that nothing crazy happened. watched some football preseason games while eating some homemade steak
+
+        just been vibing but 2 days does not feel enough to rest up especially that i've spent most of my time working on the computer
+
+        so next week imma be more hands off
+
+        day 33 bows out leaving me thinking of you
+
+        i had to compress the video to make it uplaodable to this site so might not be the best quality
         `,
-        photos: []
+        photos: ["images/Aug24.mp4"]
     },
     {
         date: "8/22",
