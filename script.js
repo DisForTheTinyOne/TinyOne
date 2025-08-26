@@ -320,11 +320,59 @@ const dailyThoughts = [
     {
         date: "8/25",
         title: "August 25th",
-        text: `day is in progress...
+        text: `12 thousand words trail behind me, and day 34 is just another page
 
-        going to work till like 1pm and then im off for a few days so im pumped
+        kinda wild how many words i've typed. i think ive put more effort in this than any school work ever
+
+        hiiii tiny one im back
+
+        today i worked till 1pm and then worked on some more music till 5pm ish and took the caltrain to the city
+
+        did some roaming around, had a solo dinner and did a bunch of thinking
+
+        i dont know how many of these daily updates i have left in me but i'm trying keep it going
+
+        i know i cant keep this up forever but i'm trying to make it last as long as possible
+
+        honestly i just want to keep you updated with what im up to
+
+        the first few days sure it was more of a way for me to journal but honestly nowadays its just knowing that youre reading these and its become less about the words, more about leaving little pieces of myself for you
+
+        it makes me feel closer to you in the little everyday ways
+
+        yeaaaah today is kinda different than usual. likely because i've spent most of the day on a solo date with myself and that leads to just thinking a lot
+
+        i do miss you a lot and im trying my best to keep myself distracted but nothing is working
+
+        im legit trying to produce music over here and the path i took is melodic house music needing your vocals. what is wrong with me
+
+        thats why i don't think i'll keep this up for too long. i have soooo many things to yap about but that'll be for my last update
+
+        anyways im off the rest of the week
+
+        i've added a new button to this date right above the picture. i legit just want to spend one whole day with you
+
+        go watch movies, have some good food and spend some quality time together
+
+        at some point youre gonna get into a relationship so i just wanna feel like our old selves again for one last time
+
+        i know i know we've had this "lets spend these couple days like everything is okie" talk experience before but i just want to feel like we're back to normal one last time
+
+        you're also making it hard hahah everyhing i come by for a bit you talk like we're gonna hang out more often. i know thats not gonna happen
+
+        thats why i just wanna spend one more day together and then ill be good i think... probably not but i'll take anything
+
+        if not these weekdays we can always go to discovery meadows this weekend. but i believe you are going to disney this weekend for year 1 birthday :)
+
+        honestly its just really hard to be away from you. i feel like everytime i've hung out with you this past month i always had to leave for work early
+
+        just this time around i want a full day with you
+
+        i want to pick you up, be my passenger princess and just enjoy the day together
+
+        alright its midnight and im off to bed
         `,
-        photos: []
+        photos: ["images/Aug25.jpg"]
     },
     {
         date: "8/24",
@@ -1576,6 +1624,18 @@ function showDailyThoughtsPage() {
         const hasImages = day.photos && day.photos.length > 0;
         const wordCount = countWords(day.text);
         
+        // Check if this is the August 25th entry specifically
+        const isAugust25Entry = day.date === '8/25';
+        
+        // Add "Spend Day Together" button for August 25th entry only
+        const spendDayButton = isAugust25Entry ? `
+            <div class="spend-day-section">
+                <button class="spend-day-btn" onclick="showSpendDayConfirmation('${day.date}', '${day.title}')">
+                    💕 Spend the Day Together
+                </button>
+            </div>
+        ` : '';
+        
         return `<div class="daily-entry">
             <h3>${day.title}</h3>
             <div class="word-count-info">
@@ -1586,6 +1646,7 @@ function showDailyThoughtsPage() {
                 <div class="entry-text">
                     <div class="text-content">${day.text.split('\n').map(line => line.trim() ? `<p>${line}</p>` : '<br>').join('')}</div>
                 </div>
+                ${spendDayButton}
                 ${photoSection}
             </div>
         </div>`;
@@ -2257,6 +2318,116 @@ async function handlePickMeUpConfirm() {
         <div class="message-content">
             <h3>I will see you Sunday!</h3>
             <p class="email-status">Alex has been notified and will pick you up!</p>
+        </div>
+    `;
+    
+    document.body.appendChild(confirmMessage);
+    
+    // Trigger show animation
+    requestAnimationFrame(() => {
+        confirmMessage.classList.add('show');
+    });
+    
+    // Remove message after 8 seconds
+    setTimeout(() => {
+        confirmMessage.classList.remove('show');
+        // Remove from DOM after fade out
+        setTimeout(() => {
+            confirmMessage.remove();
+        }, 300);
+    }, 8000);
+}
+
+// New function for showing spend day confirmation modal for August entries
+function showSpendDayConfirmation(date, title) {
+    const modal = document.createElement('div');
+    modal.id = 'spendDayConfirmationModal';
+    modal.className = 'modal-overlay animating';
+    
+    modal.innerHTML = `
+        <div class="modal-content spend-day-modal">
+            <div class="modal-header">
+                <h3>💕 Spend the Day Together</h3>
+            </div>
+            <div class="modal-body">
+                <div class="romantic-message">
+                    <p>✨ Would you like to spend a day with me? ✨</p>
+            <div class="modal-actions">
+                <button id="confirmSpendDay" class="confirm-btn">Yes, let's spend the day together! 💕</button>
+                <button id="cancelSpendDay" class="cancel-btn">Maybe another time</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Add event listeners for the modal
+    modal.addEventListener('click', (e) => {
+        if (e.target.id === 'confirmSpendDay') {
+            handleSpendDayConfirm(date, title);
+        } else if (e.target.id === 'cancelSpendDay' || e.target === modal) {
+            hideSpendDayModal();
+        }
+    });
+    
+    // Show modal with animation
+    requestAnimationFrame(() => {
+        modal.classList.add('show');
+        
+        // Auto-focus on confirm button
+        setTimeout(() => {
+            const confirmBtn = document.getElementById('confirmSpendDay');
+            if (confirmBtn) confirmBtn.focus();
+        }, 300);
+    });
+}
+
+function hideSpendDayModal() {
+    const modal = document.getElementById('spendDayConfirmationModal');
+    if (modal) {
+        modal.classList.add('animating');
+        modal.classList.remove('show');
+        
+        setTimeout(() => {
+            modal.remove();
+        }, 300);
+    }
+}
+
+async function handleSpendDayConfirm(date, title) {
+    hideSpendDayModal();
+    
+    // Send email notification
+    try {
+        const templateParams = {
+            user_email: 'ilan.mamontov@gmail.com',
+            to_name: 'Alex',
+            from_name: 'Your Tiny One Website',
+            message: `💕 SPEND THE DAY TOGETHER REQUEST! 💕\n\nYour tiny one wants to spend the day with you! Time to plan something beautiful! ✨\n\nRequested from: ${title} (${date})\n\nShe's ready for:\n☕ Morning coffee & cuddles\n🌸 A romantic walk together\n🍽️ Cooking dinner together\n🌙 Stargazing in the evening\n\nScreen width: ${window.innerWidth}px`,
+            timestamp: new Date().toLocaleString()
+        };
+        
+        await sendEmailIfProduction(templateParams);
+        
+    } catch (error) {
+        console.error('Error sending spend day email:', error);
+        if (!isLocalEnvironment()) {
+            alert('⚠️ Request failed to send. Please text me instead');
+        }
+    }
+    
+    // Show confirmation message
+    const confirmMessage = document.createElement('div');
+    confirmMessage.className = 'confirm-message';
+    confirmMessage.innerHTML = `
+        <div class="message-content">
+            <h3>💕 Day together requested!</h3>
+            <p class="email-status">Alex has been notified and will plan something special! ✨</p>
+            <div class="hearts-animation">
+                <span class="floating-heart">💕</span>
+                <span class="floating-heart">💖</span>
+                <span class="floating-heart">✨</span>
+            </div>
         </div>
     `;
     
