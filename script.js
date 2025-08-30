@@ -318,6 +318,33 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "8/30",
+        title: "August 30th",
+        text: `day 35 at this point it’s less about the number and more about the fact that i get to sit down and tell you what my day was like again and again and again
+
+        keepin it short today
+
+        hope your vegas trip was a vibe! you should be back this morning
+
+        i went to meadows yesterday it was a vibe cute little outdoorsie venue
+
+        i did lose my house key in the uber there oops so when i got back home i slept in my car
+
+        i didnt want to call the dude who lives in pacifica again to drive over to get me a new key
+
+        i figured getting a buzzball and some tacos later that  night would get me thru the night and it did
+
+        not the best night of sleep but got my temporary keys and straight up passed out on my couch
+
+        i was supposed to go to meadows today too but i think im tapped out
+
+        i just gonna game with my friends for the first time in weeks
+
+        some mcdonalds and gaming thats a saturday vibe
+        `,
+        photos: ["images/Aug30_1.jpg", "images/Aug30_2.jpg"]
+    },
+    {
         date: "8/25",
         title: "August 25th",
         text: `12 thousand words trail behind me, and day 34 is just another page
