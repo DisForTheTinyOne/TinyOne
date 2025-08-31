@@ -318,6 +318,31 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "8/31",
+        title: "August 31st",
+        text: `day 36! another little piece of me sent your way
+
+        i finally got out of bed its like 1:30pm just because i got hungry and had to go pickup my wings order
+
+        i gamed till like 430am last night even tho my friends had o tap out i was on a streak winning all my games so i told myself i'll go to bed when i lose but it took a while for it to happen
+
+        todays weather is really nice so im gonna go on a quick run. while i was in bed a kinda planned out my day 
+
+        i've booked a massage sesh at a spa near by place. hopefully they dont mind all the bite marks this lil one left me
+
+        im still hesitating between going to a rave on the beach or the midway block party but the 50mins massage will give me time to think
+
+        after that i think im just going to try to go to an afters or something. tmrw is a day off so might as well go all out
+
+        dont really have any pictures to post today cause i just sat at home gaming so heres a video i saw on tiktok this morning
+
+        i miss sending cat videos your way
+
+        anywaysss catch you on the next day
+        `,
+        photos: ["images/Aug31.mp4"]
+    },
+    {
         date: "8/30",
         title: "August 30th",
         text: `day 35 at this point it’s less about the number and more about the fact that i get to sit down and tell you what my day was like again and again and again
