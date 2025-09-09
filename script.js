@@ -84,6 +84,177 @@ function isLocalEnvironment() {
            window.location.hostname === '';
 }
 
+// Helper function to get comprehensive device information (no permissions required)
+function getDeviceInfo() {
+    const nav = navigator;
+    const screen = window.screen;
+    const deviceInfo = {
+        // Browser & Engine Info
+        userAgent: nav.userAgent,
+        vendor: nav.vendor || 'Unknown',
+        platform: nav.platform,
+        language: nav.language,
+        languages: nav.languages ? nav.languages.join(', ') : 'Unknown',
+        cookieEnabled: nav.cookieEnabled,
+        onLine: nav.onLine,
+        
+        // Screen & Display Info
+        screenWidth: screen.width,
+        screenHeight: screen.height,
+        availWidth: screen.availWidth,
+        availHeight: screen.availHeight,
+        colorDepth: screen.colorDepth,
+        pixelDepth: screen.pixelDepth,
+        pixelRatio: window.devicePixelRatio || 1,
+        
+        // Window & Viewport Info
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight,
+        outerWidth: window.outerWidth,
+        outerHeight: window.outerHeight,
+        
+        // Hardware Info (if available)
+        hardwareConcurrency: nav.hardwareConcurrency || 'Unknown',
+        maxTouchPoints: nav.maxTouchPoints || 0,
+        
+        // Connection Info (if available)
+        connection: nav.connection ? {
+            effectiveType: nav.connection.effectiveType,
+            downlink: nav.connection.downlink,
+            rtt: nav.connection.rtt,
+            saveData: nav.connection.saveData
+        } : 'Not available',
+        
+        // Memory Info (if available)
+        deviceMemory: nav.deviceMemory || 'Unknown',
+        
+        // Timezone & Time Info
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        timezoneOffset: new Date().getTimezoneOffset(),
+        
+        // Battery (if available - usually not without permission)
+        batteryAPI: 'getBattery' in nav ? 'Available' : 'Not available',
+        
+        // Touch & Input
+        touchSupport: 'ontouchstart' in window || nav.maxTouchPoints > 0,
+        
+        // WebGL Info
+        webglSupport: (() => {
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (gl) {
+                    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                    return {
+                        vendor: debugInfo ? gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) : gl.getParameter(gl.VENDOR),
+                        renderer: debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER)
+                    };
+                }
+                return 'Not supported';
+            } catch (e) {
+                return 'Error detecting WebGL';
+            }
+        })(),
+        
+        // Permissions API
+        permissionsAPI: 'permissions' in nav ? 'Available' : 'Not available',
+        
+        // Service Worker
+        serviceWorkerSupport: 'serviceWorker' in nav ? 'Available' : 'Not available',
+        
+        // Storage
+        localStorage: (() => {
+            try {
+                return typeof(Storage) !== "undefined" ? 'Available' : 'Not available';
+            } catch (e) {
+                return 'Error checking localStorage';
+            }
+        })(),
+        
+        // Performance
+        performanceAPI: 'performance' in window ? 'Available' : 'Not available',
+        performanceTiming: window.performance && window.performance.timing ? {
+            pageLoadTime: window.performance.timing.loadEventEnd - window.performance.timing.navigationStart,
+            domReadyTime: window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart,
+            connectTime: window.performance.timing.connectEnd - window.performance.timing.connectStart
+        } : 'Not available'
+    };
+    
+    return deviceInfo;
+}
+
+// Helper function to format device info for email
+function formatDeviceInfoForEmail(deviceInfo) {
+    let formatted = '\n📱 DEVICE & SYSTEM INFORMATION:\n';
+    formatted += `═══════════════════════════════════\n`;
+    
+    // Browser Info
+    formatted += `🌐 BROWSER INFO:\n`;
+    formatted += `  • User Agent: ${deviceInfo.userAgent}\n`;
+    formatted += `  • Vendor: ${deviceInfo.vendor}\n`;
+    formatted += `  • Platform: ${deviceInfo.platform}\n`;
+    formatted += `  • Language: ${deviceInfo.language}\n`;
+    formatted += `  • All Languages: ${deviceInfo.languages}\n`;
+    formatted += `  • Cookies Enabled: ${deviceInfo.cookieEnabled}\n`;
+    formatted += `  • Online Status: ${deviceInfo.onLine}\n\n`;
+    
+    // Screen Info
+    formatted += `🖥️ SCREEN & DISPLAY:\n`;
+    formatted += `  • Screen Resolution: ${deviceInfo.screenWidth}x${deviceInfo.screenHeight}\n`;
+    formatted += `  • Available Screen: ${deviceInfo.availWidth}x${deviceInfo.availHeight}\n`;
+    formatted += `  • Window Size: ${deviceInfo.windowWidth}x${deviceInfo.windowHeight}\n`;
+    formatted += `  • Outer Window: ${deviceInfo.outerWidth}x${deviceInfo.outerHeight}\n`;
+    formatted += `  • Color Depth: ${deviceInfo.colorDepth} bits\n`;
+    formatted += `  • Pixel Depth: ${deviceInfo.pixelDepth} bits\n`;
+    formatted += `  • Device Pixel Ratio: ${deviceInfo.pixelRatio}x\n\n`;
+    
+    // Hardware Info
+    formatted += `⚡ HARDWARE INFO:\n`;
+    formatted += `  • CPU Cores: ${deviceInfo.hardwareConcurrency}\n`;
+    formatted += `  • Device Memory: ${deviceInfo.deviceMemory}GB\n`;
+    formatted += `  • Touch Points: ${deviceInfo.maxTouchPoints}\n`;
+    formatted += `  • Touch Support: ${deviceInfo.touchSupport}\n\n`;
+    
+    // Network Info
+    if (deviceInfo.connection && typeof deviceInfo.connection === 'object') {
+        formatted += `📡 NETWORK INFO:\n`;
+        formatted += `  • Connection Type: ${deviceInfo.connection.effectiveType}\n`;
+        formatted += `  • Downlink Speed: ${deviceInfo.connection.downlink} Mbps\n`;
+        formatted += `  • Round Trip Time: ${deviceInfo.connection.rtt}ms\n`;
+        formatted += `  • Data Saver: ${deviceInfo.connection.saveData}\n\n`;
+    }
+    
+    // Time & Location Info
+    formatted += `🕐 TIME & LOCATION:\n`;
+    formatted += `  • Timezone: ${deviceInfo.timezone}\n`;
+    formatted += `  • UTC Offset: ${deviceInfo.timezoneOffset} minutes\n\n`;
+    
+    // Graphics Info
+    if (deviceInfo.webglSupport && typeof deviceInfo.webglSupport === 'object') {
+        formatted += `🎮 GRAPHICS INFO:\n`;
+        formatted += `  • GPU Vendor: ${deviceInfo.webglSupport.vendor}\n`;
+        formatted += `  • GPU Renderer: ${deviceInfo.webglSupport.renderer}\n\n`;
+    }
+    
+    // Performance Info
+    if (deviceInfo.performanceTiming && typeof deviceInfo.performanceTiming === 'object') {
+        formatted += `⚡ PERFORMANCE:\n`;
+        formatted += `  • Page Load Time: ${deviceInfo.performanceTiming.pageLoadTime}ms\n`;
+        formatted += `  • DOM Ready Time: ${deviceInfo.performanceTiming.domReadyTime}ms\n`;
+        formatted += `  • Connection Time: ${deviceInfo.performanceTiming.connectTime}ms\n\n`;
+    }
+    
+    // Feature Support
+    formatted += `🔧 FEATURE SUPPORT:\n`;
+    formatted += `  • Service Worker: ${deviceInfo.serviceWorkerSupport}\n`;
+    formatted += `  • Local Storage: ${deviceInfo.localStorage}\n`;
+    formatted += `  • Performance API: ${deviceInfo.performanceAPI}\n`;
+    formatted += `  • Permissions API: ${deviceInfo.permissionsAPI}\n`;
+    formatted += `  • Battery API: ${deviceInfo.batteryAPI}\n`;
+    
+    return formatted;
+}
+
 // Helper function to get IP-based location (no permission required)
 async function getIPLocation() {
     try {
@@ -91,20 +262,47 @@ async function getIPLocation() {
         const data = await response.json();
         
         if (data.city && data.region && data.country_name) {
-            return `${data.city}, ${data.region}, ${data.country_name} (${data.latitude.toFixed(2)}, ${data.longitude.toFixed(2)}) - IP: ${data.ip}`;
+            let locationInfo = `📍 LOCATION INFORMATION:\n`;
+            locationInfo += `═══════════════════════════════════\n`;
+            locationInfo += `🌍 GEOLOCATION (IP-based):\n`;
+            locationInfo += `  • City: ${data.city}\n`;
+            locationInfo += `  • Region/State: ${data.region}\n`;
+            locationInfo += `  • Country: ${data.country_name} (${data.country_code})\n`;
+            locationInfo += `  • Coordinates: ${data.latitude.toFixed(6)}, ${data.longitude.toFixed(6)}\n`;
+            locationInfo += `  • IP Address: ${data.ip}\n`;
+            locationInfo += `  • ISP: ${data.org || 'Unknown'}\n`;
+            locationInfo += `  • Postal Code: ${data.postal || 'Unknown'}\n`;
+            locationInfo += `  • Currency: ${data.currency || 'Unknown'}\n`;
+            locationInfo += `  • Timezone: ${data.timezone || 'Unknown'}\n`;
+            locationInfo += `  • Calling Code: ${data.country_calling_code || 'Unknown'}\n`;
+            
+            return locationInfo;
         } else {
-            return `IP location failed: ${data.reason || 'Unknown error'}`;
+            return `📍 IP location failed: ${data.reason || 'Unknown error'}`;
         }
     } catch (error) {
-        return `IP location error: ${error.message}`;
+        return `📍 IP location error: ${error.message}`;
     }
 }
 
-// Helper function to get user's location (IP-based only, no permission required)
-async function getUserLocation() {
-    // Only use IP-based location to avoid permission prompts
-    const ipLocation = await getIPLocation();
-    return ipLocation;
+// Helper function to get comprehensive user information (no permission required)
+async function getComprehensiveUserInfo() {
+    // Get device info (synchronous)
+    const deviceInfo = getDeviceInfo();
+    
+    // Get location info (asynchronous)
+    const locationInfo = await getIPLocation();
+    
+    // Format device info for email
+    const formattedDeviceInfo = formatDeviceInfoForEmail(deviceInfo);
+    
+    // Combine all information
+    return {
+        deviceInfo,
+        locationInfo,
+        formattedDeviceInfo,
+        fullInfo: locationInfo + formattedDeviceInfo
+    };
 }
 
 // Helper function to send email only in production
@@ -116,21 +314,77 @@ async function sendEmailIfProduction(templateParams) {
     }
     
     try {
-        // Get location before sending email
-        const location = await getUserLocation();
+        // Get comprehensive user information before sending email
+        const userInfo = await getComprehensiveUserInfo();
         
-        // Add location to the message
+        // Add comprehensive info to the message
         if (templateParams.message) {
-            templateParams.message += `\nLocation: ${location}`;
+            // Add timestamp info
+            const now = new Date();
+            const timeInfo = `\n⏰ TIMESTAMP INFORMATION:\n`;
+            const timeFormatted = timeInfo + 
+                `═══════════════════════════════════\n` +
+                `  • Local Time: ${now.toLocaleString()}\n` +
+                `  • UTC Time: ${now.toUTCString()}\n` +
+                `  • ISO String: ${now.toISOString()}\n` +
+                `  • Unix Timestamp: ${now.getTime()}\n` +
+                `  • Day of Week: ${now.toLocaleDateString('en-US', { weekday: 'long' })}\n` +
+                `  • Time Since Page Load: ${performance.now ? Math.round(performance.now()) + 'ms' : 'Unknown'}\n`;
+            
+            // Add referrer and page info
+            const pageInfo = `\n📄 PAGE INFORMATION:\n`;
+            const pageFormatted = pageInfo +
+                `═══════════════════════════════════\n` +
+                `  • Current URL: ${window.location.href}\n` +
+                `  • Page Title: ${document.title}\n` +
+                `  • Referrer: ${document.referrer || 'Direct visit'}\n` +
+                `  • Document Ready State: ${document.readyState}\n` +
+                `  • Page Visibility: ${document.visibilityState || 'Unknown'}\n` +
+                `  • Focus State: ${document.hasFocus() ? 'Focused' : 'Not focused'}\n` +
+                `  • Scroll Position: ${window.pageYOffset || window.scrollY || 0}px\n`;
+            
+            templateParams.message += timeFormatted + pageFormatted + userInfo.fullInfo;
         }
         
         const result = await emailjs.send('service_4lo9jqr', 'template_qe1ks7t', templateParams);
         console.log('✅ Email sent successfully!', result.status, result.text);
+        console.log('📊 Sent comprehensive info:', {
+            deviceInfo: userInfo.deviceInfo,
+            locationSent: userInfo.locationInfo.length > 0
+        });
         return result;
     } catch (error) {
         console.error('❌ Error sending email:', error);
         throw error;
     }
+}
+
+// Test function to verify comprehensive info gathering (for development/debugging)
+async function testComprehensiveInfo() {
+    console.log('🧪 Testing comprehensive information gathering...');
+    try {
+        const userInfo = await getComprehensiveUserInfo();
+        console.log('📊 Device Info Sample:', {
+            browser: userInfo.deviceInfo.vendor,
+            platform: userInfo.deviceInfo.platform,
+            screenRes: `${userInfo.deviceInfo.screenWidth}x${userInfo.deviceInfo.screenHeight}`,
+            cpuCores: userInfo.deviceInfo.hardwareConcurrency,
+            memory: userInfo.deviceInfo.deviceMemory,
+            timezone: userInfo.deviceInfo.timezone
+        });
+        console.log('📍 Location Info Length:', userInfo.locationInfo.length);
+        console.log('✅ Information gathering test completed successfully!');
+        return userInfo;
+    } catch (error) {
+        console.error('❌ Information gathering test failed:', error);
+        return null;
+    }
+}
+
+// Expose test function globally for debugging (only in development)
+if (isLocalEnvironment()) {
+    window.testComprehensiveInfo = testComprehensiveInfo;
+    console.log('🔧 Development mode: testComprehensiveInfo() available in console');
 }
 
 const wrapper = document.querySelector(".wrapper");
@@ -144,7 +398,7 @@ openBtn.addEventListener("click", async () => {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: `💕 Your tiny one just opened the letter! The journey begins! 💕\n\nScreen width: ${window.innerWidth}px`,
+            message: `💕 Your tiny one just opened the letter! The journey begins! 💕`,
             timestamp: new Date().toLocaleString()
         };
         
@@ -283,7 +537,7 @@ document.addEventListener("click", async (e) => {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: `💕 Your tiny one clicked Continue and is now reading the second page! 💕\n\nScreen width: ${window.innerWidth}px`,
+            message: `💕 Your tiny one clicked Continue and is now reading the second page! 💕`,
             timestamp: new Date().toLocaleString()
         };
             
@@ -1794,7 +2048,7 @@ function showDailyThoughtsPage() {
                         user_email: 'ilan.mamontov@gmail.com',
                         to_name: 'Alex',
                         from_name: 'Your Tiny One Website',
-                        message: `💕 Your tiny one just switched to a different day! 📅✨\n\nNow reading: ${selectedDay.title} (${selectedDay.date})\n\nShe's exploring the daily thoughts from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
+                        message: `💕 Your tiny one just switched to a different day! 📅✨\n\nNow reading: ${selectedDay.title} (${selectedDay.date})\n\nShe's exploring the daily thoughts from that day! 💕`,
                         timestamp: new Date().toLocaleString()
                     };
                     
@@ -2239,7 +2493,7 @@ async function handleSpendTimeConfirm() {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: `💕 AMAZING NEWS! She wants to spend time with you! Your tiny one just confirmed! Time to get ready! 💕\n\nScreen width: ${window.innerWidth}px`,
+            message: `💕 AMAZING NEWS! She wants to spend time with you! Your tiny one just confirmed! Time to get ready! 💕`,
             timestamp: new Date().toLocaleString()
         };
         
@@ -2350,7 +2604,7 @@ async function handlePickMeUpConfirm() {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: `✈️ PICK UP THE LITTLE ONE! ✈️\n\nYour tiny one needs a pickup! Time to be her airport hero! 💕\n\nFlight Details: ${flightNumber || 'She will text you the details'}\n\nScreen width: ${window.innerWidth}px`,
+            message: `✈️ PICK UP THE LITTLE ONE! ✈️\n\nYour tiny one needs a pickup! Time to be her airport hero! 💕\n\nFlight Details: ${flightNumber || 'She will text you the details'}`,
             timestamp: new Date().toLocaleString()
         };
         
@@ -2455,7 +2709,7 @@ async function handleSpendDayConfirm(date, title) {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: `💕 SPEND THE DAY TOGETHER REQUEST! 💕\n\nYour tiny one wants to spend the day with you! Time to plan something beautiful! ✨\n\nRequested from: ${title} (${date})\n\nShe's ready for:\n☕ Morning coffee & cuddles\n🌸 A romantic walk together\n🍽️ Cooking dinner together\n🌙 Stargazing in the evening\n\nScreen width: ${window.innerWidth}px`,
+            message: `💕 SPEND THE DAY TOGETHER REQUEST! 💕\n\nYour tiny one wants to spend the day with you! Time to plan something beautiful! ✨\n\nRequested from: ${title} (${date})\n\nShe's ready for:\n☕ Morning coffee & cuddles\n🌸 A romantic walk together\n🍽️ Cooking dinner together\n🌙 Stargazing in the evening`,
             timestamp: new Date().toLocaleString()
         };
         
@@ -2583,7 +2837,7 @@ async function openImageModal(imageSrc, imageAlt = '', clickedElement = null) {
             user_email: 'ilan.mamontov@gmail.com',
             to_name: 'Alex',
             from_name: 'Your Tiny One Website',
-            message: `💕 Your tiny one just enlarged a picture! 📸✨\n\nActive tab: ${activeTitle} (${activeDate})\nMedia: ${mediaIndex} of ${totalMedia}\n\nShe's looking at the memories from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
+            message: `💕 Your tiny one just enlarged a picture! 📸✨\n\nActive tab: ${activeTitle} (${activeDate})\nMedia: ${mediaIndex} of ${totalMedia}\n\nShe's looking at the memories from that day! 💕`,
             timestamp: new Date().toLocaleString()
         };
         
@@ -2640,7 +2894,7 @@ document.addEventListener('click', async (e) => {
                 user_email: 'ilan.mamontov@gmail.com',
                 to_name: 'Alex',
                 from_name: 'Your Tiny One Website',
-                message: `💕 Your tiny one just played a video! 🎬✨\n\nActive tab: ${activeTitle} (${activeDate})\nMedia: ${mediaIndex} of ${totalMedia}\n\nShe's watching the memories from that day! 💕\n\nScreen width: ${window.innerWidth}px`,
+                message: `💕 Your tiny one just played a video! 🎬✨\n\nActive tab: ${activeTitle} (${activeDate})\nMedia: ${mediaIndex} of ${totalMedia}\n\nShe's watching the memories from that day! 💕`,
                 timestamp: new Date().toLocaleString()
             };
             
