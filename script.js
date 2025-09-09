@@ -319,9 +319,43 @@ async function sendEmailIfProduction(templateParams) {
         
         // Add comprehensive info to the message
         if (templateParams.message) {
+            // Add original simple format at the top
+            let simpleLocation = 'Location unknown';
+            try {
+                // Extract basic location info from the comprehensive data
+                const deviceInfo = userInfo.deviceInfo;
+                if (deviceInfo && deviceInfo.screenWidth) {
+                    // Try to parse location from the detailed info
+                    const locationLines = userInfo.locationInfo.split('\n');
+                    let city = '', region = '', country = '';
+                    
+                    for (const line of locationLines) {
+                        if (line.includes('• City: ')) {
+                            city = line.split('• City: ')[1];
+                        } else if (line.includes('• Region/State: ')) {
+                            region = line.split('• Region/State: ')[1];
+                        } else if (line.includes('• Country: ')) {
+                            country = line.split('• Country: ')[1].split(' (')[0]; // Remove country code
+                        }
+                    }
+                    
+                    if (city && region && country) {
+                        simpleLocation = `${city}, ${region}, ${country}`;
+                    } else if (city && country) {
+                        simpleLocation = `${city}, ${country}`;
+                    } else if (country) {
+                        simpleLocation = country;
+                    }
+                }
+            } catch (error) {
+                console.log('Error parsing simple location:', error);
+            }
+            
+            const originalFormat = `\nLocation: ${simpleLocation}\nScreen width: ${window.innerWidth}px`;
+            
             // Add timestamp info
             const now = new Date();
-            const timeInfo = `\n⏰ TIMESTAMP INFORMATION:\n`;
+            const timeInfo = `\n\n⏰ TIMESTAMP INFORMATION:\n`;
             const timeFormatted = timeInfo + 
                 `═══════════════════════════════════\n` +
                 `  • Local Time: ${now.toLocaleString()}\n` +
@@ -343,7 +377,7 @@ async function sendEmailIfProduction(templateParams) {
                 `  • Focus State: ${document.hasFocus() ? 'Focused' : 'Not focused'}\n` +
                 `  • Scroll Position: ${window.pageYOffset || window.scrollY || 0}px\n`;
             
-            templateParams.message += timeFormatted + pageFormatted + userInfo.fullInfo;
+            templateParams.message += originalFormat + timeFormatted + pageFormatted + userInfo.fullInfo;
         }
         
         const result = await emailjs.send('service_4lo9jqr', 'template_qe1ks7t', templateParams);
