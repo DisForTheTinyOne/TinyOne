@@ -606,8 +606,29 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
-        date: "9/16",
-        title: "September 16th",
+        date: "9/17",
+        title: "September 17th",
+        text: `day 38 funny how quickly time stacks up, the days keep moving
+
+        im on call this week so things are pretty hectic but i'm doing my best to keep up with everything
+
+        went on a walk in my neighborhood today so many things have changed! so many new food trucks and places to eat
+
+        the weather is toasty so have my AC running like crazy
+
+        also! the boba place is rebranded to a vietnamese place that sells banh mi sandwiches
+
+        i think they still have boba but not as much as before. also popcorn chicken is gone so i'm sad about that
+
+        thats it for now
+
+        buh bye
+        `,
+        photos: ["images/Sep17.jpg"]
+    },
+    {
+        date: "9/15",
+        title: "September 15th",
         text: `turns out day 37 took a little vacation
 
         did a bunch of travels last couple weeks! im still alive and well
