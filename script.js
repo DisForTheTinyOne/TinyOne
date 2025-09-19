@@ -606,6 +606,23 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "9/18",
+        title: "September 18th",
+        text: `some even after 38 leters my heart still finds new ways to write about you
+
+        still on call so mostly busy all day erryday. i did get my car detailed today same way i did with yours
+
+        figured it was about to time to make my car squeeky clean. still had hennus hair in the back of the car lol so thats gone now
+
+        funny enough the guy did not clean the windshield from the inside so your feet prints are still there
+
+        okiii its 11pm and just wrapped up work so im gonna go crash hard now
+
+        peace out
+        `,
+        photos: ["images/Sept18_1.jpg", "images/Sept18_2.jpg"]
+    },
+    {
         date: "9/17",
         title: "September 17th",
         text: `day 38 funny how quickly time stacks up, the days keep moving
