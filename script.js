@@ -606,6 +606,37 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "9/23",
+        title: "September 23rd",
+        text: `day 39 baby almost hitting the big 4-0
+
+        a lot happened the last few days! friday finally picked up my new iphone to replace my busted 4 year old one hahah definitely feeling the difference
+
+        for the first time putting on a case too pretty hard to get used to
+
+        saturday & sunday was portola! i ended up getting VIP tickets and so worth it. met so many cool people and being a 21+ event people are such a vibe
+
+        daddy dom was def the highlight for me hahah. i also ended up being rails for anti-up to see my boy chris lake but gave my spot to some other peeps cause i didnt want to block the view
+
+        got to chance to to also eat at a fancy lil place next to a state where underworld was playing. went there with a few people i met at portola but jesus it was like $80 per person
+
+        also sunday was kinda chaotic, i did end up going to the opening game for the 49ers, and right after drove back home got ready and straight to portola
+
+        after working like 70 hours during my on-call week last week, portola absolutely killed me so i took monday off and just chilled at home watching the first canadians hockey game
+
+        i also got notified i had my tate mcrae tickets i bought a while back for us as a surprise i completely forgot it is tomorrow
+
+        so im trying to sell them now, maybe keep one and go check it out my self cause the tickets are really good
+
+        anyways im still feeling the exhaustion from last week. didn't drink too much but being in the sun all day was brutal
+
+        its also sooo sunny today so im taking the rest of the day off and gonna go to the beach
+
+        still here still trying
+        `,
+        photos: ["images/Sept23_1.jpg", "images/Sept23_2.jpg"]
+    },
+    {
         date: "9/18",
         title: "September 18th",
         text: `some even after 38 leters my heart still finds new ways to write about you
