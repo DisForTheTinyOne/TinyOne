@@ -606,6 +606,31 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "9/26",
+        title: "September 26th",
+        text: `another snap another play day 40 is on
+
+        nothing much happened these past few days! just been on the grind on a few things but feeling very tapped out rn
+
+        its 6pm on a friday and just finished work. didnt want to do anything today so im just gonna be potato
+
+        bout to cook some steak bought a bottle a wine and gonna watch interstellar
+
+        i went to target to get some of the stuff i need earlier today and saw the lunch thingies on a good sale. instantly thought of us at the movies hehe
+
+        anyways i was planning on going to see disclosures tmrw at berkeley but i think im just gonna tap out too. gonna visit my bro for bbq instead this saturday
+
+        i did buy tickets for the whole fam for the 49ers game this sunday. i also bought lil jersey's for the kiddos and going to surprise them tomorrow
+
+        i think they are going to love it. its the same lil section with all the free food so they better enjoy the hot doggies cause i know i will
+
+        anyways hope you are doing good little one and had a great week. dunno if you still read but ill keep it going still
+
+        miss you lots and have a great weekend
+        `,
+        photos: ["images/Sept26.jpg"]
+    },
+    {
         date: "9/23",
         title: "September 23rd",
         text: `day 39 baby almost hitting the big 4-0
