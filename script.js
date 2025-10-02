@@ -608,7 +608,7 @@ const dailyThoughts = [
     {
         date: "10/1",
         title: "September 26th",
-        text: `day 41 n month new quarter on the scoreboard
+        text: `day 41 newn month new quarter on the scoreboard
 
         hihi its been a month since i saw you daaaamn. longest its ever been by far
 
@@ -626,7 +626,7 @@ const dailyThoughts = [
 
         okiii cya later alligator
         `,
-        photos: ["images/Sept26.jpg"]
+        photos: ["images/Oct1.jpg"]
     },
     {
         date: "9/26",
