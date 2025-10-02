@@ -606,6 +606,29 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "10/1",
+        title: "September 26th",
+        text: `day 41 n month new quarter on the scoreboard
+
+        hihi its been a month since i saw you daaaamn. longest its ever been by far
+
+        anyways last weekend went to disclosure and the 49ers game. they loved it i think i counted we all ate a total of 14 hot doggies... mostly me
+
+        we did lose the game tho cause purdy was cheeks and we got kinda unlucky but always a vibe
+
+        this week i've just been on the grind. dont think i've left my place once
+
+        work been relatively chill but i've been working on my own stuff for a couple weeks and things are finally starting to come together so im excited
+
+        short update since its 5pm and just wrapped up work! gonna go eat lunch finally and then maybe start watching new season of love is blind while focusing on some other things
+
+        i'll try to post smaller updates on a more regular basis even tho i might be just writing entries for no audience
+
+        okiii cya later alligator
+        `,
+        photos: ["images/Sept26.jpg"]
+    },
+    {
         date: "9/26",
         title: "September 26th",
         text: `another snap another play day 40 is on
