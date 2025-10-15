@@ -606,8 +606,18 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "10/14",
+        title: "October 14th",
+        text: `Im still alive and well! its been a while since i last updated you. I've been busy with work and life in general
+
+        ill try to get something more interesting to write later tonight or tmrw. still dealing with on call :(
+
+        `,
+        photos: []
+    },
+    {
         date: "10/1",
-        title: "September 26th",
+        title: "October 1st",
         text: `day 41 newn month new quarter on the scoreboard
 
         hihi its been a month since i saw you daaaamn. longest its ever been by far
