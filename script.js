@@ -606,14 +606,72 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
-        date: "10/14",
-        title: "October 14th",
-        text: `Im still alive and well! its been a while since i last updated you. I've been busy with work and life in general
+        date: "10/16",
+        title: "October 16h",
+        text: `it be day 42 still thinking of you more than i should
 
-        ill try to get something more interesting to write later tonight or tmrw. still dealing with on call :(
+        its 1am on thursday 16th and just wrapped up work. i think i put like 16 hours work days these past few days
 
-        `,
-        photos: []
+        im tapped out but here i am! been another 15 days since my last update
+
+        yeaaaah i know ive said im gonna post more updates on a more regular basis but a bunch of stuff happened
+
+        also honestly theres been a few times where i sat down and started writing a bunch of words and then i stopped and was like is anyone gonna read this?
+
+        again i mentioned before i intially started this kinda for myself to journal but then it ended up becoming more of a way for me to share my updates with you
+
+        i used to see you so you would tell me like ohhhh yaaa i read your last update! and i would be like yaaaayyy and then we would talk about it
+
+        but now i cant really tell if you still read it or not soooo ive been kinda hesitant to write anything
+
+        as much as i want to write about how much i miss you and how much i want to see you again i also dont want to just write this to no one
+
+        okiiiii that aside! update for the past couple weeks
+
+        honestly not much
+
+        okay actually bob aka one of my besties got married last weekend! so i flew out to montreal last friday ans spent the weekend there
+
+        i was supposed to bring a +1 but ended up being solo. bob was kinda bummed out hahah cause i did talk about you for more over than a year
+
+        honestly i think im more bummed out cause i never had a chance for you to meet one of my besties
+
+        other than that ive just been on the grind! been on call this week and been working on my own stuff so im tapped out
+
+        im still sitting here on my couch at 1am eepy eepy but for some reason got the urge to type this out
+
+        i'm also starting to figure out where im moving! my lease is ending soon so i need to figure that part soon
+
+        i still remember i dunno if you do but when i was helping you unpack you where like "where i move are you gonna help me back again"
+
+        it was really cute cause i was like "ohhhh yaaa i will help you move again"
+
+        i dunno why i thought of that now, maybe cause it kinda brings me back to us just hanging out and doing stuff at your old place
+
+        not gonna lie theres not a day where i dont think of you
+
+        i did end up making a couple more bangers (i think they're bangers) when it comes to making music
+
+        also the lil project is done with the animated pics of us i shared a while back
+
+        ill share that lil project and my songs that go along with it in my very very last update here
+
+        not sure when that'll be tho
+
+        also i know i know i still got your towel and coachella shirt
+
+        i washed it and will drop it off soon -- im not holding it hostage hehe
+
+        also have my old airpod which was exactly what we you were missing. not sure if you still need it or not but ill drop it off either way
+
+        anyways dont have any crazy pictures to share today. funny thing tho the poopin area henny was always using... the grass kinda died out there and theres SOOOO much poop LOL
+
+        hope henny is doing alright, i know you mentioned he wasnt feeling to well but i genuiely both you and hennus are doing great
+
+        okiiii thats it for today! promises i'll post more often from now on for sure for sure
+
+        goodnighty tiny one im ready to sleep now`,
+        photos: ["images/Oct16.jpg"]
     },
     {
         date: "10/1",
