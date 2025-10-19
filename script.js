@@ -606,8 +606,38 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "10/19",
+        title: "October 19th",
+        text: `day 43! still finding new ways of thinking about you
+        
+        hihihi only took 3 days for another update! relatively quick i thinkie
+        
+        last couple days were pretty busy! my on call week killed me so this weekend i decided to get out
+
+        friday i went out to see cyril at temple! it was very okie just not my type of vibe going alone
+
+        saturday i went palace of fine arts to see eli brown! the line took a whole hour but the venue was such a vibe!
+
+        saturday morning i've finally cleaned my couch hehe see pic. it was a nakey couchie. was wayyyy overdue to clean it
+
+        im typing this out at 2:30pm on sunday! already wearing my 49ers gear bout to drive to my brothers so we can head out to the game
+
+        im very eepy eepy cause of lack of sleep last week but still excited cause skittles is coming back today! his ass was injured for a few weeks now
+
+        also the intro where i said finding new ways of thinking about you was a reference to the korean corn doggies
+
+        i got really hungry friday when i got back and looked in my freezer and saw the corn dogs we bought from the store
+
+        just a lil reminder of  you
+
+        okiiiii thats it for now! gonna go eat unlimited amount of hotdoggies at the stadium now
+        
+        miss you lil one!`,
+        photos: ["images/Oct19_1.jpg", "images/Oct19_2.jpg"]
+    },
+    {
         date: "10/16",
-        title: "October 16h",
+        title: "October 16th",
         text: `it be day 42 still thinking of you more than i should
 
         its 1am on thursday 16th and just wrapped up work. i think i put like 16 hours work days these past few days
