@@ -606,6 +606,40 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
+        date: "10/28",
+        title: "October 28th",
+        text: `Day is in progress...
+        
+        oops realized the last 2 days were swapped`,
+        photos: []
+    },
+    {
+        date: "10/20",
+        title: "October 20th",
+        text: `day 44 feels like a fourth quarter comeback kinda day
+        
+        it be 11pm ish and i is in bed writing this out
+        
+        got the AC and music playing taking a lil break from my projects to write this out
+        
+        today was kinda alright! spent the day on my laptop and eating food here and there nothing to excting
+        
+        we had an outage at work so had to grind that out
+        
+        yesterday tho was soooo much fun! it was an evening game so it was all dark outside at some point
+        
+        we did end up winning thank to our boy CMC bailing us out
+        
+        i ate sooooo much food and also drank a few drinks since my bro was driving so that was a vibe
+        
+        other than that nothing else happened. thinking of going to oakland wednesday to see justice and kaytranada so we'll see how that goes
+        
+        okiiii i really gotta poop cause i ate a taco truck burrrito and im feeling it now
+        
+        nightyyyy`,
+        photos: ["images/Oct20.jpg"]
+    },
+    {
         date: "10/19",
         title: "October 19th",
         text: `day 43! still finding new ways of thinking about you
@@ -634,32 +668,6 @@ const dailyThoughts = [
         
         miss you lil one!`,
         photos: ["images/Oct19_1.jpg", "images/Oct19_2.jpg"]
-    },
-    {
-        date: "10/20",
-        title: "October 20th",
-        text: `day 44 feels like a fourth quarter comeback kinda day
-        
-        it be 11pm ish and i is in bed writing this out
-        
-        got the AC and music playing taking a lil break from my projects to write this out
-        
-        today was kinda alright! spent the day on my laptop and eating food here and there nothing to excting
-        
-        we had an outage at work so had to grind that out
-        
-        yesterday tho was soooo much fun! it was an evening game so it was all dark outside at some point
-        
-        we did end up winning thank to our boy CMC bailing us out
-        
-        i ate sooooo much food and also drank a few drinks since my bro was driving so that was a vibe
-        
-        other than that nothing else happened. thinking of going to oakland wednesday to see justice and kaytranada so we'll see how that goes
-        
-        okiiii i really gotta poop cause i ate a taco truck burrrito and im feeling it now
-        
-        nightyyyy`,
-        photos: ["images/Oct20.jpg"]
     },
     {
         date: "10/16",
