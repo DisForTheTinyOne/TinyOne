@@ -608,10 +608,35 @@ const dailyThoughts = [
     {
         date: "10/28",
         title: "October 28th",
-        text: `Day is in progress...
+        text: `day 45! feels like it should be getting easier but yaaa not really
         
-        oops realized the last 2 days were swapped`,
-        photos: []
+        its actually the 29th! i started this section on the 28th but got distracted and made lil improvements to this page
+
+        its been a looong time since ive changed the look cause you know its pretty much perfect
+
+        but decided to change it up a bit just for the sake of change
+
+        see if you can spots the lil differences hehe theres a few
+
+        anyways past lil bit were uneventful but ive been on the grind on a few things
+
+        work been a lot more chill this week and i think i've also settled where im gonna move to
+
+        also halloween is soon! i dont really have a costume so thinking of going as steve jobs again
+
+        im also starving right now cause im back on my serious cut. its been a couple months aka pretty much last time i saw you where i stopped trying to hardcore loose my weight
+
+        but this week i kicked it off again with the goal of ending 2025 with the weight im aiming for
+
+        okiiiii thats it for now yaaaa i know i've said i'll post more often but its just hard to sit down and start thinkin bout all of this
+
+        ill be back soon again! this time actually soon soon promises
+
+        i went thru my camera roll and didn't really have anything interesting... i did do pickup from that sushi place we also grabbed food tho. but no sushi this time just snackies aka miso and edamame :)
+
+        good nighty tiny one miss you lots
+        `,
+        photos: ["images/Oct28.jpg"]
     },
     {
         date: "10/20",
