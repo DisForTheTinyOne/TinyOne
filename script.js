@@ -608,9 +608,51 @@ const dailyThoughts = [
     {
         date: "11/04",
         title: "November 4th",
-        text: `ze day be in progress...
+        text: `day 46, and hopefully you're still aren't too tired of my ramblings
+
+        hiiiii i'm here! past week was not tooo eventful. halloween was fun! spent some time with my nephews
+
+        didn't really have a costume tho so went with last years aka steve jobs costume. my hair is much longer so didn't really work out too well oops
+
+        my mom is flying over tomorrow and crashing at mine for a couple days before i drop her off at my brothers this weekeend
+
+        super pumped for that cause its been a while since i saw my mom so i took the day off tmrw and spend some quality time with her
+
+        shes here for like 3 weeks aka for my and my brother's birthday
+
+        still kinda wild i've started this almost 4 months ago and still going strong...ish...ish...ish...
+
+        other than me mom coming over i did host a lil baseball game 7 watch party with a few canadian friends
+
+        not sure if you've heard but the blue jays aka canada were playing the dodgers in the final game 7
+
+        unfortunately the blue jays so lots of drunk tears but lots of fun tho
+
+        i went on a lenghty walk around my neighborhood tonight cause i'm moving out soon
+
+        its crazy how many food trucks are around and how many i havent tried. i feel like if you were around we'd be stuffing all them tacoes
+
+        i don't know if you remember but at some point we were walking on this street and they had this lil green/grassy area and they were planning to build a park there
+
+        it was like a year ago or something, obviously we were also carrying buzzballs aka chocolaty ones
+
+        but its been a year and still no progress it feels like. they did add this one bathroom which is kinda cool but yaaa feels like a lie
+
+        other than that hmmmm i dont think i have much else. been watching a lot of hockey too cause the montreal canadians are finally doing good so that brings a smile
+
+        its 10:30pm rn and im on my beanback wearing the anyma hoodie... oh waiiit
+
+        that reminds me remember when we watched the league of legends finals ceremonies
+
+        they have their finals this friday night and gonna have the whole ceremony in china
+
+        fun stuff and all but ANYMA is going to be opening in the ceremony hehehe so random but i'm pumped for that
+
+        okiiii thats it for another day lil one. hope you are are doing good and had and have a great week tiny one
+
+        buh bye
         `,
-        photos: []
+        photos: ["images/Nov4.jpg"]
     },
     {
         date: "10/28",
