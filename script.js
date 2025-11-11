@@ -610,6 +610,8 @@ const dailyThoughts = [
         title: "November 7th",
         text: `day 47 all comfy under the blankie!
 
+        this was supposed to go out a couple a days ago; but the upload failed cause all these pics were too biggie in total. i cleaned it up and compressed the files so we be tiny now files size wise :). sorry this was hanging for a bit i had no idea this update failed
+
         I was planning on writing friday but got pretty sick and some crazy headaches
 
         gonna keep it short today since i'm still recovering, not ideal timing with my birthday coming up
@@ -622,6 +624,8 @@ const dailyThoughts = [
 
         we did go to tjs to pickup some stuff for the bbq a few days ago and saw they had the espresso martini that i got you a while back! but the seasonal flavor special edition
 
+        first think i thougth about when i saw the bottles was you. i miss you lot; 
+
         i obviously had to get one and it was pretty damn good
 
         so that pretty much it for now. i'm still sick and also on call so the timing is cheeks
@@ -630,7 +634,7 @@ const dailyThoughts = [
 
         at least tomorrow is off so i can rest up and get better before the drinking sesh for bday :) 
 
-        oki bye
+        oki bye... promises ill update tomorrow too
         `,
         photos: ["images/Nov10.jpg"]
     },
