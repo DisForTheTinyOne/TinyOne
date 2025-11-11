@@ -608,9 +608,31 @@ const dailyThoughts = [
     {
         date: "11/07",
         title: "November 7th",
-        text: `Day is in progress!
+        text: `day 47 all comfy under the blankie!
+
+        I was planning on writing friday but got pretty sick and some crazy headaches
+
+        gonna keep it short today since i'm still recovering, not ideal timing with my birthday coming up
+
+        i believe i caught something from the kiddos while hanging with my mom and the fam
+
+        anyway didn't really do much this weekend but watch hockey and movies in my living room while surviving on doordash hehe
+
+        hanging with the fam been fun! my diet is a lil over the place cuz i cant be resisting mom food aka unhealthy hehe
+
+        we did go to tjs to pickup some stuff for the bbq a few days ago and saw they had the espresso martini that i got you a while back! but the seasonal flavor special edition
+
+        i obviously had to get one and it was pretty damn good
+
+        so that pretty much it for now. i'm still sick and also on call so the timing is cheeks
+
+        and also on call during birthday so thats even better
+
+        at least tomorrow is off so i can rest up and get better before the drinking sesh for bday :) 
+
+        oki bye
         `,
-        photos: []
+        photos: ["images/Nov10.jpg"]
     },
     {
         date: "11/04",
