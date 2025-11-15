@@ -608,8 +608,29 @@ const dailyThoughts = [
     {
         date: "11/12",
         title: "November 12th",
-        text: `birthday in progress...`,
-        photos: []
+        text: `Birthday today! Keeping it simple and appreciating the small things
+        
+        hello little tiny one! i've started this day on the 12th but didn't write till the 14th
+        
+        had dinner with the fam but caught something pretty bad from the kiddos so wasn't feeling too great these past couple days
+        
+        i was also stuck being on call so it was hell but im feeling much better now
+        
+        gonna keep it short cause my head hurts from staring at my computer all week
+        
+        its 5pm and just wrapped up work. gonna go out cause i've been home pretty much all week
+        
+        i had that tiny moment of, "is she might actually break contact today 👀”
+        
+        she didn't hahah and i'd be lying if i said i wasn't hoping for a lil something
+        
+        hope you have a great weekend! also if you didn't watch the opening ceremony of league of legends anyma was kinda a vibe
+
+        prob most random performance tho but i vibed with it
+
+        bye
+        `,
+        photos: ["images/Nov12.jpg"]
     },
     {
         date: "11/07",
