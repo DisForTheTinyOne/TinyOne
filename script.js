@@ -3,6 +3,7 @@ onload = () => {
     
     // Set random flower colors based on today's date
     setDailyFlowerColors();
+    createStars();
     
     // // Automatically open the letter after 10 seconds
     // setTimeout(() => {
@@ -605,6 +606,12 @@ document.addEventListener("click", async (e) => {
 
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
+    {
+        date: "11/12",
+        title: "November 12th",
+        text: `Thanksgivin' in progress 🦃`,
+        photos: []
+    },
     {
         date: "11/12",
         title: "November 12th",
@@ -3353,3 +3360,32 @@ document.addEventListener('keydown', (e) => {
     }
 });
   
+// Function to create twinkling stars
+function createStars() {
+    const night = document.querySelector('.night');
+    if (!night) return;
+    
+    const starCount = 50;
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random position
+        const x = Math.random() * 100;
+        const y = Math.random() * 80; // Top 80% of screen
+        
+        // Random animation properties
+        const duration = 2 + Math.random() * 3; // 2-5s
+        const delay = Math.random() * 5;
+        const opacity = 0.2 + Math.random() * 0.6;
+        
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.setProperty('--duration', `${duration}s`);
+        star.style.setProperty('--opacity', opacity);
+        star.style.animationDelay = `${delay}s`;
+        
+        night.appendChild(star);
+    }
+}

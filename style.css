@@ -5555,3 +5555,103 @@ video::-webkit-media-controls-panel {
 }
 
 
+
+/* --- Visual Enhancements --- */
+
+/* Floating Animation for Envelope */
+.wrapper {
+    animation: floatEnvelope 3s ease-in-out infinite;
+}
+
+@keyframes floatEnvelope {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Pulse Effect for Open Button */
+#openBtn {
+    animation: pulseBtn 2s infinite;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    border: none;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+@keyframes pulseBtn {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 105, 180, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 105, 180, 0); }
+}
+
+/* Twinkling Stars Background */
+.night {
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--duration) ease-in-out infinite;
+    opacity: var(--opacity);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: var(--opacity); transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Enhanced Daily Thoughts Overlay */
+#dailyThoughtsOverlay {
+    background: linear-gradient(135deg, #fff5f7 0%, #e3f2fd 100%);
+    backdrop-filter: blur(10px);
+}
+
+.tab-button {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 192, 203, 0.5);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+}
+
+.tab-button.active {
+    background: #ff9a9e;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.tab-content {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 30px;
+}
+
+.tab-content h2 {
+    font-family: 'Brush Script MT', cursive;
+    color: #d81b60;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.entry-text {
+    font-family: 'Georgia', serif;
+    line-height: 1.8;
+    color: #4a4a4a;
+}
+
+.entry-photo img, .entry-photo video {
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.entry-photo img:hover, .entry-photo video:hover {
+    transform: scale(1.02);
+}
+
