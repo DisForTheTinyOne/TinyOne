@@ -607,9 +607,40 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
-        date: "11/12",
-        title: "November 12th",
-        text: `Thanksgivin' in progress 🦃`,
+        date: "12/03",
+        title: "December 3rd",
+        text: `Thanks giving waaaas in progress,
+
+            hi little one 
+
+            i don’t even know if you’re checking up on this, but I actually wrote a whole thing about how grateful I am that I met you.
+
+            every day in the morning i was like should i post this or nah
+
+            i typed out soooo much and spent quite a bit of time redesigning this whole lil website
+
+            but today im going to keep it short; i'll post my whole redesign a diffrent time
+
+            theres not a day i dont think about not keeping you updated. it sucks cause i want to share everything with you. im also so curious to see what youre up to
+
+            sooooooo many questions like are you all packed up and ready to move from your current place... if you are moving out of youre current place
+
+            i know your lease is ending and i still have your towel and your coachella shirt
+
+            promises i'll drop it off this week (weekiiish)
+
+            anywayyys its like 1am right now and im current putting up my christmas tree
+
+            i bought a few more ornaments that i think you'd really like 
+
+            i dont know if you still remember us making gingerbread but i cant stop thinking about it cause it was so cute
+
+            i have sooooo much to yap about but i'll save it for another time
+
+            goodnighty
+
+            first day with no pictures i think
+        `,
         photos: []
     },
     {
