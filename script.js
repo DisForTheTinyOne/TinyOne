@@ -609,8 +609,31 @@ const dailyThoughts = [
     {
         date: "12/06",
         title: "December 6th",
-        text: `weekend is in progress...`,
-        photos: []
+        text: `day 50!
+        
+        kinda wild to think ive been showing up here for fifty days now
+
+        i didnt plan it, it just became this little ritual I look forward to. its crazy how something that started so small turned into one of my favorite parts of my routine
+        
+        anyways i was supposed to update this day a couple days ago but got pretty sick over the weekends and im on call this week so things are hard
+        
+        also realized the design got messed up a bit so i reverted to how this page used to look like
+        
+        i was working on a significant redesign cause why not but something accidently snuck thru oops
+        
+        hope december is treating you well! gonna keep this short cause i got paged a few times over the past night and im eepy and its midnight right now
+        
+        was also planning on dropping off some of your stuff last weekend but yaaa sorry was and still dealing with the sniffles
+        
+        i checked my spotify wrapped last week no big suprise its audien again hahah
+        
+        okiiii im typing this out with a single eye open. also our building didnt have hot water for 5 days so i was taking cold waters which didnt help with being sick
+        
+        finally got hot water this afternoon and this shower hit the spot and made me eep
+        
+        night miss you so much!`,
+    
+        photos: ["images/Dec06.jpg"]
     },
     {
         date: "12/03",
