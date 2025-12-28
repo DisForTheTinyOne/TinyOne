@@ -5589,6 +5589,7 @@ video::-webkit-media-controls-panel {
     ) !important;
     background-size: 200% 100% !important;
     animation: holidayGradientFlow 3s linear infinite !important;
+    transition: none !important;
 }
 
 /* Holiday theme for the daily entry card */
@@ -5759,7 +5760,7 @@ video::-webkit-media-controls-panel {
 
 #dailyThoughtsOverlay.birthday-page-theme .total-word-count {
     background: linear-gradient(135deg, rgba(255, 217, 61, 0.3), rgba(255, 107, 157, 0.3));
-    border: 2px solid rgba(255, 107, 157, 0.5);
+    border: 1px solid rgba(255, 107, 157, 0.5);
     color: #ec4899;
     font-weight: 600;
 }
@@ -5770,7 +5771,7 @@ video::-webkit-media-controls-panel {
         rgba(255, 240, 245, 0.5),
         rgba(245, 255, 250, 0.5)
     ) !important;
-    border: 2px solid rgba(255, 217, 61, 0.4) !important;
+    border: 1px solid rgba(255, 217, 61, 0.4) !important;
 }
 
 #dailyThoughtsOverlay.birthday-page-theme .tab-button.active {
@@ -5780,7 +5781,6 @@ video::-webkit-media-controls-panel {
     ) !important;
     color: #ec4899 !important;
     font-weight: 600 !important;
-    border: 2px solid rgba(255, 107, 157, 0.6) !important;
 }
 
 #dailyThoughtsOverlay.birthday-page-theme .header-gradient-bar {
@@ -5794,7 +5794,7 @@ video::-webkit-media-controls-panel {
     ) !important;
     background-size: 200% 100% !important;
     animation: birthdayGradientFlow 3s linear infinite !important;
-    height: 6px !important;
+    transition: none !important;
 }
 
 /* Birthday balloons container */
