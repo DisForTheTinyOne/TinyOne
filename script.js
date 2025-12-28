@@ -645,7 +645,7 @@ const dailyThoughts = [
 
         miss you lots`,
     
-        photos: []
+        photos: ["images/Dec28.jpg"]
     },
     {
         date: "12/06",
