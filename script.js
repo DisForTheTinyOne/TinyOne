@@ -607,9 +607,43 @@ document.addEventListener("click", async (e) => {
 // Daily thoughts data - easy to add new days (ordered by descending date - newest first)
 const dailyThoughts = [
     {
-        date: "12/20",
-        title: "December 20th",
-        text: `Weekend is in progress...`,
+        date: "12/28",
+        title: "December 28th",
+        text: `happy birthday little one
+
+        i dunno if you're still checking this or not but i couldn't let today pass without saying something
+
+        but today is your day and i just wanted to say that i'm really grateful i got to know you
+
+        like genuinely, meeting you was one of the best things that happened to me even if things didnt work out the way we hoped
+
+        but that doesn't change the fact that today is special and you deserve to have the best day
+
+        i hope youre doing good and that today is filled with good vibes and good people who make you smile
+
+        i hope someone got you flowers cause you should always have flowers
+
+        i hope youre smiling and laughing and just having the best day surrounded by people who care about you
+
+        i know we're not where we used to be, but that doesn't change the fact that you made me really happy for a long time
+
+        all those little moments we had, i'll always appreciate that
+
+        whatever youre up to today i hope its exactly what you want it to be
+
+        whether its a chill day with henny or going out with friends or whatever makes you happy
+
+        i hope henny is doing great and getting spoiled as usual
+
+        i hope work has been good and that things are going the way you want them to
+
+        and i genuinely hope this next year brings you everything you want and more
+
+        you deserve all the good things, all the success, all the happiness
+
+        so yaaa happy birthday
+
+        miss you lots`,
     
         photos: []
     },
@@ -2437,6 +2471,9 @@ function showDailyThoughtsPage() {
         // Check if this is the August 25th entry specifically
         const isAugust25Entry = day.date === '8/25';
         
+        // Check if this is the birthday entry (December 28th)
+        const isBirthdayEntry = day.date === '12/28';
+        
         // Add "Spend Day Together" button for August 25th entry only
         const spendDayButton = isAugust25Entry ? `
             <div class="spend-day-section">
@@ -2446,7 +2483,7 @@ function showDailyThoughtsPage() {
             </div>
         ` : '';
         
-        return `<div class="daily-entry">
+        return `<div class="daily-entry${isBirthdayEntry ? ' birthday-theme' : ''}">
             <h3>${day.title}</h3>
             <div class="word-count-info">
                 <span class="word-count">📝 ${wordCount} words</span>
@@ -2525,6 +2562,14 @@ function showDailyThoughtsPage() {
     
     document.body.appendChild(dailyThoughtsOverlay);
     
+    // 🎂 Check if initial tab is birthday (December 28th) and trigger celebration
+    if (isBirthdayTab(dailyThoughts[0])) {
+        // Small delay to let the page render first
+        setTimeout(() => {
+            createBirthdayBalloons();
+        }, 500);
+    }
+    
     // Add event listeners for tabs with dynamic content generation
     const tabButtons = dailyThoughtsOverlay.querySelectorAll('.tab-button');
     const activeTabContainer = dailyThoughtsOverlay.querySelector('#activeTabContent');
@@ -2566,8 +2611,14 @@ function showDailyThoughtsPage() {
             
             // Generate and replace content for the selected day
             if (dailyThoughts[dayIndex]) {
-                const newContent = generateTabContent(dailyThoughts[dayIndex], dayIndex);
+                const selectedDay = dailyThoughts[dayIndex];
+                const newContent = generateTabContent(selectedDay, dayIndex);
                 activeTabContainer.innerHTML = newContent;
+                
+                // 🎂 Birthday celebration for December 28th!
+                if (isBirthdayTab(selectedDay)) {
+                    createBirthdayBalloons();
+                }
                 
                 // Immediate scroll to top with offset for daily-entry gradient bar
                 const activeTabContent = document.querySelector('.tab-content.active');
@@ -3455,4 +3506,136 @@ function createStars() {
         
         night.appendChild(star);
     }
+}
+
+// Birthday balloon celebration animation for December 28th
+function createBirthdayBalloons() {
+    // Remove any existing balloon container
+    const existingContainer = document.querySelector('.birthday-balloons-container');
+    if (existingContainer) {
+        existingContainer.remove();
+    }
+    
+    const container = document.createElement('div');
+    container.className = 'birthday-balloons-container';
+    
+    // Birthday color palette - festive and cute
+    const balloonColors = [
+        { main: '#FF6B9D', shine: '#FFB3D1' }, // Hot pink
+        { main: '#FFD93D', shine: '#FFF176' }, // Golden yellow
+        { main: '#6BCB77', shine: '#A8E6CF' }, // Mint green
+        { main: '#4D96FF', shine: '#8CB4FF' }, // Sky blue
+        { main: '#FF8E53', shine: '#FFB88C' }, // Orange coral
+        { main: '#C490E4', shine: '#E4C1F9' }, // Lavender purple
+        { main: '#FF5757', shine: '#FF9B9B' }, // Cherry red
+        { main: '#00D9FF', shine: '#7EEEFF' }, // Cyan
+    ];
+    
+    // Balloon emojis for variety
+    const balloonTypes = ['🎈', '🎁', '✨', '🎉'];
+    
+    // Mobile-optimized balloon count
+    const isMobile = window.innerWidth <= 768;
+    const balloonCount = isMobile ? 17 : 30;
+    
+    for (let i = 0; i < balloonCount; i++) {
+        const balloon = document.createElement('div');
+        balloon.className = 'birthday-balloon';
+        
+        // Random properties
+        const colorScheme = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+        const x = Math.random() * 100; // Random horizontal position
+        const size = isMobile ? (35 + Math.random() * 25) : (45 + Math.random() * 35); // Balloon size
+        
+        // EXACT SAME TIMING AS HEARTS: 3-7 seconds
+        const randomDuration = 3 + Math.random() * 4; // 3-7 seconds
+        const randomDelay = i * 0.15; // Launch earlier - balloons appear quickly in sequence
+        
+        // Add horizontal drift like hearts
+        const driftDirection = Math.random() > 0.5 ? 1 : -1;
+        const driftAmount = (30 + Math.random() * 70) * driftDirection;
+        
+        // Use emoji or SVG balloon
+        const useEmoji = Math.random() > 0.5;
+        
+        if (useEmoji) {
+            const emoji = balloonTypes[Math.floor(Math.random() * balloonTypes.length)];
+            balloon.innerHTML = emoji;
+            balloon.style.fontSize = `${size}px`;
+        } else {
+            // SVG balloon with shine effect and varying string lengths
+            const stringLength = 15 + Math.random() * 25; // Random string length between 15-40
+            const stringEndY = 55 + stringLength;
+            balloon.innerHTML = `
+                <svg viewBox="0 0 50 ${stringEndY + 5}" width="${size}" height="${size * (stringEndY / 50)}">
+                    <ellipse cx="25" cy="25" rx="22" ry="25" fill="${colorScheme.main}"/>
+                    <ellipse cx="18" cy="18" rx="6" ry="8" fill="${colorScheme.shine}" opacity="0.6"/>
+                    <polygon points="25,50 22,55 28,55" fill="${colorScheme.main}"/>
+                    <path d="M25 55 Q 23 ${55 + stringLength/2} 25 ${stringEndY} Q 27 ${55 + stringLength/2} 25 55" stroke="${colorScheme.main}" stroke-width="2" fill="none"/>
+                </svg>
+            `;
+        }
+        
+        // Position at bottom, matching heart behavior
+        balloon.style.left = `${x}%`;
+        balloon.style.top = '100vh'; // Start from bottom like hearts
+        
+        // Set animation properties exactly like hearts
+        balloon.style.setProperty('animation-delay', randomDelay + 's', 'important');
+        balloon.style.setProperty('animation-duration', randomDuration + 's', 'important');
+        balloon.style.setProperty('animation-name', 'balloonFloatUp', 'important');
+        balloon.style.setProperty('animation-timing-function', 'ease-in-out', 'important');
+        balloon.style.setProperty('animation-fill-mode', 'forwards', 'important');
+        balloon.style.setProperty('--drift-x', driftAmount + 'px');
+        
+        container.appendChild(balloon);
+    }
+    
+    // Add confetti with same timing as hearts
+    const confettiCount = isMobile ? 30 : 50;
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'birthday-confetti';
+        
+        const colors = ['#FF6B9D', '#FFD93D', '#6BCB77', '#4D96FF', '#FF8E53', '#C490E4'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const x = Math.random() * 100;
+        const size = 6 + Math.random() * 8;
+        
+        // Same timing as hearts
+        const randomDuration = 3 + Math.random() * 4; // 3-7 seconds
+        const randomDelay = i * 0.08; // Launch earlier with balloons
+        const driftAmount = (30 + Math.random() * 70) * (Math.random() > 0.5 ? 1 : -1);
+        
+        confetti.style.left = `${x}%`;
+        confetti.style.top = '100vh';
+        confetti.style.backgroundColor = color;
+        confetti.style.width = `${size}px`;
+        confetti.style.height = `${size * (0.5 + Math.random() * 0.5)}px`;
+        
+        // Set animation properties like hearts
+        confetti.style.setProperty('animation-delay', randomDelay + 's', 'important');
+        confetti.style.setProperty('animation-duration', randomDuration + 's', 'important');
+        confetti.style.setProperty('animation-name', 'confettiFloatUp', 'important');
+        confetti.style.setProperty('animation-timing-function', 'ease-in-out', 'important');
+        confetti.style.setProperty('animation-fill-mode', 'forwards', 'important');
+        confetti.style.setProperty('--drift-x', driftAmount + 'px');
+        
+        container.appendChild(confetti);
+    }
+    
+    document.body.appendChild(container);
+    
+    // Remove container after animation completes (matching heart timing)
+    setTimeout(() => {
+        container.classList.add('fade-out');
+        setTimeout(() => {
+            container.remove();
+        }, 500);
+    }, 10000); // 10 seconds - enough for 3-7s animations + 3s delay
+}
+
+// Check if day is birthday (December 28th)
+function isBirthdayTab(day) {
+    return day && day.date === '12/28';
 }

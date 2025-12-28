@@ -4814,6 +4814,7 @@ video::-webkit-media-controls-panel {
         min-height: 0;
         width: 100%;
         overflow-x: hidden;
+        overflow-y: visible;
         max-width: 100%;
     }
     
@@ -4821,6 +4822,7 @@ video::-webkit-media-controls-panel {
         width: 100%;
         box-sizing: border-box;
         overflow-x: hidden;
+        overflow-y: visible;
         max-width: 100%;
     }
     
@@ -4832,6 +4834,7 @@ video::-webkit-media-controls-panel {
         box-sizing: border-box;
         margin: 0;
         overflow-x: hidden;
+        overflow-y: visible;
         max-width: 100%;
         border-radius: 20px;
     }
@@ -5532,6 +5535,208 @@ video::-webkit-media-controls-panel {
     }
 }
 
+/* ===== BIRTHDAY CELEBRATION STYLES (December 28th) ===== */
+
+/* Birthday balloons container */
+.birthday-balloons-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+    transition: opacity 0.5s ease-out;
+}
+
+.birthday-balloons-container.fade-out {
+    opacity: 0;
+}
+
+/* Individual balloon - matching heart animation exactly */
+.birthday-balloon {
+    position: absolute;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    will-change: transform;
+}
+
+@keyframes balloonFloatUp {
+    0% {
+        transform: translate(-50%, 10vh) scale(0.8);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    90% {
+        transform: translate(calc(-50% + var(--drift-x, 0px)), -80vh) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(-50% + var(--drift-x, 0px)), -100vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Birthday confetti - matching heart animation exactly */
+.birthday-confetti {
+    position: absolute;
+    border-radius: 2px;
+    will-change: transform;
+}
+
+@keyframes confettiFloatUp {
+    0% {
+        transform: translate(-50%, 10vh) scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    90% {
+        transform: translate(calc(-50% + var(--drift-x, 0px)), -80vh) scale(1) rotate(720deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(-50% + var(--drift-x, 0px)), -100vh) scale(0.8) rotate(1080deg);
+        opacity: 0;
+    }
+}
+
+/* Birthday theme for the daily entry card */
+.daily-entry.birthday-theme {
+    background: linear-gradient(135deg, 
+        rgba(255, 250, 253, 0.98) 0%, 
+        rgba(255, 240, 245, 0.98) 25%,
+        rgba(255, 248, 220, 0.95) 50%,
+        rgba(255, 240, 245, 0.98) 75%,
+        rgba(255, 250, 253, 0.98) 100%
+    ) !important;
+    border: 2px solid rgba(255, 107, 157, 0.5) !important;
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+        0 10px 10px -5px rgba(0, 0, 0, 0.04), 
+        0 0 60px rgba(255, 107, 157, 0.2),
+        0 0 100px rgba(255, 217, 61, 0.15),
+        inset 0 0 80px rgba(255, 255, 255, 0.6) !important;
+    position: relative;
+    overflow: visible;
+}
+
+/* Birthday gradient bar at top */
+.daily-entry.birthday-theme::before {
+    background: linear-gradient(90deg, 
+        #FF6B9D 0%, 
+        #FFD93D 20%, 
+        #6BCB77 40%, 
+        #4D96FF 60%, 
+        #C490E4 80%, 
+        #FF6B9D 100%
+    ) !important;
+    background-size: 200% 100% !important;
+    animation: birthdayGradientFlow 3s linear infinite !important;
+    height: 6px !important;
+}
+
+@keyframes birthdayGradientFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Birthday title styling */
+.daily-entry.birthday-theme h3 {
+    background: linear-gradient(135deg, #FF6B9D 0%, #FFD93D 50%, #FF6B9D 100%) !important;
+    background-size: 200% auto !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: birthdayTitleShimmer 2s ease-in-out infinite !important;
+    position: relative;
+}
+
+/* Add birthday emoji before title */
+.daily-entry.birthday-theme h3::before {
+    content: '🎂 ';
+    -webkit-text-fill-color: initial;
+}
+
+.daily-entry.birthday-theme h3::after {
+    content: ' 🎉';
+    -webkit-text-fill-color: initial;
+}
+
+@keyframes birthdayTitleShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Sparkle effect around the card on birthday */
+.daily-entry.birthday-theme::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(255, 217, 61, 0.3) 25%,
+        rgba(255, 107, 157, 0.3) 50%,
+        rgba(107, 203, 119, 0.3) 75%,
+        transparent 100%
+    );
+    background-size: 400% 100%;
+    border-radius: 26px;
+    z-index: -1;
+    animation: birthdaySparkle 4s linear infinite;
+    filter: blur(8px);
+}
+
+@keyframes birthdaySparkle {
+    0% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Mobile optimizations for birthday */
+@media (max-width: 768px) {
+    .birthday-balloon {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+    
+    /* Full sparkle effect on mobile - same as desktop */
+    .daily-entry.birthday-theme::after {
+        content: '' !important;
+        position: absolute !important;
+        top: -3px !important;
+        left: -3px !important;
+        right: -3px !important;
+        bottom: -3px !important;
+        background: linear-gradient(90deg, 
+            transparent 0%,
+            rgba(255, 217, 61, 0.3) 25%,
+            rgba(255, 107, 157, 0.3) 50%,
+            rgba(107, 203, 119, 0.3) 75%,
+            transparent 100%
+        ) !important;
+        background-size: 400% 100% !important;
+        border-radius: 26px !important;
+        z-index: -1 !important;
+        animation: birthdaySparkle 4s linear infinite !important;
+        -webkit-animation: birthdaySparkle 4s linear infinite !important;
+        filter: blur(8px) !important;
+    }
+    
+    .daily-entry.birthday-theme {
+        position: relative;
+        overflow: visible !important;
+        box-shadow: 
+            0 10px 15px -5px rgba(0, 0, 0, 0.1), 
+            0 0 40px rgba(255, 107, 157, 0.15),
+            inset 0 0 40px rgba(255, 255, 255, 0.5) !important;
+    }
+}
+
 /* Performance optimization for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
     /* Disable all animations for accessibility and performance except letter opening */
@@ -5551,6 +5756,18 @@ video::-webkit-media-controls-panel {
     .background-words,
     .background-hearts {
         display: none !important;
+    }
+    
+    /* Disable birthday animations for reduced motion preference */
+    .birthday-balloon,
+    .birthday-confetti {
+        display: none !important;
+    }
+    
+    .daily-entry.birthday-theme::before,
+    .daily-entry.birthday-theme::after,
+    .daily-entry.birthday-theme h3 {
+        animation: none !important;
     }
 }
 
