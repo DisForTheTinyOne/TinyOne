@@ -648,6 +648,27 @@ const dailyThoughts = [
         photos: ["images/Dec28.jpg"]
     },
     {
+        date: "12/20",
+        title: "December 20th",
+        text: `happy holidays tiny one!
+
+        edit: oops this page failed to publish before i left
+
+its been a while since my last update but wanted to pop in before i peace out to montreal
+
+flying back home tomorrow morning to see my fam for the holidays and hang with some friends i havent seen in a while
+
+honestly pretty excited to get out of sf for a bit and just relax
+
+hope youre having a great time with your friends and fam
+
+hope the holidays are treating you well and that youre getting all the rest you deserve
+
+happy holidays!`,
+    
+        photos: ["images/Dec20.jpg"]
+    },
+    {
         date: "12/06",
         title: "December 6th",
         text: `day 50!
@@ -2474,6 +2495,9 @@ function showDailyThoughtsPage() {
         // Check if this is the birthday entry (December 28th)
         const isBirthdayEntry = day.date === '12/28';
         
+        // Check if this is the holiday entry (December 20th)
+        const isHolidayEntry = day.date === '12/20';
+        
         // Add "Spend Day Together" button for August 25th entry only
         const spendDayButton = isAugust25Entry ? `
             <div class="spend-day-section">
@@ -2483,7 +2507,7 @@ function showDailyThoughtsPage() {
             </div>
         ` : '';
         
-        return `<div class="daily-entry${isBirthdayEntry ? ' birthday-theme' : ''}">
+        return `<div class="daily-entry${isBirthdayEntry ? ' birthday-theme' : ''}${isHolidayEntry ? ' holiday-theme' : ''}">
             <h3>${day.title}</h3>
             <div class="word-count-info">
                 <span class="word-count">📝 ${wordCount} words</span>
@@ -2562,12 +2586,25 @@ function showDailyThoughtsPage() {
     
     document.body.appendChild(dailyThoughtsOverlay);
     
-    // 🎂 Check if initial tab is birthday (December 28th) and trigger celebration
-    if (isBirthdayTab(dailyThoughts[0])) {
-        // Small delay to let the page render first
-        setTimeout(() => {
-            createBirthdayBalloons();
-        }, 500);
+    // Check which day is displayed initially and trigger appropriate animations
+    // Apply theme instantly, then trigger animations after a small delay
+    const initialDay = dailyThoughts[0];
+    let overlay = document.getElementById('dailyThoughtsOverlay');
+    
+    // ❄️ Snowflakes for December 20th (check by date value)
+    if (initialDay.date === '12/20') {
+        if (overlay) {
+            overlay.classList.add('holiday-page-theme');
+        }
+        setTimeout(() => createSnowflakes(), 300);
+    }
+    
+    // 🎂 Birthday celebration for December 28th (check by date value)
+    if (initialDay.date === '12/28') {
+        if (overlay) {
+            overlay.classList.add('birthday-page-theme');
+        }
+        setTimeout(() => createBirthdayBalloons(), 300);
     }
     
     // Add event listeners for tabs with dynamic content generation
@@ -2615,9 +2652,37 @@ function showDailyThoughtsPage() {
                 const newContent = generateTabContent(selectedDay, dayIndex);
                 activeTabContainer.innerHTML = newContent;
                 
-                // 🎂 Birthday celebration for December 28th!
-                if (isBirthdayTab(selectedDay)) {
+                // ❄️ Snowflakes for December 20th! (check by date value)
+                console.log('Selected day date:', selectedDay.date);
+                let overlay = document.getElementById('dailyThoughtsOverlay');
+                
+                // Remove previous animations
+                const existingBalloons = document.querySelector('.birthday-balloons-container');
+                const existingSnowflakes = document.querySelector('.snowflakes-container');
+                if (existingBalloons) existingBalloons.remove();
+                if (existingSnowflakes) existingSnowflakes.remove();
+                
+                if (selectedDay.date === '12/20') {
+                    console.log('Creating snowflakes!');
+                    createSnowflakes();
+                    // Add holiday theme to entire page
+                    if (overlay) {
+                        overlay.classList.add('holiday-page-theme');
+                        overlay.classList.remove('birthday-page-theme');
+                    }
+                } else if (selectedDay.date === '12/28') {
+                    console.log('Creating birthday balloons!');
                     createBirthdayBalloons();
+                    // Add birthday theme to entire page
+                    if (overlay) {
+                        overlay.classList.add('birthday-page-theme');
+                        overlay.classList.remove('holiday-page-theme');
+                    }
+                } else {
+                    // Remove all page themes for other days
+                    if (overlay) {
+                        overlay.classList.remove('holiday-page-theme', 'birthday-page-theme');
+                    }
                 }
                 
                 // Immediate scroll to top with offset for daily-entry gradient bar
@@ -3633,6 +3698,69 @@ function createBirthdayBalloons() {
             container.remove();
         }, 500);
     }, 10000); // 10 seconds - enough for 3-7s animations + 3s delay
+}
+
+// Create snowflakes for December 20th
+function createSnowflakes() {
+    // Remove any existing snowflake container
+    const existingContainer = document.querySelector('.snowflakes-container');
+    if (existingContainer) {
+        existingContainer.remove();
+    }
+    
+    const container = document.createElement('div');
+    container.className = 'snowflakes-container';
+    
+    const isMobile = window.innerWidth <= 768;
+    const snowflakeCount = isMobile ? 25 : 40;
+    const snowflakeSymbols = ['❄', '❅', '❆'];
+    
+    for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+        
+        const x = Math.random() * 100;
+        const size = isMobile ? (20 + Math.random() * 15) : (25 + Math.random() * 20); // Snowflake size
+        
+        // Same timing as hearts/balloons: 3-7 seconds
+        const randomDuration = 3 + Math.random() * 4; // 3-7 seconds
+        const randomDelay = i * 0.1; // Launch quickly in sequence
+        
+        // Add horizontal drift
+        const driftDirection = Math.random() > 0.5 ? 1 : -1;
+        const driftAmount = (20 + Math.random() * 40) * driftDirection;
+        
+        // Position at top
+        snowflake.style.left = `${x}%`;
+        snowflake.style.top = '-50px'; // Start from top
+        snowflake.style.fontSize = `${size}px`;
+        
+        // Set animation properties like hearts/balloons
+        snowflake.style.setProperty('animation-delay', randomDelay + 's', 'important');
+        snowflake.style.setProperty('animation-duration', randomDuration + 's', 'important');
+        snowflake.style.setProperty('animation-name', 'snowflakeFallDown', 'important');
+        snowflake.style.setProperty('animation-timing-function', 'ease-in-out', 'important');
+        snowflake.style.setProperty('animation-fill-mode', 'forwards', 'important');
+        snowflake.style.setProperty('--drift-x', driftAmount + 'px');
+        
+        container.appendChild(snowflake);
+    }
+    
+    document.body.appendChild(container);
+    
+    // Remove container after animation completes (matching balloon timing)
+    setTimeout(() => {
+        container.classList.add('fade-out');
+        setTimeout(() => {
+            container.remove();
+        }, 500);
+    }, 10000); // 10 seconds - enough for 3-7s animations
+}
+
+// Check if day is December 20th (holidays)
+function isHolidayTab(day) {
+    return day && day.date === '12/20';
 }
 
 // Check if day is birthday (December 28th)
